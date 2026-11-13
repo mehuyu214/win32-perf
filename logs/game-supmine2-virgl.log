@@ -1,0 +1,2 @@
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/win32-perf/wrap-fresh/w3251695097899501468.sh
+/home/hatch/workspace/win32-perf/wrap-fresh/w3251695097899501468.sh: 2: exec: /home/hatch/workspace/win32-perf/qemu10/usr/bin/qemu-i386: not found

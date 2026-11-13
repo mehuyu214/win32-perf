@@ -972,3 +972,262 @@ does NOT flow smoothly — it advances in long static steps (black ~75 s,
 white window ~20 s, warning ~6 s, black ~12 s); genuine frame-by-frame
 motion occurs only in the ~100-140 s transition band and in the
 title's ambient loop after settling.
+
+## COMMON-LAYER HUNT (2026-11-13 ~19:48- JST) — OP instance input test + :113 diff
+
+Continued by successor agent. All readings on :113 are read-only; the
+recording line was not disturbed.
+
+### Step 1 — input battery on the still-running OP instance (sup-pid 26422)
+The OP-capture instance (virgl, csmt=1, title settled, ambient ~15-frame
+animation RUNNING) had never had input tested. Battery, same as before
+(window 0xa00005, START at 85,475):
+- baseline screenshot logs/shot-op-before.png (full title, menu present).
+- XTEST click on START after windowfocus, +30 s: screenshot BYTE-IDENTICAL
+  (logs/shot-op-after-xtest.png, md5 b1cf5272... == before).
+- XSendEvent via scripts/click.py 85 475: no change (after-shot identical).
+  NOTE: click.py itself died with SIGSEGV this time (it did not in the
+  control run) — the tool's own crash, not a game event; the XTEST and
+  keyboard paths are independent of it.
+- Keyboard Down/Return/Space after windowfocus, +30 s: BYTE-IDENTICAL
+  (logs/shot-op-after-keys.png).
+VERDICT: input is dead on the OP instance too. The stall is NOT
+intermittent per-instance: every title instance this evening (virgl3-7,
+llvmpipe control, OP instance) is input-dead, including one whose title
+keeps animating. Ambient presentation continuing while input is ignored
+matches the earlier thread picture (title loop cycles, message/input
+handling never advances the game state).
+
+### Step 2 — stack diff vs the known-good recording line (:113)
+ESTABLISHED (all read-only):
+- Process envs: LANG/LC_ALL, LP_NUM_THREADS=1, PULSE_LATENCY_MSEC=750
+  identical; only DISPLAY, PA port (47135 vs 47130), WINEPREFIX and the
+  virgl vars differ — as designed.
+- Xvfb: :115 "-screen 0 1280x720x24 -nolisten tcp"; :113 same minus
+  -nolisten tcp. PA: same recipe (line-local pa-bin tree, own default.pa).
+- Launch env files (scripts/my.env vs sanoba-audio/scripts/common.env):
+  same LOCPATH, __EGL_VENDOR_LIBRARY_DIRS, LIBGL_DRIVERS_PATH, same
+  qemu10 tree, same q32sup82 supervisor path, same wine tree. Only
+  line-local paths differ (libs32, prefix, PA port, display).
+- RUNNING supervisor binaries differ: :113's live game runs under
+  sanoba-audio/q32sup-mine (their own build); :115's runs under
+  qemu10/q32sup82. (common.env names q32sup82 too, so the live :113
+  instance was started by a different script.) q32sup steady-state
+  overhead was measured ~0 in the audio campaign; whether a supervisor
+  variant can affect guest pipe/input behaviour is UNVERIFIED.
+- Prefix registry: structure identical. win32-perf prefix adds only
+  [Software\Wine\Direct3D] "csmt"=dword:1 (CSMT on = Wine 11 default)
+  and a WineDbg section. Nothing input-related on either side.
+- Game dirs: identical file sets; perf savedata additionally holds
+  Kirikiri crash dumps from the softpipe/patch era (07:36-09:44) and
+  more quick-save thumbnails. sanoba_trial.cfu identical (778 B,
+  2026-11-12) on both lines.
+CONCLUSION: no configuration smoking gun. Remaining untested state
+variables: (a) prefix-internal state beyond user.reg sections
+(system.reg / prefix files accumulated over the day's patched and
+self-built Wine runs against THIS prefix), (b) the :115 display/PA
+daemon instances themselves (restarted mid-evening after a silent
+VM-restart death), (c) supervisor binary variant.
+
+### Step 3 — fresh-state discriminator (RUNNING)
+Fresh Xvfb on :116 (my line only) + FRESH prefix (prefix-fresh) +
+virgl, everything else shared (sysroot, wine tree, q32sup82, PA 47135,
+virgl server). scripts/fresh.env; log logs/game-fresh-virgl.log,
+sup-pid 30143, launched 19:54 JST. If input works here, bisect
+(prefix vs display); if it is still dead with all state fresh, the
+cause sits in the shared binaries/VM layer, not in accumulated state.
+
+### Step 3 — fresh-state discriminator: VERDICT (fresh display :116 + fresh prefix)
+Fresh Xvfb on :116 + FRESH prefix (prefix-fresh) + virgl, everything else
+shared. Boot (log logs/game-fresh-virgl.log, sup-pid 30143, 19:54 JST):
+prefix init showed the wine-mono install prompt (fresh prefixes ask);
+XTEST click on the dialog's Cancel at (707,440) dismissed it (a click at
+(708,455) missed the button — coordinates, not input). The game then
+booted to the title (logs/shot-fresh-t7.png: window 0xa00005, 1280x720,
+title md5 b1cf5272... — BYTE-IDENTICAL to the OP instance's title).
+Input battery on the fresh instance (all with 25-30 s observation):
+- XTEST click on START (85,475): byte-identical (shot-fresh-after-xtest.png).
+- XSendEvent via a repaired sender (scripts/click2.py, explicit window id;
+  see tooling note below): press+release both ret=1, flushed — still
+  byte-identical (shot-fresh-after-sendevent2.png).
+- Keyboard Down/Return/Space: byte-identical (shot-fresh-after-keys.png).
+VERDICT: with fresh display AND fresh prefix the title is STILL
+input-dead (full battery, files prove it: every post-input shot md5
+b1cf5272...). Accumulated prefix state and display/daemon state are
+EXONERATED. The cause sits in the shared components or in how this line
+launches (qemu tree, supervisor binary, wine tree, sysroot, line PA,
+libs32) — or in the host/VM layer. Remaining untested state variables
+after step 3: (a) supervisor binary variant (q32sup82 vs the recording
+line's q32sup-mine), (b) line-local libs32 tree, (c) line PA daemon
+(47135) vs theirs (47130) — the game itself does not need PA to accept
+input, so (c) is a weak candidate.
+
+TOOLING CORRECTION (affects earlier records): scripts/click.py
+segfaults (SIGSEGV, exit 139) before sending, twice in a row on the
+fresh runs — its XQueryTree children walk crashes; it prints nothing,
+so XSendEvent was NEVER SENT in those two runs. Whether click.py
+crashed or sent in the earlier virgl/control batteries was not recorded
+at the time, so the "XSendEvent also dead" legs of the virgl3-7 and
+control batteries are NOT reliably established (XTEST and keyboard legs
+are — xdotool exits cleanly and the shots are byte-identical).
+scripts/click2.py (explicit window id, step prints) is the replacement;
+it verified press+release ret=1 on the fresh instance and still no game
+reaction. The XSendEvent leg is therefore now established as dead on
+the fresh stack.
+
+### Step 4 — supervisor-variant test (q32sup-mine-copy), attempt log
+The recording line's live game runs under sanoba-audio/q32sup-mine;
+this line's runs use qemu10/q32sup82. The binary was copied (md5
+8ce92e3e... identical) to sup-test/q32sup-mine-copy so its location-
+derived paths stay inside this line's tree.
+HARNESS BUGS, fixed in sequence (do not re-tread):
+- Attempt 1 (20:04, log game-supmine-virgl.log): q32sup-mine derives
+  the wrapper's qemu path as <base>/qemu10/usr/bin/qemu-i386 where
+  base = dirname(dirname(/proc/self/exe)); the copy sat in
+  win32-perf/sup-test, so the wrapper exec'd
+  win32-perf/qemu10/usr/bin/qemu-i386 (does not exist). ALSO the
+  wrapper file is generated once and REUSED — stale wrappers survive
+  env changes.
+- Attempt 2 (20:07): same stale wrapper (never deleted), same failure.
+- The wrapper's qemu IS overridable: q32sup-mine reads Q32_QEMU
+  (strings-verified). The recording line's own wrappers
+  (sanoba-audio/mywrap/*.sh, read-only) exec
+  vn-trials/qemu/usr/bin/qemu-i386-static — i.e. their runtime sets
+  Q32_QEMU to the old static qemu. The fresh run's children ALSO ran
+  under qemu-i386-static (q32sup82's compiled-in default), so
+  Q32_QEMU=qemu-i386-static reproduces the fresh run's child-qemu
+  exactly; the top-level $QEMU stays qemu10/usr/bin/qemu-i386 in both.
+- Attempt 3 "supmine3" (20:08, log game-supmine3-virgl.log, sup-pid
+  3431/3432): wrappers deleted and regenerated with Q32_QEMU set —
+  verified on disk: preloader and wineserver wrappers both exec
+  vn-trials/qemu/usr/bin/qemu-i386-static, byte-matching the recording
+  line's wrappers. The ONLY remaining difference vs the fresh run is
+  the supervisor binary itself. RESULT: NEW failure instead of the
+  title stall — at ~20:08:46 the game log shows "lost connection to
+  rendering server on 8 read -1 22" + "wine: Assertion failed at
+  address 7DC06556 (thread 00f8), starting debugger..."; the :116
+  screen stays BLACK with a cursor (shot-supmine3-now.png); the game
+  window never appears. The supervisor process (3432) and a qemu child
+  (3434) remain alive afterwards. Attribution is OPEN: supervisor
+  variant vs post-VM-restart environment noise (the VM restarted at
+  ~20:06, two minutes before this launch; the recording line's own
+  q32sup-mine instance was still re-booting at the time). One clean
+  re-run is planned to separate them.
+
+ENVIRONMENT NOTE (VM restart ~20:06 JST): the restart wiped more than
+processes this time — /usr/bin lost xdotool, scrot, xwininfo, xwd and
+libXtst.so.6 (they were present before the restart). Tooling restored
+from line-local copies: xdotool lives in win32-perf/pa-bin/usr/bin/
+(and libXtst.so.6 in pa-bin/usr/lib/x86_64-linux-gnu/); screenshots
+now via ffmpeg x11grab. scripts/xtest.py (libXtst via pa-bin) and
+scripts/wininfo.py (ctypes XQueryTree) were added as replacements.
+
+### Step 4 (concluded) — supervisor variant: q32sup-mine-copy LAUNCH-FAILS, twice
+Re-run "supmine4" (20:13 JST, log game-supmine4-virgl.log, sup-pid 4452):
+identical configuration to supmine3 (Q32_QEMU=static, :116,
+prefix-fresh, virgl, PA 47135). REPRODUCED the same launch failure:
+grep counts 2 matches for Assertion|lost connection|signal 11 within
+75 s; child list shows 'winedbg --auto 240 96' spawned. So under
+q32sup-mine-copy the game fails at launch 2/2 times (supmine3, supmine4)
+with "lost connection to rendering server on 8 read -1 22" + wine
+Assertion at 7DC06556 (thread 00f8); under q32sup82 with the same
+everything-else (fresh run) it boots to the title 1/1.
+CAREFUL about attribution: the ONLY difference between the fresh run
+and supmine3/4 is the supervisor binary — top-level $QEMU (qemu10
+dynamic), guest-child qemu (static, via Q32_QEMU=static in supmine
+runs / q32sup82's compiled-in default in the fresh run), wrapdir
+(wrap-fresh in both), display, prefix, PA, virgl are all identical.
+So the supervisor variant DOES change the outcome at launch on this
+line. BUT the recording line runs the same q32sup-mine binary (the
+original, md5-identical) successfully — its stack differs in
+DISPLAY :113, prefix, PA 47130, libs32, game dir, and llvmpipe (no
+virgl). Which of those interacts with the supervisor is UNSEPARATED.
+The supervisor finding does NOT by itself explain the title stall:
+under q32sup82 (the normal supervisor) the game boots and stalls at
+the title with dead input; under q32sup-mine it does not boot at all
+here. Both block the goal. The stall under q32sup82 remains the main
+roadblock; the supervisor launch failure is a second, separate defect
+signature worth one more discriminator (q32sup-mine + llvmpipe on this
+line) if time allows.
+
+### Step 5 — game-dir savedata removed (RUNNING)
+New discriminator launched 20:15 JST (log game-nosave-virgl.log,
+sup-pid 4950): the perf game dir's savedata/ was moved aside to
+savedata-bak/ (reversible; the game's own runtime state, not game
+code/data — the recording line's savedata is untouched in its own
+dir), then the EXACT fresh-run configuration (q32sup82, virgl,
+:116, prefix-fresh) was relaunched. If input works with no savedata,
+the perf savedata (datasc.ksd/datasu.ksd/data_anchor.ksd, accumulated
+across the day's runs incl. crash dumps) is implicated. If it still
+stalls, game-dir state is exonerated too, leaving: line libs32,
+line PA, the qemu/wine/sysroot binaries, and the host/VM layer.
+
+## SCORING METHOD (KK standard, 2026-11-13 19:55) — adopted for all footage
+KK's definition: split a recording at 20 fps, award 1 point per frame
+whose PICTURE changed vs the previous frame, graph points per second;
+ideal = 10 pts/s. Calibration (parent, on logs/cap-op-virgl.mkv):
+literal frame-hash (framemd5) scoring INFLATES — settled title 19.92
+pts/s from sparkle noise, contradicting KK's own eye verdict (カクカク).
+Picture-level scoring (each frame downscaled to 160x90 grayscale, then
+hash-distinct) gives OP total 0.81 pts/s, boot 1.28/s, settled title
+0.56/s, only 5 of 380 s reach >=10 pts — matching KK's judgement.
+WORKING DEFINITION: "絵が変わっている" = the 160x90-grayscale-hash
+series. All future footage scores (in-game captures, llvmpipe-魔改造
+before/after on the same scene, story footage) use this method, with
+the per-second graph and the 10 pts/s ideal as the judge. (A scorer
+script implementing it is being added under tools/.)
+
+### Boot-failure cluster post-restart — ROOT CAUSE FOUND (virgl server socket)
+All three virgl runs after the ~20:06 VM restart (supmine3 20:08,
+supmine4 20:13, nosave 20:15) failed identically at launch with
+"lost connection to rendering server on 8 read -1 22" + wine Assertion
+7DC06556. Root cause, measured:
+- The virgl_test_server restarted after the restart (pid 3183) was
+  ALIVE but NOT listening on ~/workspace/win32-perf/virgl.sock:
+  the socket file was stale (mtime 09:41 UTC = pre-restart server),
+  `ss -x` showed no listener at that path, and a python connect to
+  the path got ECONNREFUSED. The guest's virpipe driver therefore
+  could not reach the rendering server at first EGL init -> the
+  assertion. My "server is up" check (pgrep only) was insufficient.
+- Why: virgl_test_server does NOT read VTEST_SOCKET_NAME (that var is
+  the CLIENT's). It binds the default /tmp/.virgl_test unless given
+  `--socket-path <path>` (usage string verified). The 18:41 server
+  must have been launched with --socket-path $WP/virgl.sock; my
+  restart omitted it, so it bound /tmp/.virgl_test while every game
+  pointed at the dead $WP/virgl.sock file.
+- Fix verified: killed 3183, removed the stale socket file, restarted
+  with --socket-path $WP/virgl.sock — fresh socket file, python
+  CONNECT OK (server pid 5783). The re-run (nosave2, q32sup82) shows
+  0 assertion matches at 60 s: the launch failure is GONE.
+CONSEQUENCE: Step 4's supervisor attribution is WEAKENED — the nosave
+run under the standard q32sup82 reproduced the identical assertion,
+so the launch failure was the server socket, NOT the supervisor
+variant. The supervisor question (q32sup82 vs q32sup-mine on this
+line) is UNDECIDED again; the 2/2 assertion reproductions under
+q32sup-mine-copy are explained by the dead socket, not by the
+supervisor. (A clean q32sup-mine + llvmpipe discriminator is still
+open if needed.)
+LESSON (process): after any VM restart, verify every daemon by its
+SERVICE (socket connect / port listen), not by process existence.
+A persistent infra-check script is warranted (TODO for the line).
+
+### nosave2 early stall — double-launch stale wineserver lock (own error)
+The nosave2 run (sup 5800, 20:19) showed 0 assertions after the
+server fix but sat BLACK with no window for ~8 min. Cause found in
+the process tree: the EARLIER nosave instance (sup 4951) was still
+alive — I had killed the launch bash (4950) instead of the setsid
+supervisor (4951), so two game instances shared :116 and
+prefix-fresh. Its wineserver socket dir /tmp/.wine-0/server-5b-660ce
+(created 11:15 UTC by the old instance) outlived it; nosave2's log
+contains ZERO wineserver execve lines and its game (3 threads,
+utime ~60 ticks in 8 min, anon_pipe_read) never spawned a
+wineserver. The double-launch stale lock is the likely cause of
+THIS early stall — it is a separate signature from the title stall
+(no window at all vs title reached, 3 threads vs 43). The stale
+server dir was removed and the run relaunched singly (nosave3,
+sup 7365, 20:27) — its child list already shows the wineserver
+execve + wineboot --init, i.e. the wineserver IS spawning this time.
+REMINDER (kill discipline): the .pid files hold the setsid wrapper's
+pid, NOT the supervisor's; always kill the supervisor found via
+pgrep on the actual supervisor binary, then verify zero game
+processes remain before relaunching.
