@@ -1539,3 +1539,138 @@ SYNC-WORTHY: this whole section (input breakthrough + revised stall
 retraction + the libEGL/virgl-server findings above. Parent: please
 re-sync win32-perf (RESULTS.md + logs incl. cap-env-story60.mkv
 scores + shot-env-*.png + game-envrecipe-llvmpipe.log).
+
+## SCORER INTEGRITY FIX — v1 hash scores RETRACTED (2026-11-13 21:21 JST)
+ESTABLISHED: tools/score_frames.py v1 (exact MD5 of 160x90 gray, no
+magnitude threshold) was noise-inflated. Verification on
+cap-base2-story60.mkv: consecutive-frame mean abs diff median 0.001
+(0-255 scale), max 0.776; frames 1 s apart byte-identical; the
+"19.3 pts/s" came from sub-perceptual dither (max +/-2 LSB over the
+whole frame) flipping the hash every frame -- the same failure as the
+literal-hash method rejected in Phase 1.1 (settled title 19.92 pts/s).
+The 4.03 pts/s (env capture) used the same scorer. **Both v1 numbers
+are RETRACTED. KK's eye verdict 「かくかくやん かわらん」 stands
+unrefuted.**
+### v2 scorer (thresholded MAD)
+tools/score_frames.py v2: a frame counts as changed only when the
+mean absolute difference of the 160x90 grayscale frames exceeds
+epsilon = 0.05. Calibration (/tmp/calib.py, per-frame MAD at 160x90):
+| segment | median | p99 | max | frac>0.05 |
+| settled title cap-op-virgl.mkv 200-260s (near-static ref) | 0.0000 | 0.0016 | 0.0037 | 0.000 |
+| cap-env-story60 (whole) | 0.0000 | 0.1371 | 0.7935 | 0.021 |
+| cap-base2-story60 (whole) | 0.0008 | 0.1256 | 0.7740 | 0.028 |
+Low dither/drift band tops out ~0.012; event band (dialogue/scene
+changes) starts ~0.13 -- the valley is wide, eps=0.05 sits in it with
+~4x margin over the static reference. Epsilon sensitivity: at 0.02 /
+0.05 / 0.10 the two captures give (0.50/0.42/0.35) and
+(0.75/0.57/0.40) pts/s -- ordering and scale stable. Spot-check: the
+largest event in env (MAD 0.794) is a real dialogue/scene change
+(full-res frame diff confirms 392k px changed between distant
+frames); one nuance: the ffmpeg fps=20 filter can shift an event by
++-1 frame when the source timestamps jitter -- per-second aggregation
+is unaffected.
+### Corrected scores (v2, eps=0.05)
+- cap-env-story60.mkv (contended, mid-hallway): **mean 0.417 pts/s,
+  median 0.0, 0/60 s >= 10, 35/60 s zero** (scores-v2.json/.csv/.png).
+- cap-base2-story60.mkv (contended, story start): **mean 0.567 pts/s,
+  median 0.0, 0/60 s >= 10, 34/60 s zero**.
+- These are the honest baselines. NOTE: in a dialogue scene the v2
+  score is dominated by the AUTO dialogue-advance rate (~1 line per
+  2-3 s), so it measures advance rate, not motion smoothness. A
+  motion-rich test scene (fades/pans) is still needed for a pure
+  smoothness read; KK's eye remains the gate.
+
+## VIRGL SERVER REVIVED — clean-env surfaceless works (2026-11-13 21:1x JST)
+ESTABLISHED: virgl_test_server --use-egl-surfaceless in a CLEAN
+environment (env -i; only PATH/HOME/LD_LIBRARY_PATH to virgl +
+virgl-libs, __EGL_VENDOR_LIBRARY_DIRS) INITIALISES its renderer and
+serves the guest: raw GLX probe (probe_glxswap.py, GALLIUM_DRIVER=
+virpipe, VTEST_SOCKET_NAME=virgl-test.sock) got legacy ctx + 5 swaps
+210.2 / 56.7 / 3.1 / 1.7 / 2.7 ms, err=0x0; server survived
+(pid 18234). Earlier "surfaceless segfault / failed to initialise
+renderer" failures are therefore NOT a Mesa/host defect: host EGL
+surfaceless alone also works (probe /tmp/egl_host_probe.py: llvmpipe
+GL 4.5 context, makeCurrent OK). HYPOTHESIS (unbisected): the
+predecessor's server inherited a polluted environment from agent
+shells that had sourced env files exporting LIBGL_DRIVERS_PATH to the
+i386 sysroot (32-bit DRI drivers into a 64-bit process). The exact
+offending variable was not bisected -- not needed for progress.
+Also ESTABLISHED: the default (no-flag) server mode fails renderer
+init (GBM platform, no /dev/dri) -- surfaceless is the required flag.
+Next: game-facing server on the standard virgl.sock, then a virgl
+story run with the same protocol as the llvmpipe baseline.
+
+## BASELINE 3 — llvmpipe, UNCONTENDED (2026-11-13 21:18-21:26 JST)
+Recording line :113 stopped 21:14-21:17, so this run is the first
+llvmpipe baseline without recording-line contention (qruppo test line
+:117 + light restored crons remain). Same env recipe (log
+game-base3-llvmpipe.log, sup 20475). Boot to title ~2.5 min.
+NAVIGATION LEARNING: with the game running faster uncontended, a
+1.0 s Down hold auto-repeats and overshoots (sequence Down+Return
+landed on SYSTEM settings, not LOAD). Shorter holds work: focus ->
+Down 1.0 (overshoot) -> Escape -> Return 0.4 s on selected START ->
+Chapter 1-1, first line fully displayed. **0.4 s holds are the new
+navigation step; verify each step by screenshot.** AUTO on (holdkey
+a 0.4 s). Capture logs/cap-base3-story60.mkv (60.0 s, 2,006,641 B).
+v2 score: **mean 0.95 pts/s, median 1.0, 0/60 s >= 10, 12/60 s zero**.
+tools/analyze_smooth.py (hash fields removed, MAD-only): meaningful
+frames 57/1200, longest gap without meaningful change 2.05 s, max
+meaningful gap 42 frames. vs contended v2 (0.42 / 0.57): ~2x mean,
+but the window differs (story start with fade-in vs mid-hallway) --
+do NOT claim contention = 2x without a same-window comparison. The
+instance ran ~12 min, 0 crashes, AUTO advancing; killed cleanly for
+the virgl run (sup 20475 + game 20480 terminated by pid, recording
+line untouched).
+Held keys reproduced on a second env-recipe run (base2: title ->
+LOAD -> Ch.1-1 -> AUTO, no crash) -- the input fix is not a one-off.
+
+### Repo sync flag (updated)
+SYNC-WORTHY: scorer v2 + calibration + corrected scores + virgl
+server revival + base3 uncontended baseline. Parent: please re-sync
+win32-perf (RESULTS.md + tools/score_frames.py + tools/analyze_smooth.py
++ logs incl. cap-base2/cap-base3 story captures + scores-v2 +
+shot-base2/3-*.png).
+
+## VIRGL STORY RUN — game runs in-story on virgl (2026-11-13 21:27-21:3x JST)
+Server: virgl_test_server --use-egl-surfaceless, CLEAN env, socket
+$WP/virgl.sock (pid 24054, log virgl-server-main.log EMPTY -- no
+renderer-init failure across the whole run). Launch:
+scripts-env/launch-sanoba-virgl2.sh (env recipe + GALLIUM_DRIVER=
+virpipe + VTEST_SOCKET_NAME), log game-virgl8-story.log (only benign
+DRI3 warnings, 0 assertions), sup 24075.
+ESTABLISHED: the game BOOTS on virgl (title ~2.5 min, correct render),
+navigates by held keys (focus -> lone Return: no effect -> Down 0.4 s
+arms selection on START -> Return 0.4 s -> Chapter 1-1, first line
+fully displayed), AUTO on (holdkey a 0.4 s), story advances
+sky -> hallway narration -> character-sprite scene (shot-virgl8-
+final.png), 0 crashes. Capture logs/cap-virgl8-story60.mkv (60.0 s,
+2,510,246 B).
+v2 score (eps=0.05): **mean 2.283 pts/s, median 1.0, 0/60 s >= 10,
+25/60 s zero**. Per-second: [4,8,2,0,5,0,1,6,2,0,9,1,1,8,3,0,3,4,
+0,1,8,1,0,0,0,0,1,6,0,0,0,5,4,0,4,1,0,7,0,0,0,0,5,0,2,2,0,4,1,0,
+0,0,4,5,0,5,6,0,1,7]. analyze_smooth: meaningful frames 137/1200,
+longest no-change gap 5.75 s, max meaningful gap 116 frames.
+READING (honest): the mean (~2.4x llvmpipe uncontended 0.95) is
+driven by BURSTS (4-9 events in one second, then 2-5 fully static
+seconds); the MEDIAN is identical (1.0) and zero-seconds / max gap
+are WORSE than llvmpipe (25 vs 12 zero-s; 5.75 s vs 2.05 s gap).
+**No "virgl is smoother" claim is supported.** The dialogue scene's
+v2 score is advance-rate-bound on both stacks; what virgl changes is
+the delivery shape (bursty), not the steady rate. The real
+smoothness discriminator needs a motion-rich scene (fade/pan):
+the settled title is NOT one -- re-scored cap-op-virgl.mkv 150-218 s
+with v2: **0.0 pts/s over 68 s** (title sparkles are sub-threshold
+at 160x90). Next: capture a scene-transition fade on both stacks and
+count distinct intermediate frames per 50 ms; and/or a longer virgl
+AUTO run for the stability gate.
+Stability VERIFIED: 10 min 16 s uptime at 21:37:55, AUTO advancing
+(shot-virgl8-10min.png: two-sprite hallway scene, Hideaki line
+「ドMだと！？ なるほど。学内で興奮す」), 0 crashes. AUTO stopped,
+instance killed cleanly (sup 24075 + game child by pid). Server left
+running on virgl.sock (pid 24054) for the next virgl run.
+
+### Repo sync flag (updated 2)
+SYNC-WORTHY: virgl8 story run + bursty-delivery reading + title
+v2 re-score (0.0). Parent: please re-sync win32-perf (RESULTS.md +
+scripts-env/launch-sanoba-virgl2.sh + logs incl. cap-virgl8-story60
++ scores-v2 + shot-virgl8-*.png + game-virgl8-story.log).
