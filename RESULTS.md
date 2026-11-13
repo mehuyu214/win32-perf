@@ -2348,6 +2348,102 @@ xvfb116 unit gone, and **PID 1 exec'd into systemd-shutdown**
 now fails with "Failed to connect to bus". Consistent with a
 VM shutdown/snapshot-restore cycle (frequent on this VM). All
 line processes are DOWN. Workspace files persist.
+### INCIDENT UPDATE 4 (2026-11-14 ~02:0x JST) — STACK RESTORED via systemd units
+systemd recovered (PID 1 = systemd, "running") after the
+shutdown cycle completed. Recovery executed with the sequence
+below; ALL THREE infrastructure pieces now run as systemd
+units and are verified: **xvfb116** (Xvfb :116 -nolock
+-extension MIT-SHM; xdotool 1280x720), **virglsrv** (virgl
+server, env -i recipe, LP_NUM_THREADS=2; GLX probe legacy ctx
+swaps OK err=0), **perfpa** (PA daemon, sink "game" on tcp
+47135). Watch: xvfb116 stayed active through a 2-min undisturbed
+watch (an earlier unit death coincided with a hung ffmpeg exec
+being SIGTERM'd / a mini-wipe; lifetime under load TBD).
+CAPTURE PATH CHANGE: **ffmpeg x11grab HANGS** against the
+current environment (even 160x90, even with MIT-SHM off —
+blocks indefinitely, needs SIGKILL). libX11 XGetImage via
+ctypes works instantly. New tool **scripts/grab.py** (shot =
+single PNG via ffmpeg rawvideo filter; stream = raw BGRA
+frames to stdout at N fps for piping into ffmpeg) replaces
+x11grab for this line. Screenshots in the settings flow and
+the listen-task captures use grab.py from here on.
+Also corroborated by Track B's stand-down note: the write
+gate denies file CLOSE in per-lineage windows (their gcc
+closes denied solid 00:02-00:17) — the xkbcomp "Cannot close"
+is that gate hitting the X-server lineage; PID-1 lineage is
+clean, hence systemd-run works.
+
+## LISTEN-PACED VIDEO (KK order 2026-11-14 00:01 JST) — virgl14
+Goal: story video where every voiced line plays TO THE END
+(max-speed AUTO cuts voices off). Stack: systemd units
+(xvfb116/virglsrv/perfpa) + virgl4 (sup 7392, log
+game-virgl14-listen.log), CSMT=1, tb-size 512, PA 47135.
+SETTINGS (SYSTEM UI, screenshot-verified from value boxes,
+shot-virgl14-config-listen2.png): **テキスト速度 100 /
+オート速度 41 / ノーマルモード**. (Fresh boot was 50/50;
+normal pattern was already the default selection.)
+Story entered Ch.1-1, AUTO on ("Auto/Wait" UI verified).
+PROBE 1 (75 s A/V, grab.py stream 20 fps + PA monitor;
+logs/probe-listen1.{mkv,raw}): **FAIL — on delivery, not
+pacing.** Delivery ratio **0.669** (69 zero-gap runs, 24.84 s
+of silence, longest gap 0.445 s); fine-grained burst endings
+show cliffs (RMS 0.081 -> 0.000 in 5 ms), i.e. PA dropouts,
+not natural decays — line completion CANNOT be certified from
+this capture. Cause: capture-side CPU contention (grab-stream
+reported dropped=644/1500 slots; XGetImage loop + x264 +
+game on ~1.5 cores). The recurring ~0.35 s inter-burst gaps
+are dropout runs, not (only) the auto delay. Probe 2 retries
+with grab+encoder niced to 10.
+PROBE 2 (niced capture): delivery **0.609** — worse; nicing
+the capture down does not help. AUDIO-ONLY probes (no capture
+at all): 0.604 / 0.571 / 0.559 across ~15 min. The plateau was
+**system-wide contention from the post-reboot pile-up** (VM
+had rebooted ~15 min earlier: main line's qemu game ~56%,
+Track B Mesa build cc1 + probe_present ~30%, compat work —
+load avg hit 16), NOT this line's capture and NOT the stack:
+a later 20 s joint window measured **delivery 1.000, 0 gaps**
+as the pile-up cleared, and negative renice is sandbox-capped
+(EPERM) while perfpa CPUWeight=10000 changed nothing.
+Q.SAVE: first F11 in this env popped the confirmation dialog;
+ticked 次回から確認しない + はい -> datasc.ksd updated
+(1738 B; in-game toast "Quick 1 - 2026/11/13 15:42").
+Future F11 saves are now instant in this game dir.
+PROBE 3 (75 s, probe-1 config, calm window): **PASS.**
+Delivery **0.969** (6 gap runs / 2.35 s; ALL gaps fall in
+inter-line pauses or BGM-only stretches — none intersect a
+voice burst's interior; one borderline at 65.41 s may have
+clipped <=0.2 s of sub-threshold tail). Grab-stream
+dropped=3/1500 (timing honest). 32 bursts segmented, 20
+substantive voiced lines (0.6-3.4 s each): every line ends
+into a clean BGM-only pause of 0.35-4.7 s before the next
+voice starts; no voice-on-voice overlap. **Auto speed 41 /
+ノーマルモード is the verified listen pace.** (A crude
+5 ms cliff counter flags 16/20 endings, but it compares
+phoneme-scale maxima — natural final morae trip it; the
+pause-structure evidence is the reliable signal. KK's ear
+on the deliverable is the final gate.)
+DELIVERABLE: 300 s capture running in probe-3 config
+(logs/cap-listen1.{mkv,raw}) -> mux to
+logs/virgl13-story-listen.mp4.
+DELIVERABLE DONE (2026-11-14 ~00:50 JST):
+**logs/virgl13-story-listen.mp4** (299.93 s, H.264 yuv420p
++ AAC 192k, 27.6 MB) — Ch.1-1 story at text 100 / auto 41 /
+ノーマルモード, BGM+voice on, simultaneous A/V.
+Capture health: grab-stream dropped 18/6000 frames (timing
+honest); audio delivery ratio **0.975** (13 gap runs /
+7.61 s, longest 1.74 s). Line-completion analysis of the
+deliverable itself: **78 substantive voiced bursts**
+(durations median 1.52 s, max 13.0 s); inter-line pauses
+min 0.35 s / median 0.90 s / max 26.4 s (scene break);
+**ZERO delivery gaps intersect any voice burst's interior**
+— no line is chopped by a dropout anywhere in the 5 min,
+and every line ends into a clean pause before the next
+voice. v2 score of the video: mean 1.617, median 1.0,
+4/300 s >=10, 107 zero-seconds — EXPECTED for listen pacing
+(long voice dwell per line = few picture changes); the
+score measures picture change, not a defect here.
+KK's ear is the final gate on this file.
+
 RECOVERY SEQUENCE for whoever resumes (after systemctl works
 again — check `systemctl is-system-running`):
   a. systemd-run Xvfb :116 (-nolock -extension MIT-SHM), verify
@@ -2371,3 +2467,113 @@ written (src-mod), run scripts ready. Exact 7-step resume
 sequence is in trackb/trackb-state.md — step 1 is a gcc32 write
 probe; do not start step 2 until it passes. Nothing on :115 was
 ever started (no Xvfb, no prefix boot) — no cleanup owed.
+
+## TRACK B — successor resume: probe pass, guestroot rebuilt (2026-11-14, post-VM-replacement)
+Successor agent resumed from trackb-state.md's 7-step sequence after
+the 00:20 JST VM replacement cleared the write gate.
+- STEP 1 PASS: `trackb/bin/gcc32 /tmp/h.c -o /tmp/h32` produced a
+  14,908 B ELF32 executable — program writes work again. Build dir
+  verified intact (99 .o, 0 zero-size).
+- STEP 2 IN PROGRESS: build #1 (unmodified Mesa 25.2.8) resumed
+  under a runtime-owned background session, nice -n 10, -j1,
+  log trackb/logs/build1-resume.log (progressing through nir at
+  the time of writing).
+- STEP 3 DONE (early, it is independent of the build): the deb
+  pool had TWO defects — 28 debs were 0-byte gate casualties and
+  the mesa runtime set (libgl1-mesa-dri / libegl-mesa0 /
+  libglx-mesa0 / libgbm1 + deps) was never in the pool at all.
+  Repaired via the sandboxed apt (noble-updates): 86 debs
+  downloaded (mesa set is 25.2.8-0ubuntu0.24.04.4, identical to
+  the production sysroot32). Pool now has 0 zero-size debs.
+  guestroot rebuilt from scratch: dpkg -x of ALL pool debs,
+  0 failures, 781 MB, 0 zero-size .so files, libc.so.6
+  2,309,032 B, stock libgallium-25.2.8 45,575,628 B,
+  dri/swrast_dri.so present, `ldconfig -r` rc=0.
+- Mod verified present in trackb/src-mod (xlib_sw_winsys.c,
+  202 diff lines vs stock: shadow-frame 32-row band diff,
+  MESA_XLIB_DAMAGE / MESA_XLIB_DAMAGE_DEBUG envs). The exported
+  patch file trackb/damage-present-xlib.patch is 0 bytes (gate
+  casualty); src-mod is the authoritative copy. Both trees are
+  Mesa 25.2.8 (VERSION files match).
+Next: build #1 finish -> stage1 install -> overlay-mesa.sh ->
+:115 prefix boot -> probe parity vs A 205.5 / B 184.6 / D 766.2.
+
+### TRACK B — guestroot usrmerge fix + prefix boot (2026-11-14)
+- First wineboot attempt failed instantly: `qemu-i386: Could not
+  open '/lib/ld-linux.so.2'`. Established cause: dpkg -x does not
+  create the usrmerge symlinks; the production sysroot32 has
+  `lib -> usr/lib` and `bin -> usr/bin` at its root (created when
+  it was built), the fresh guestroot did not. Fix applied to
+  guestroot: `ln -s usr/lib lib`, `ln -s usr/bin bin` (loader now
+  resolves to the real 213,348 B ld-linux.so.2). This step was
+  missing from the recorded resume sequence — it is required for
+  ANY from-debs sysroot on this stack.
+- wineboot --init then completed rc=0 in ~5.3 min under build
+  contention; trackb/prefix populated (315 MB, registry files
+  written); trackb wineserver exited cleanly afterwards.
+- A guest-stack smoke probe (distro-stock mesa in guestroot)
+  follows before the build lands, so a broken guest is detected
+  before the parity run, not after.
+
+### TRACK B — coordination pause (2026-11-14, main-chat order)
+KK flagged that parallel work was starving the virgl line's
+listen-paced capture (verified load 5.35 on ~1.5 cores: three
+qemu instances + this Mesa compile; listen probe 1 failed its
+audio gate at delivery 0.669 from capture-side contention, and
+the proven 1.000-delivery condition is near-total VM
+exclusivity). On the main chat's coordination order, Track B
+yielded immediately:
+- Build #1 SIGSTOPped at [361/962] (ninja + compiler process
+  groups frozen, NOT killed; build tree intact, resumes with
+  SIGCONT). No compile CPU from this line until release.
+- The guestroot smoke probe was terminated after phases A/B/C.
+  For the record (contention-poisoned, NOT parity numbers):
+  A 52,932.7 ms/90 fr (588 ms/fr), B 58,002.9/90 (644 ms/fr),
+  C 1,583.7/90 — vs uncontended stock A 205.5 / B 184.6. The
+  ~3x inflation is the contention tax of that window (build +
+  two other qemu lines), stated so nobody quotes these as
+  guestroot numbers. The smoke test DID prove the rebuilt
+  guestroot + fresh prefix run D3D9/llvmpipe end-to-end.
+- Release condition: line-state.md reports the listen
+  deliverable recorded, OR 2026-11-14 02:00 JST, whichever
+  first. Pause window: from this entry until the resume entry
+  below it in this file.
+
+### TRACK B — resumed after coordination pause (2026-11-14 ~00:53 JST)
+Pause window ~00:41–00:53 JST (~12 min, build frozen at
+[361/962]). The pause created the exclusivity window under
+which the virgl line recorded the listen deliverable
+(logs/virgl13-story-listen.mp4, 299.93 s; probe 3 audio
+delivery 0.969 — contentions cleared once the build stopped,
+consistent with the proven 1.000-delivery = near-total
+exclusivity condition). Release 00:52; SIGCONT to ninja pgid
+4469 + compiler pgid 14582; verified at 00:53: ninja SN,
+new cc1 RN, build log [361]->[364/962] and advancing. Build
+#1 (stock Mesa 25.2.8, swrast-only) continues to the parity
+gate (probe A/B/D vs recorded uncontended stock 205.5 /
+184.6 / 766.2 ms/fr).
+
+## VIRGL15 — standing AUTO run restored at max settings (2026-11-14 ~00:55–01:00 JST)
+- After the listen deliverable, the game was relaunched fresh on the virgl4 stack
+  (sup 17741, systemd-unit infrastructure). **Settings persistence CORRECTED**:
+  this boot's config UI read text 100 / auto **41** / ノーマルモード — exactly
+  virgl14's final state, i.e. **settings DO persist in the game dir once
+  written** (the virgl10 fresh-boot 50/50/Normal was that game dir's initial
+  state, not non-persistence). Verification-by-screenshot remains the standing
+  practice.
+- Settings set to text 100 / auto **100** / **スピードモード** (screenshot
+  logs/shot-virgl15-config-max.png, value boxes read). Story position restored
+  via Q.Load of **Quick slot 1 (2026/11/13 15:53)** = Ch.1-1 hallway,
+  寧々「ええと……」 (shot-virgl15-qload3.png). **Q.Save ring note**: quick saves
+  go to a ring of slots (Quick 1/2/3 observed with distinct timestamps);
+  CONTINUE's preview data was stale (2026/11/13 12:47) — explicit Q.Load is
+  the reliable restore path.
+- AUTO turned ON; verification pair 60 s apart shows advancing dialogue
+  (shot-virgl15-auto1.png → auto2.png: 寧々「あくまで占いの延長線上のもの
+  ですから…」, "Auto ▶" indicator on). **The standing AUTO run at maximum
+  speed is LIVE** (KK order 2026-11-13 23:53). Q.Save cadence: first post-
+  restore save at datasc.ksd 1,936 B (mtime 15:59) — the no-confirm flag
+  persisted, F11 saved instantly; AUTO resumed after.
+- Infrastructure: xvfb116 / virglsrv / perfpa systemd units all active.
+  Ongoing maintenance: Q.Save every ~5 min, screenshot progress checks,
+  relaunch-and-Q.Load on any VM event.
