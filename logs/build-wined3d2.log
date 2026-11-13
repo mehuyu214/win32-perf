@@ -1,0 +1,1283 @@
+bison -o tools/widl/parser.tab.$$.c --defines=tools/widl/parser.tab.h ../wine-src/tools/widl/parser.y && rm -f tools/widl/parser.tab.$$.c
+gcc -m64 -c -o tools/widl/client.o ../wine-src/tools/widl/client.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/expr.o ../wine-src/tools/widl/expr.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/hash.o ../wine-src/tools/widl/hash.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/header.o ../wine-src/tools/widl/header.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/metadata.o ../wine-src/tools/widl/metadata.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/proxy.o ../wine-src/tools/widl/proxy.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/register.o ../wine-src/tools/widl/register.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/server.o ../wine-src/tools/widl/server.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/typegen.o ../wine-src/tools/widl/typegen.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/typelib.o ../wine-src/tools/widl/typelib.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/typetree.o ../wine-src/tools/widl/typetree.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/utils.o ../wine-src/tools/widl/utils.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/widl.o ../wine-src/tools/widl/widl.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ \
+  -DINCLUDEDIR="\"/home/hatch/workspace/win32-perf/wine-inst/include\"" -DBINDIR="\"/home/hatch/workspace/win32-perf/wine-inst/bin\"" -DLIBDIR="\"/home/hatch/workspace/win32-perf/wine-inst/lib\"" -DWINE_UNIX_LIB \
+  -Wall -pipe -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/wpp.o ../wine-src/tools/wrc/wpp.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/write_msft.o ../wine-src/tools/widl/write_msft.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/write_sltg.o ../wine-src/tools/widl/write_sltg.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+flex -otools/widl/parser.yy.c ../wine-src/tools/widl/parser.l
+bison -o tools/widl/parser.tab.c ../wine-src/tools/widl/parser.y
+flex -otools/widl/ppl.yy.c ../wine-src/tools/wrc/ppl.l
+bison -o tools/widl/ppy.tab.$$.c --defines=tools/widl/ppy.tab.h ../wine-src/tools/wrc/ppy.y && rm -f tools/widl/ppy.tab.$$.c
+bison -o tools/widl/ppy.tab.c ../wine-src/tools/wrc/ppy.y
+gcc -m64 -c -o tools/wrc/genres.o ../wine-src/tools/wrc/genres.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/wrc/newstruc.o ../wine-src/tools/wrc/newstruc.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/wrc/po.o ../wine-src/tools/wrc/po.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/wrc/utils.o ../wine-src/tools/wrc/utils.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/wrc/wpp.o ../wine-src/tools/wrc/wpp.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/wrc/wrc.o ../wine-src/tools/wrc/wrc.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DBINDIR="\"/home/hatch/workspace/win32-perf/wine-inst/bin\"" -DDATADIR="\"/home/hatch/workspace/win32-perf/wine-inst/share\"" \
+  -DINCLUDEDIR="\"/home/hatch/workspace/win32-perf/wine-inst/include\"" -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+flex -otools/wrc/parser.yy.c ../wine-src/tools/wrc/parser.l
+bison -o tools/wrc/parser.tab.$$.c --defines=tools/wrc/parser.tab.h ../wine-src/tools/wrc/parser.y && rm -f tools/wrc/parser.tab.$$.c
+../wine-src/tools/wrc/parser.y: warning: 5 shift/reduce conflicts [-Wconflicts-sr]
+../wine-src/tools/wrc/parser.y: note: rerun with option '-Wcounterexamples' to generate conflict counterexamples
+bison -o tools/wrc/parser.tab.c ../wine-src/tools/wrc/parser.y
+../wine-src/tools/wrc/parser.y: warning: 5 shift/reduce conflicts [-Wconflicts-sr]
+../wine-src/tools/wrc/parser.y: note: rerun with option '-Wcounterexamples' to generate conflict counterexamples
+flex -otools/wrc/ppl.yy.c ../wine-src/tools/wrc/ppl.l
+bison -o tools/wrc/ppy.tab.$$.c --defines=tools/wrc/ppy.tab.h ../wine-src/tools/wrc/ppy.y && rm -f tools/wrc/ppy.tab.$$.c
+bison -o tools/wrc/ppy.tab.c ../wine-src/tools/wrc/ppy.y
+rm -f nls/locale.nls && ln -s ../../wine-src/nls/locale.nls nls/locale.nls
+LC_ALL=C sed -e 's,@bindir@,/home/hatch/workspace/win32-perf/wine-inst/bin,g' -e 's,@PACKAGE_STRING@,Wine 11.21,g' -e 's,@PACKAGE_VERSION@,11.21,g' ../wine-src/include/ntverp.h.in >include/ntverp.h || (rm -f include/ntverp.h && false)
+gcc -m64 -c -o tools/winebuild/import.o ../wine-src/tools/winebuild/import.c -Itools/winebuild -I../wine-src/tools/winebuild \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/winebuild/main.o ../wine-src/tools/winebuild/main.c -Itools/winebuild -I../wine-src/tools/winebuild \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/winebuild/parser.o ../wine-src/tools/winebuild/parser.c -Itools/winebuild -I../wine-src/tools/winebuild \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/winebuild/relay.o ../wine-src/tools/winebuild/relay.c -Itools/winebuild -I../wine-src/tools/winebuild \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/winebuild/res16.o ../wine-src/tools/winebuild/res16.c -Itools/winebuild -I../wine-src/tools/winebuild \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/winebuild/res32.o ../wine-src/tools/winebuild/res32.c -Itools/winebuild -I../wine-src/tools/winebuild \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/winebuild/spec16.o ../wine-src/tools/winebuild/spec16.c -Itools/winebuild -I../wine-src/tools/winebuild \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/winebuild/spec32.o ../wine-src/tools/winebuild/spec32.c -Itools/winebuild -I../wine-src/tools/winebuild \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/winebuild/utils.o ../wine-src/tools/winebuild/utils.c -Itools/winebuild -I../wine-src/tools/winebuild \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+flex -olibs/vkd3d/libs/vkd3d-shader/hlsl.yy.c ../wine-src/libs/vkd3d/libs/vkd3d-shader/hlsl.l
+bison -o libs/vkd3d/libs/vkd3d-shader/hlsl.tab.$$.c --defines=libs/vkd3d/libs/vkd3d-shader/hlsl.tab.h ../wine-src/libs/vkd3d/libs/vkd3d-shader/hlsl.y && rm -f libs/vkd3d/libs/vkd3d-shader/hlsl.tab.$$.c
+bison -o libs/vkd3d/libs/vkd3d-shader/hlsl.tab.c ../wine-src/libs/vkd3d/libs/vkd3d-shader/hlsl.y
+flex -olibs/vkd3d/libs/vkd3d-shader/preproc.yy.c ../wine-src/libs/vkd3d/libs/vkd3d-shader/preproc.l
+bison -o libs/vkd3d/libs/vkd3d-shader/preproc.tab.$$.c --defines=libs/vkd3d/libs/vkd3d-shader/preproc.tab.h ../wine-src/libs/vkd3d/libs/vkd3d-shader/preproc.y && rm -f libs/vkd3d/libs/vkd3d-shader/preproc.tab.$$.c
+bison -o libs/vkd3d/libs/vkd3d-shader/preproc.tab.c ../wine-src/libs/vkd3d/libs/vkd3d-shader/preproc.y
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/arm64ec.o ../wine-src/libs/winecrt0/arm64ec.c -Ilibs/winecrt0 -I../wine-src/libs/winecrt0 \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_MSVCR_VER=0 -D__WINESRC__ \
+  -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self \
+  -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections -Wno-misleading-indentation \
+  -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 \
+  -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/crt_dllmain.o ../wine-src/libs/winecrt0/crt_dllmain.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/crt_fltused.o ../wine-src/libs/winecrt0/crt_fltused.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/debug.o ../wine-src/libs/winecrt0/debug.c -Ilibs/winecrt0 -I../wine-src/libs/winecrt0 \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_MSVCR_VER=0 -D__WINESRC__ \
+  -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self \
+  -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections -Wno-misleading-indentation \
+  -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 \
+  -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/delay_load.o ../wine-src/libs/winecrt0/delay_load.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/dll_main.o ../wine-src/libs/winecrt0/dll_main.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/exception.o ../wine-src/libs/winecrt0/exception.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/exe16_entry.o ../wine-src/libs/winecrt0/exe16_entry.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/gcc_ctors.o ../wine-src/libs/winecrt0/gcc_ctors.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/setjmp.o ../wine-src/libs/winecrt0/setjmp.c -Ilibs/winecrt0 -I../wine-src/libs/winecrt0 \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_MSVCR_VER=0 -D__WINESRC__ \
+  -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self \
+  -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections -Wno-misleading-indentation \
+  -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 \
+  -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/stub.o ../wine-src/libs/winecrt0/stub.c -Ilibs/winecrt0 -I../wine-src/libs/winecrt0 \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_MSVCR_VER=0 -D__WINESRC__ \
+  -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self \
+  -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections -Wno-misleading-indentation \
+  -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 \
+  -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/tls.o ../wine-src/libs/winecrt0/tls.c -Ilibs/winecrt0 -I../wine-src/libs/winecrt0 \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_MSVCR_VER=0 -D__WINESRC__ \
+  -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self \
+  -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections -Wno-misleading-indentation \
+  -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 \
+  -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/unix_lib.o ../wine-src/libs/winecrt0/unix_lib.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/ctzdi2.o ../wine-src/libs/compiler-rt/lib/builtins/ctzdi2.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/divdi3.o ../wine-src/libs/compiler-rt/lib/builtins/divdi3.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/divmoddi4.o ../wine-src/libs/compiler-rt/lib/builtins/divmoddi4.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/divmodsi4.o ../wine-src/libs/compiler-rt/lib/builtins/divmodsi4.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/divsi3.o ../wine-src/libs/compiler-rt/lib/builtins/divsi3.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/divti3.o ../wine-src/libs/compiler-rt/lib/builtins/divti3.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/fixdfdi.o ../wine-src/libs/compiler-rt/lib/builtins/fixdfdi.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/fixsfdi.o ../wine-src/libs/compiler-rt/lib/builtins/fixsfdi.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/fixunsdfdi.o ../wine-src/libs/compiler-rt/lib/builtins/fixunsdfdi.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/fixunssfdi.o ../wine-src/libs/compiler-rt/lib/builtins/fixunssfdi.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/floatdidf.o ../wine-src/libs/compiler-rt/lib/builtins/floatdidf.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/floatdisf.o ../wine-src/libs/compiler-rt/lib/builtins/floatdisf.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/floatundidf.o ../wine-src/libs/compiler-rt/lib/builtins/floatundidf.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/floatundisf.o ../wine-src/libs/compiler-rt/lib/builtins/floatundisf.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/i386/chkstk.o ../wine-src/libs/compiler-rt/lib/builtins/i386/chkstk.S -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/i386/chkstk2.o ../wine-src/libs/compiler-rt/lib/builtins/i386/chkstk2.S -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/i386/moddi3.o ../wine-src/libs/compiler-rt/lib/builtins/i386/moddi3.S -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/mingw_fixfloat.o ../wine-src/libs/compiler-rt/lib/builtins/mingw_fixfloat.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/popcountdi2.o ../wine-src/libs/compiler-rt/lib/builtins/popcountdi2.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/popcountsi2.o ../wine-src/libs/compiler-rt/lib/builtins/popcountsi2.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/udivdi3.o ../wine-src/libs/compiler-rt/lib/builtins/udivdi3.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/udivmoddi4.o ../wine-src/libs/compiler-rt/lib/builtins/udivmoddi4.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/udivmodsi4.o ../wine-src/libs/compiler-rt/lib/builtins/udivmodsi4.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/udivmodti4.o ../wine-src/libs/compiler-rt/lib/builtins/udivmodti4.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/udivsi3.o ../wine-src/libs/compiler-rt/lib/builtins/udivsi3.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/udivti3.o ../wine-src/libs/compiler-rt/lib/builtins/udivti3.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/umoddi3.o ../wine-src/libs/compiler-rt/lib/builtins/umoddi3.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/umodsi3.o ../wine-src/libs/compiler-rt/lib/builtins/umodsi3.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/umodti3.o ../wine-src/libs/compiler-rt/lib/builtins/umodti3.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o dlls/ucrtbase/i386-windows/atexit.o ../wine-src/dlls/ucrtbase/atexit.c -Idlls/ucrtbase -I../wine-src/dlls/ucrtbase \
+  -I../wine-src/dlls/msvcrt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_UCRT \
+  -D__WINESRC__ -D_CORECRT_BUILD -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -fno-builtin \
+  -g -O2
+i686-w64-mingw32-gcc -c -o dlls/ucrtbase/i386-windows/crt_gccmain.o ../wine-src/dlls/msvcrt/crt_gccmain.c -Idlls/ucrtbase \
+  -I../wine-src/dlls/ucrtbase -I../wine-src/dlls/msvcrt -Iinclude -I../wine-src/include \
+  -I../wine-src/include/msvcrt -D_UCRT -D__WINESRC__ -D_CORECRT_BUILD -D__WINE_PE_BUILD -Wall \
+  -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned \
+  -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith \
+  -Wlogical-op -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -Wdeclaration-after-statement \
+  -Wstrict-prototypes -Wabsolute-value -fno-builtin -g -O2
+i686-w64-mingw32-gcc -c -o dlls/ucrtbase/i386-windows/crt_main.o ../wine-src/dlls/msvcrt/crt_main.c -Idlls/ucrtbase -I../wine-src/dlls/ucrtbase \
+  -I../wine-src/dlls/msvcrt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_UCRT \
+  -D__WINESRC__ -D_CORECRT_BUILD -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -fno-builtin \
+  -g -O2
+i686-w64-mingw32-gcc -c -o dlls/ucrtbase/i386-windows/crt_winmain.o ../wine-src/dlls/msvcrt/crt_winmain.c -Idlls/ucrtbase \
+  -I../wine-src/dlls/ucrtbase -I../wine-src/dlls/msvcrt -Iinclude -I../wine-src/include \
+  -I../wine-src/include/msvcrt -D_UCRT -D__WINESRC__ -D_CORECRT_BUILD -D__WINE_PE_BUILD -Wall \
+  -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned \
+  -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith \
+  -Wlogical-op -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -Wdeclaration-after-statement \
+  -Wstrict-prototypes -Wabsolute-value -fno-builtin -g -O2
+i686-w64-mingw32-gcc -c -o dlls/ucrtbase/i386-windows/crt_wmain.o ../wine-src/dlls/msvcrt/crt_wmain.c -Idlls/ucrtbase -I../wine-src/dlls/ucrtbase \
+  -I../wine-src/dlls/msvcrt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_UCRT \
+  -D__WINESRC__ -D_CORECRT_BUILD -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -fno-builtin \
+  -g -O2
+i686-w64-mingw32-gcc -c -o dlls/ucrtbase/i386-windows/crt_wwinmain.o ../wine-src/dlls/msvcrt/crt_wwinmain.c -Idlls/ucrtbase \
+  -I../wine-src/dlls/ucrtbase -I../wine-src/dlls/msvcrt -Iinclude -I../wine-src/include \
+  -I../wine-src/include/msvcrt -D_UCRT -D__WINESRC__ -D_CORECRT_BUILD -D__WINE_PE_BUILD -Wall \
+  -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned \
+  -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith \
+  -Wlogical-op -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -Wdeclaration-after-statement \
+  -Wstrict-prototypes -Wabsolute-value -fno-builtin -g -O2
+i686-w64-mingw32-gcc -c -o dlls/ucrtbase/i386-windows/mathf.o ../wine-src/dlls/msvcrt/mathf.c -Idlls/ucrtbase -I../wine-src/dlls/ucrtbase \
+  -I../wine-src/dlls/msvcrt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_UCRT \
+  -D__WINESRC__ -D_CORECRT_BUILD -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -fno-builtin \
+  -g -O2
+i686-w64-mingw32-gcc -c -o dlls/ucrtbase/i386-windows/printf.o ../wine-src/dlls/ucrtbase/printf.c -Idlls/ucrtbase -I../wine-src/dlls/ucrtbase \
+  -I../wine-src/dlls/msvcrt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_UCRT \
+  -D__WINESRC__ -D_CORECRT_BUILD -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -fno-builtin \
+  -g -O2
+i686-w64-mingw32-gcc -c -o dlls/ucrtbase/i386-windows/sincos.o ../wine-src/dlls/msvcrt/sincos.c -Idlls/ucrtbase -I../wine-src/dlls/ucrtbase \
+  -I../wine-src/dlls/msvcrt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -D_UCRT \
+  -D__WINESRC__ -D_CORECRT_BUILD -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -fno-builtin \
+  -g -O2
+gcc -m64 -c -o tools/winegcc/winegcc.o ../wine-src/tools/winegcc/winegcc.c -Itools/winegcc -I../wine-src/tools/winegcc \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DINCLUDEDIR="\"/home/hatch/workspace/win32-perf/wine-inst/include\"" \
+  -DBINDIR="\"/home/hatch/workspace/win32-perf/wine-inst/bin\"" -DLIBDIR="\"/home/hatch/workspace/win32-perf/wine-inst/lib\"" -DCC="\"gcc -m64\"" -DCPP="\"cpp\"" -DCXX="\"g++ \
+  -m64\"" -DLD="\"ld\"" -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none -fvisibility=hidden \
+  -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/attribute.o ../wine-src/tools/widl/attribute.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/parser.yy.o tools/widl/parser.yy.c -Itools/widl -I../wine-src/tools/widl -I../wine-src/tools/wrc \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/parser.tab.o tools/widl/parser.tab.c -Itools/widl -I../wine-src/tools/widl \
+  -I../wine-src/tools/wrc -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe \
+  -fcf-protection=none -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing \
+  -Wdeclaration-after-statement -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op \
+  -Wno-packed-not-aligned -Wpointer-arith -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/ppl.yy.o tools/widl/ppl.yy.c -Itools/widl -I../wine-src/tools/widl -I../wine-src/tools/wrc \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/widl/ppy.tab.o tools/widl/ppy.tab.c -Itools/widl -I../wine-src/tools/widl -I../wine-src/tools/wrc \
+  -Iinclude -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/wrc/parser.yy.o tools/wrc/parser.yy.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/wrc/parser.tab.o tools/wrc/parser.tab.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/wrc/ppl.yy.o tools/wrc/ppl.yy.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -c -o tools/wrc/ppy.tab.o tools/wrc/ppy.tab.c -Itools/wrc -I../wine-src/tools/wrc -Iinclude \
+  -I../wine-src/include -D__WINESRC__ -DWINE_UNIX_LIB -Wall -pipe -fcf-protection=none \
+  -fvisibility=hidden -fno-stack-protector -fno-strict-aliasing -Wdeclaration-after-statement \
+  -Wempty-body -Wignored-qualifiers -Winit-self -Wlogical-op -Wno-packed-not-aligned -Wpointer-arith \
+  -Wshift-overflow=2 -Wstrict-prototypes -Wtype-limits -Wunused-but-set-parameter -Wvla \
+  -Wwrite-strings -Wno-misleading-indentation -gdwarf-4 -g -O2 -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0
+gcc -m64 -o tools/winebuild/winebuild tools/winebuild/import.o tools/winebuild/main.o tools/winebuild/parser.o \
+  tools/winebuild/relay.o tools/winebuild/res16.o tools/winebuild/res32.o tools/winebuild/spec16.o \
+  tools/winebuild/spec32.o tools/winebuild/utils.o 
+gcc -m64 -o tools/winegcc/winegcc tools/winegcc/winegcc.o 
+gcc -m64 -o tools/widl/widl tools/widl/attribute.o tools/widl/client.o tools/widl/expr.o tools/widl/hash.o \
+  tools/widl/header.o tools/widl/metadata.o tools/widl/proxy.o tools/widl/register.o \
+  tools/widl/server.o tools/widl/typegen.o tools/widl/typelib.o tools/widl/typetree.o \
+  tools/widl/utils.o tools/widl/widl.o tools/widl/wpp.o tools/widl/write_msft.o \
+  tools/widl/write_sltg.o tools/widl/parser.yy.o tools/widl/parser.tab.o tools/widl/ppl.yy.o \
+  tools/widl/ppy.tab.o 
+tools/winebuild/winebuild -w --implib -o dlls/opengl32/i386-windows/libopengl32.a --cc-cmd="i686-w64-mingw32-gcc" --without-dlltool -b \
+  i686-w64-mingw32 --export ../wine-src/dlls/opengl32/opengl32.spec
+tools/winebuild/winebuild -w --implib -o dlls/user32/i386-windows/libuser32.a --cc-cmd="i686-w64-mingw32-gcc" --without-dlltool -b \
+  i686-w64-mingw32 --export ../wine-src/dlls/user32/user32.spec
+tools/winebuild/winebuild -w --implib -o dlls/gdi32/i386-windows/libgdi32.a --cc-cmd="i686-w64-mingw32-gcc" --without-dlltool -b \
+  i686-w64-mingw32 --export ../wine-src/dlls/gdi32/gdi32.spec
+tools/winebuild/winebuild -w --implib -o dlls/advapi32/i386-windows/libadvapi32.a --cc-cmd="i686-w64-mingw32-gcc" --without-dlltool -b \
+  i686-w64-mingw32 --export ../wine-src/dlls/advapi32/advapi32.spec
+tools/widl/widl -o include/shtypes.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/shtypes.idl
+tools/widl/widl -o include/atliface.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/atliface.idl
+tools/winebuild/winebuild -w --implib -o dlls/ucrtbase/i386-windows/libucrtbase.a --cc-cmd="i686-w64-mingw32-gcc" --without-dlltool -b \
+  i686-w64-mingw32 --export ../wine-src/dlls/ucrtbase/ucrtbase.spec \
+  dlls/ucrtbase/i386-windows/atexit.o dlls/ucrtbase/i386-windows/crt_gccmain.o \
+  dlls/ucrtbase/i386-windows/crt_main.o dlls/ucrtbase/i386-windows/crt_winmain.o \
+  dlls/ucrtbase/i386-windows/crt_wmain.o dlls/ucrtbase/i386-windows/crt_wwinmain.o \
+  dlls/ucrtbase/i386-windows/mathf.o dlls/ucrtbase/i386-windows/printf.o \
+  dlls/ucrtbase/i386-windows/sincos.o
+tools/winebuild/winebuild -w --implib -o dlls/kernel32/i386-windows/libkernel32.a --cc-cmd="i686-w64-mingw32-gcc" --without-dlltool -b \
+  i686-w64-mingw32 --export ../wine-src/dlls/kernel32/kernel32.spec
+tools/winebuild/winebuild -w --implib -o dlls/ntdll/i386-windows/libntdll.a --cc-cmd="i686-w64-mingw32-gcc" --without-dlltool -b \
+  i686-w64-mingw32 --export ../wine-src/dlls/ntdll/ntdll.spec
+tools/widl/widl -o include/wtypes.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/wtypes.idl
+tools/widl/widl -o include/wtypesbase.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/wtypesbase.idl
+tools/widl/widl -o include/oaidl.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/oaidl.idl
+tools/widl/widl -o include/objidl.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/objidl.idl
+tools/widl/widl -o include/unknwn.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/unknwn.idl
+tools/widl/widl -o include/oleidl.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/oleidl.idl
+tools/widl/widl -o include/objidlbase.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/objidlbase.idl
+tools/widl/widl -o include/urlmon.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/urlmon.idl
+tools/widl/widl -o include/servprov.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/servprov.idl
+tools/widl/widl -o include/msxml.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/msxml.idl
+tools/widl/widl -o include/propidl.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/propidl.idl
+tools/widl/widl -o include/d3d10.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/d3d10.idl
+tools/widl/widl -o include/ocidl.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/ocidl.idl
+tools/widl/widl -o include/dxgi.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/dxgi.idl
+tools/widl/widl -o include/dxgitype.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/dxgitype.idl
+tools/widl/widl -o include/dxgicommon.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/dxgicommon.idl
+tools/widl/widl -o include/dxgiformat.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/dxgiformat.idl
+tools/widl/widl -o include/d3dcommon.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/d3dcommon.idl
+tools/widl/widl -o include/d3d10sdklayers.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/d3d10sdklayers.idl
+tools/widl/widl -o include/d3d10shader.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/d3d10shader.idl
+tools/widl/widl -o include/d3d10effect.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/d3d10effect.idl
+tools/widl/widl -o include/d3d10_1shader.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/d3d10_1shader.idl
+tools/widl/widl -o include/d3d12.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/d3d12.idl
+tools/widl/widl -o include/d3d12sdklayers.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/d3d12sdklayers.idl
+tools/widl/widl -o include/d3d12shader.h -m64 --nostdinc -Ldlls/\* -Iinclude -I../wine-src/include -Iinclude \
+  -I../wine-src/include -D__WINESRC__ ../wine-src/include/d3d12shader.idl
+gcc -m64 -o tools/wrc/wrc tools/wrc/genres.o tools/wrc/newstruc.o tools/wrc/po.o tools/wrc/utils.o \
+  tools/wrc/wpp.o tools/wrc/wrc.o tools/wrc/parser.yy.o tools/wrc/parser.tab.o tools/wrc/ppl.yy.o \
+  tools/wrc/ppy.tab.o 
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-common/blob.o ../wine-src/libs/vkd3d/libs/vkd3d-common/blob.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-common/debug.o ../wine-src/libs/vkd3d/libs/vkd3d-common/debug.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-common/error.o ../wine-src/libs/vkd3d/libs/vkd3d-common/error.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-common/memory.o ../wine-src/libs/vkd3d/libs/vkd3d-common/memory.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-common/utf8.o ../wine-src/libs/vkd3d/libs/vkd3d-common/utf8.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/checksum.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/checksum.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/d3d_asm.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/d3d_asm.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/d3dbc.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/d3dbc.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/dxbc.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/dxbc.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/dxil.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/dxil.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/fx.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/fx.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/glsl.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/glsl.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/hlsl.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl_codegen.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/hlsl_codegen.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl_constant_ops.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/hlsl_constant_ops.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/ir.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/ir.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/msl.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/msl.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/spirv.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/spirv.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/tpf.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/tpf.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/vkd3d_shader_main.o ../wine-src/libs/vkd3d/libs/vkd3d-shader/vkd3d_shader_main.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-utils/reflection.o ../wine-src/libs/vkd3d/libs/vkd3d-utils/reflection.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-utils/vkd3d_utils_main.o ../wine-src/libs/vkd3d/libs/vkd3d-utils/vkd3d_utils_main.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d/cache.o ../wine-src/libs/vkd3d/libs/vkd3d/cache.c -Ilibs/vkd3d -I../wine-src/libs/vkd3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -I../wine-src/libs/vkd3d/include/private -I../wine-src/libs/vkd3d/libs/vkd3d \
+  -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE \
+  -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE -D__WINE_PE_BUILD -fno-strict-aliasing \
+  -Wno-packed-not-aligned -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d/command.o ../wine-src/libs/vkd3d/libs/vkd3d/command.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d/device.o ../wine-src/libs/vkd3d/libs/vkd3d/device.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d/resource.o ../wine-src/libs/vkd3d/libs/vkd3d/resource.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d/state.o ../wine-src/libs/vkd3d/libs/vkd3d/state.c -Ilibs/vkd3d -I../wine-src/libs/vkd3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -I../wine-src/libs/vkd3d/include/private -I../wine-src/libs/vkd3d/libs/vkd3d \
+  -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE \
+  -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE -D__WINE_PE_BUILD -fno-strict-aliasing \
+  -Wno-packed-not-aligned -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d/utils.o ../wine-src/libs/vkd3d/libs/vkd3d/utils.c -Ilibs/vkd3d -I../wine-src/libs/vkd3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -I../wine-src/libs/vkd3d/include/private -I../wine-src/libs/vkd3d/libs/vkd3d \
+  -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE \
+  -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE -D__WINE_PE_BUILD -fno-strict-aliasing \
+  -Wno-packed-not-aligned -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d/vkd3d_main.o ../wine-src/libs/vkd3d/libs/vkd3d/vkd3d_main.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl.yy.o libs/vkd3d/libs/vkd3d-shader/hlsl.yy.c -Ilibs/vkd3d -I../wine-src/libs/vkd3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -I../wine-src/libs/vkd3d/include/private -I../wine-src/libs/vkd3d/libs/vkd3d \
+  -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE \
+  -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE -D__WINE_PE_BUILD -fno-strict-aliasing \
+  -Wno-packed-not-aligned -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl.tab.o libs/vkd3d/libs/vkd3d-shader/hlsl.tab.c -Ilibs/vkd3d -I../wine-src/libs/vkd3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -I../wine-src/libs/vkd3d/include/private -I../wine-src/libs/vkd3d/libs/vkd3d \
+  -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE \
+  -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE -D__WINE_PE_BUILD -fno-strict-aliasing \
+  -Wno-packed-not-aligned -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/preproc.yy.o libs/vkd3d/libs/vkd3d-shader/preproc.yy.c -Ilibs/vkd3d -I../wine-src/libs/vkd3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -I../wine-src/libs/vkd3d/include/private -I../wine-src/libs/vkd3d/libs/vkd3d \
+  -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE \
+  -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE -D__WINE_PE_BUILD -fno-strict-aliasing \
+  -Wno-packed-not-aligned -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/vkd3d/i386-windows/libs/vkd3d-shader/preproc.tab.o libs/vkd3d/libs/vkd3d-shader/preproc.tab.c -Ilibs/vkd3d \
+  -I../wine-src/libs/vkd3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -I../wine-src/libs/vkd3d/include/private \
+  -I../wine-src/libs/vkd3d/libs/vkd3d -I../wine-src/libs/vkd3d/libs/vkd3d-shader -D_UCRT \
+  -DWINE_NO_NAMELESS_EXTENSION -DLIBVKD3D_SOURCE -DLIBVKD3D_SHADER_SOURCE -DLIBVKD3D_UTILS_SOURCE \
+  -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/dll_canunload.o ../wine-src/libs/winecrt0/dll_canunload.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/dll_register.o ../wine-src/libs/winecrt0/dll_register.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/dll_version.o ../wine-src/libs/winecrt0/dll_version.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/winecrt0/i386-windows/register.o ../wine-src/libs/winecrt0/register.c -Ilibs/winecrt0 \
+  -I../wine-src/libs/winecrt0 -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_MSVCR_VER=0 -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o libs/compiler-rt/i386-windows/lib/builtins/emutls.o ../wine-src/libs/compiler-rt/lib/builtins/emutls.c -Ilibs/compiler-rt \
+  -I../wine-src/libs/compiler-rt -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -D_UCRT -D__WINE_PE_BUILD -fno-strict-aliasing -Wno-packed-not-aligned -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/adapter_gl.o ../wine-src/dlls/wined3d/adapter_gl.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/adapter_vk.o ../wine-src/dlls/wined3d/adapter_vk.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/buffer.o ../wine-src/dlls/wined3d/buffer.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/context.o ../wine-src/dlls/wined3d/context.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/context_gl.o ../wine-src/dlls/wined3d/context_gl.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/context_vk.o ../wine-src/dlls/wined3d/context_vk.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/cs.o ../wine-src/dlls/wined3d/cs.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/decoder.o ../wine-src/dlls/wined3d/decoder.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/device.o ../wine-src/dlls/wined3d/device.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/directx.o ../wine-src/dlls/wined3d/directx.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/ffp_gl.o ../wine-src/dlls/wined3d/ffp_gl.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/ffp_hlsl.o ../wine-src/dlls/wined3d/ffp_hlsl.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/gl_compat.o ../wine-src/dlls/wined3d/gl_compat.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/glsl_shader.o ../wine-src/dlls/wined3d/glsl_shader.c -Idlls/wined3d \
+  -I../wine-src/dlls/wined3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall \
+  -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned \
+  -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith \
+  -Wlogical-op -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -Wdeclaration-after-statement \
+  -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/palette.o ../wine-src/dlls/wined3d/palette.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/query.o ../wine-src/dlls/wined3d/query.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/resource.o ../wine-src/dlls/wined3d/resource.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/sampler.o ../wine-src/dlls/wined3d/sampler.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/shader.o ../wine-src/dlls/wined3d/shader.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/shader_sm1.o ../wine-src/dlls/wined3d/shader_sm1.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/shader_sm4.o ../wine-src/dlls/wined3d/shader_sm4.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/shader_spirv.o ../wine-src/dlls/wined3d/shader_spirv.c -Idlls/wined3d \
+  -I../wine-src/dlls/wined3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall \
+  -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned \
+  -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith \
+  -Wlogical-op -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -Wdeclaration-after-statement \
+  -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/stateblock.o ../wine-src/dlls/wined3d/stateblock.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/surface.o ../wine-src/dlls/wined3d/surface.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/swapchain.o ../wine-src/dlls/wined3d/swapchain.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/texture.o ../wine-src/dlls/wined3d/texture.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/texture_gl.o ../wine-src/dlls/wined3d/texture_gl.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/texture_vk.o ../wine-src/dlls/wined3d/texture_vk.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/utils.o ../wine-src/dlls/wined3d/utils.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/vertexdeclaration.o ../wine-src/dlls/wined3d/vertexdeclaration.c -Idlls/wined3d \
+  -I../wine-src/dlls/wined3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall \
+  -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned \
+  -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith \
+  -Wlogical-op -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -Wdeclaration-after-statement \
+  -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/view.o ../wine-src/dlls/wined3d/view.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/wined3d_main.o ../wine-src/dlls/wined3d/wined3d_main.c -Idlls/wined3d \
+  -I../wine-src/dlls/wined3d -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt \
+  -I../wine-src/libs/vkd3d/include -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall \
+  -fno-strict-aliasing -Wempty-body -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned \
+  -Wshift-overflow=2 -Wtype-limits -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith \
+  -Wlogical-op -ffunction-sections -Wno-misleading-indentation -fno-omit-frame-pointer \
+  -mpreferred-stack-boundary=2 -mlong-double-64 -msse2 -gdwarf-4 -Wdeclaration-after-statement \
+  -Wstrict-prototypes -Wabsolute-value -g -O2
+tools/wrc/wrc -u -o dlls/wined3d/resource.res --nostdinc -Idlls/wined3d -I../wine-src/dlls/wined3d -Iinclude \
+  -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include -D_UCRT \
+  -D__WINESRC__ ../wine-src/dlls/wined3d/resource.rc
+tools/wrc/wrc -u -o dlls/wined3d/version.res --nostdinc -Idlls/wined3d -I../wine-src/dlls/wined3d -Iinclude \
+  -I../wine-src/include -DVER_FILEDESCRIPTION_STR="\"Wine D3D\"" \
+  -DVER_INTERNALNAME_STR="\"wined3d.dll\"" ../wine-src/include/common.ver
+tools/winebuild/winebuild -w --staticlib -o libs/vkd3d/i386-windows/libvkd3d.a --cc-cmd="i686-w64-mingw32-gcc" -b i686-w64-mingw32 \
+  libs/vkd3d/i386-windows/libs/vkd3d-common/blob.o libs/vkd3d/i386-windows/libs/vkd3d-common/debug.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-common/error.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-common/memory.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-common/utf8.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/checksum.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/d3d_asm.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/d3dbc.o libs/vkd3d/i386-windows/libs/vkd3d-shader/dxbc.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/dxil.o libs/vkd3d/i386-windows/libs/vkd3d-shader/fx.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/glsl.o libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl_codegen.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl_constant_ops.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/ir.o libs/vkd3d/i386-windows/libs/vkd3d-shader/msl.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/spirv.o libs/vkd3d/i386-windows/libs/vkd3d-shader/tpf.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/vkd3d_shader_main.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-utils/reflection.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-utils/vkd3d_utils_main.o \
+  libs/vkd3d/i386-windows/libs/vkd3d/cache.o libs/vkd3d/i386-windows/libs/vkd3d/command.o \
+  libs/vkd3d/i386-windows/libs/vkd3d/device.o libs/vkd3d/i386-windows/libs/vkd3d/resource.o \
+  libs/vkd3d/i386-windows/libs/vkd3d/state.o libs/vkd3d/i386-windows/libs/vkd3d/utils.o \
+  libs/vkd3d/i386-windows/libs/vkd3d/vkd3d_main.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl.yy.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/hlsl.tab.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/preproc.yy.o \
+  libs/vkd3d/i386-windows/libs/vkd3d-shader/preproc.tab.o
+tools/winebuild/winebuild -w --staticlib -o libs/winecrt0/i386-windows/libwinecrt0.a --cc-cmd="i686-w64-mingw32-gcc" -b i686-w64-mingw32 \
+  libs/winecrt0/i386-windows/arm64ec.o libs/winecrt0/i386-windows/crt_dllmain.o \
+  libs/winecrt0/i386-windows/crt_fltused.o libs/winecrt0/i386-windows/debug.o \
+  libs/winecrt0/i386-windows/delay_load.o libs/winecrt0/i386-windows/dll_canunload.o \
+  libs/winecrt0/i386-windows/dll_main.o libs/winecrt0/i386-windows/dll_register.o \
+  libs/winecrt0/i386-windows/dll_version.o libs/winecrt0/i386-windows/exception.o \
+  libs/winecrt0/i386-windows/exe16_entry.o libs/winecrt0/i386-windows/gcc_ctors.o \
+  libs/winecrt0/i386-windows/register.o libs/winecrt0/i386-windows/setjmp.o \
+  libs/winecrt0/i386-windows/stub.o libs/winecrt0/i386-windows/tls.o \
+  libs/winecrt0/i386-windows/unix_lib.o
+tools/winebuild/winebuild -w --staticlib -o libs/compiler-rt/i386-windows/libcompiler-rt.a --cc-cmd="i686-w64-mingw32-gcc" -b i686-w64-mingw32 \
+  libs/compiler-rt/i386-windows/lib/builtins/ctzdi2.o \
+  libs/compiler-rt/i386-windows/lib/builtins/divdi3.o \
+  libs/compiler-rt/i386-windows/lib/builtins/divmoddi4.o \
+  libs/compiler-rt/i386-windows/lib/builtins/divmodsi4.o \
+  libs/compiler-rt/i386-windows/lib/builtins/divsi3.o \
+  libs/compiler-rt/i386-windows/lib/builtins/divti3.o \
+  libs/compiler-rt/i386-windows/lib/builtins/emutls.o \
+  libs/compiler-rt/i386-windows/lib/builtins/fixdfdi.o \
+  libs/compiler-rt/i386-windows/lib/builtins/fixsfdi.o \
+  libs/compiler-rt/i386-windows/lib/builtins/fixunsdfdi.o \
+  libs/compiler-rt/i386-windows/lib/builtins/fixunssfdi.o \
+  libs/compiler-rt/i386-windows/lib/builtins/floatdidf.o \
+  libs/compiler-rt/i386-windows/lib/builtins/floatdisf.o \
+  libs/compiler-rt/i386-windows/lib/builtins/floatundidf.o \
+  libs/compiler-rt/i386-windows/lib/builtins/floatundisf.o \
+  libs/compiler-rt/i386-windows/lib/builtins/i386/chkstk.o \
+  libs/compiler-rt/i386-windows/lib/builtins/i386/chkstk2.o \
+  libs/compiler-rt/i386-windows/lib/builtins/i386/moddi3.o \
+  libs/compiler-rt/i386-windows/lib/builtins/mingw_fixfloat.o \
+  libs/compiler-rt/i386-windows/lib/builtins/popcountdi2.o \
+  libs/compiler-rt/i386-windows/lib/builtins/popcountsi2.o \
+  libs/compiler-rt/i386-windows/lib/builtins/udivdi3.o \
+  libs/compiler-rt/i386-windows/lib/builtins/udivmoddi4.o \
+  libs/compiler-rt/i386-windows/lib/builtins/udivmodsi4.o \
+  libs/compiler-rt/i386-windows/lib/builtins/udivmodti4.o \
+  libs/compiler-rt/i386-windows/lib/builtins/udivsi3.o \
+  libs/compiler-rt/i386-windows/lib/builtins/udivti3.o \
+  libs/compiler-rt/i386-windows/lib/builtins/umoddi3.o \
+  libs/compiler-rt/i386-windows/lib/builtins/umodsi3.o \
+  libs/compiler-rt/i386-windows/lib/builtins/umodti3.o
+tools/winegcc/winegcc -o dlls/wined3d/i386-windows/wined3d.dll --wine-objdir . --cc-cmd="i686-w64-mingw32-gcc" -b i686-w64-mingw32 \
+  -Wl,--wine-builtin -shared ../wine-src/dlls/wined3d/wined3d.spec \
+  dlls/wined3d/i386-windows/adapter_gl.o dlls/wined3d/i386-windows/adapter_vk.o \
+  dlls/wined3d/i386-windows/buffer.o dlls/wined3d/i386-windows/context.o \
+  dlls/wined3d/i386-windows/context_gl.o dlls/wined3d/i386-windows/context_vk.o \
+  dlls/wined3d/i386-windows/cs.o dlls/wined3d/i386-windows/decoder.o \
+  dlls/wined3d/i386-windows/device.o dlls/wined3d/i386-windows/directx.o \
+  dlls/wined3d/i386-windows/ffp_gl.o dlls/wined3d/i386-windows/ffp_hlsl.o \
+  dlls/wined3d/i386-windows/gl_compat.o dlls/wined3d/i386-windows/glsl_shader.o \
+  dlls/wined3d/i386-windows/palette.o dlls/wined3d/i386-windows/query.o \
+  dlls/wined3d/i386-windows/resource.o dlls/wined3d/i386-windows/sampler.o \
+  dlls/wined3d/i386-windows/shader.o dlls/wined3d/i386-windows/shader_sm1.o \
+  dlls/wined3d/i386-windows/shader_sm4.o dlls/wined3d/i386-windows/shader_spirv.o \
+  dlls/wined3d/i386-windows/stateblock.o dlls/wined3d/i386-windows/surface.o \
+  dlls/wined3d/i386-windows/swapchain.o dlls/wined3d/i386-windows/texture.o \
+  dlls/wined3d/i386-windows/texture_gl.o dlls/wined3d/i386-windows/texture_vk.o \
+  dlls/wined3d/i386-windows/utils.o dlls/wined3d/i386-windows/vertexdeclaration.o \
+  dlls/wined3d/i386-windows/view.o dlls/wined3d/i386-windows/wined3d_main.o \
+  dlls/wined3d/resource.res dlls/wined3d/version.res libs/vkd3d/i386-windows/libvkd3d.a \
+  dlls/opengl32/i386-windows/libopengl32.a dlls/user32/i386-windows/libuser32.a \
+  dlls/gdi32/i386-windows/libgdi32.a dlls/advapi32/i386-windows/libadvapi32.a \
+  libs/winecrt0/i386-windows/libwinecrt0.a libs/compiler-rt/i386-windows/libcompiler-rt.a \
+  dlls/ucrtbase/i386-windows/libucrtbase.a dlls/kernel32/i386-windows/libkernel32.a \
+  dlls/ntdll/i386-windows/libntdll.a -Wl,--disable-stdcall-fixup -Wl,--build-id

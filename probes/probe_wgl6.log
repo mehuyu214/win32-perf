@@ -1,0 +1,8 @@
+probe_wgl6 start
+renderer: softpipe
+ctx1 map -> 3444f040 err=0
+ctx1 GetBufferPointerv (own map) -> 3444f040 err=0
+ctx2 GetBufferPointerv (ctx1 still mapped) -> 3444f040 err=0
+verdict: ADOPTION RETURNS POINTER (ctx1 ptr 3444f040)
+write through adopted pointer OK
+DONE

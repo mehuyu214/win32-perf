@@ -1,0 +1,9 @@
+probe_wgl7 start
+renderer: softpipe
+ctx1: storage+map -> 3444f040 err=0
+  A(mapped) ctx2 BufferData(3686400): err=0x505 size=0
+  A(mapped) ctx2 BufferStorage(16MiB): err=0x505 size=0
+ctx1: unmapped
+  B(unmapped) ctx2 BufferData(3686400): err=0x505 size=0
+  B(unmapped) ctx2 BufferStorage(16MiB): err=0x505 size=0
+DONE

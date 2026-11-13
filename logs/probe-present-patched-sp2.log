@@ -1,0 +1,21 @@
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w7975539495231025903.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+CreateDevice hr=0x00000000
+CreateTexture hr=0x00000000
+frame,A_clear_present,0,256,0,7786496,7969792
+frame,A_clear_present,1,256,0,8205056,8205312
+frame,A_clear_present,2,256,0,8219136,8227840
+frame,A_clear_present,3,512,0,8674816,8676096
+frame,A_clear_present,4,512,0,8506112,8507136
+frame,A_clear_present,5,512,0,7975168,7976704
+frame,A_clear_present,6,256,0,7730688,7731200
+frame,A_clear_present,7,512,0,7040000,7104512
+frame,A_clear_present,8,256,0,8184064,8184576

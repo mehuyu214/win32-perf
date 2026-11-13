@@ -1,0 +1,417 @@
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to enable C23 features... unsupported
+checking for gcc option to enable C11 features... none needed
+checking for g++... g++
+checking whether the compiler supports GNU C++... yes
+checking whether g++ accepts -g... yes
+checking for cpp... cpp
+checking for ld... ld
+checking for the directory containing the Wine tools... none needed
+checking for flex... flex
+checking whether flex is recent enough... yes
+checking for bison... bison
+checking whether bison is recent enough... yes
+checking for strip... strip
+checking whether ln -s works... yes
+checking for pkg-config... pkg-config
+checking for msgfmt... no
+checking for i686-w64-mingw32-gcc... i686-w64-mingw32-gcc
+checking whether i686-w64-mingw32-gcc supports -target i686-windows -fuse-ld=lld -Wl,-subsystem:console -Wl,-WX --no-default-config... no
+checking whether i686-w64-mingw32-gcc supports -target i686-windows -fuse-ld=lld -Wl,-subsystem:console -Wl,-WX... no
+checking whether i686-w64-mingw32-gcc works... yes
+checking for i686-w64-mingw32-gcc option to enable C99 features... none needed
+checking for i686-w64-mingw32-gcc option to enable C++17 features... unsupported
+checking whether i686-w64-mingw32-gcc supports -fno-strict-aliasing... yes
+checking whether i686-w64-mingw32-gcc supports -Werror=unknown-warning-option... no
+checking whether i686-w64-mingw32-gcc supports -Werror=unused-command-line-argument... no
+checking whether i686-w64-mingw32-gcc supports -Werror=ignored-optimization-argument... no
+checking whether i686-w64-mingw32-gcc supports -Werror=unsupported-floating-point-opt... no
+checking whether i686-w64-mingw32-gcc supports -Wempty-body... yes
+checking whether i686-w64-mingw32-gcc supports -Wignored-qualifiers... yes
+checking whether i686-w64-mingw32-gcc supports -Winit-self... yes
+checking whether i686-w64-mingw32-gcc supports -Wpacked-not-aligned... yes
+checking whether i686-w64-mingw32-gcc supports -Wmicrosoft-enum-forward-reference... no
+checking whether i686-w64-mingw32-gcc supports -Wshift-overflow=2... yes
+checking whether i686-w64-mingw32-gcc supports -Wtype-limits... yes
+checking whether i686-w64-mingw32-gcc supports -Wunused-but-set-parameter... yes
+checking whether i686-w64-mingw32-gcc supports -Wvla... yes
+checking whether i686-w64-mingw32-gcc supports -Wwrite-strings... yes
+checking whether i686-w64-mingw32-gcc supports -Wpointer-arith... yes
+checking whether i686-w64-mingw32-gcc supports -Wlogical-op... yes
+checking whether i686-w64-mingw32-gcc supports -Wenum-enum-conversion... no
+checking whether i686-w64-mingw32-gcc supports -Wenum-conversion... no
+checking whether i686-w64-mingw32-gcc supports -ffunction-sections... yes
+checking whether i686-w64-mingw32-gcc supports -ffp-exception-behavior=maytrap... no
+checking whether i686-w64-mingw32-gcc supports -fms-hotpatch -DMIN_CLANG_VERSION=18... no
+checking whether i686-w64-mingw32-gcc supports -flarge-source-files -Wmisleading-indentation... yes
+checking whether i686-w64-mingw32-gcc supports -fno-omit-frame-pointer... yes
+checking whether i686-w64-mingw32-gcc supports -mpreferred-stack-boundary=2... yes
+checking whether i686-w64-mingw32-gcc supports -mlong-double-64... yes
+checking whether i686-w64-mingw32-gcc supports -msse2... yes
+checking whether i686-w64-mingw32-gcc supports -Wl,--disable-stdcall-fixup... yes
+checking whether i686-w64-mingw32-gcc supports -Wl,-debug:dwarf... no
+checking whether i686-w64-mingw32-gcc supports -gdwarf-4... yes
+checking whether i686-w64-mingw32-gcc supports -Wdeclaration-after-statement... yes
+checking whether i686-w64-mingw32-gcc supports -Wstrict-prototypes... yes
+checking whether i686-w64-mingw32-gcc supports -Wabsolute-value... yes
+checking whether i686-w64-mingw32-gcc supports -fasync-exceptions -DMIN_CLANG_VERSION=19... no
+checking for i386_set_ldt in -li386... no
+checking for gcc -m64 option to support large files... none needed
+checking for gcc -m64 option to support timestamps after 2038... none needed
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for OpenCL/opencl.h... no
+checking for arpa/inet.h... yes
+checking for arpa/nameser.h... yes
+checking for asm/hwcap.h... no
+checking for asm/termbits.h... yes
+checking for asm/types.h... yes
+checking for asm/user.h... no
+checking for bluetooth/bluetooth.h... no
+checking for dev/evdev/input.h... no
+checking for elf.h... yes
+checking for gettext-po.h... no
+checking for link.h... yes
+checking for linux/cdrom.h... yes
+checking for linux/errqueue.h... yes
+checking for linux/filter.h... yes
+checking for linux/fs.h... yes
+checking for linux/hdreg.h... yes
+checking for linux/hidraw.h... yes
+checking for linux/input.h... yes
+checking for linux/ioctl.h... yes
+checking for linux/major.h... yes
+checking for linux/memfd.h... yes
+checking for linux/ntsync.h... no
+checking for linux/param.h... yes
+checking for linux/serial.h... yes
+checking for linux/types.h... yes
+checking for linux/ucdrom.h... no
+checking for linux/userfaultfd.h... yes
+checking for linux/wireless.h... yes
+checking for lwp.h... no
+checking for mach-o/loader.h... no
+checking for mach/mach.h... no
+checking for machine/cpu.h... no
+checking for machine/sysarch.h... no
+checking for mntent.h... yes
+checking for netdb.h... yes
+checking for netinet/in.h... yes
+checking for netinet/in_systm.h... yes
+checking for netinet/tcp.h... yes
+checking for netinet/tcp_fsm.h... no
+checking for port.h... no
+checking for pwd.h... yes
+checking for sched.h... yes
+checking for scsi/scsi.h... yes
+checking for scsi/scsi_ioctl.h... yes
+checking for scsi/sg.h... yes
+checking for sys/attr.h... no
+checking for sys/auxv.h... yes
+checking for sys/cdio.h... no
+checking for sys/epoll.h... yes
+checking for sys/event.h... no
+checking for sys/extattr.h... no
+checking for sys/filio.h... no
+checking for sys/ipc.h... yes
+checking for sys/link.h... no
+checking for sys/modem.h... no
+checking for sys/mtio.h... yes
+checking for sys/param.h... yes
+checking for sys/personality.h... yes
+checking for sys/prctl.h... yes
+checking for sys/ptrace.h... yes
+checking for sys/queue.h... yes
+checking for sys/random.h... yes
+checking for sys/resource.h... yes
+checking for sys/scsiio.h... no
+checking for sys/shm.h... yes
+checking for sys/signal.h... yes
+checking for sys/socketvar.h... yes
+checking for sys/sockio.h... no
+checking for sys/statvfs.h... yes
+checking for sys/strtio.h... no
+checking for sys/syscall.h... yes
+checking for sys/sysinfo.h... yes
+checking for sys/times.h... yes
+checking for sys/uio.h... yes
+checking for sys/user.h... yes
+checking for sys/utsname.h... yes
+checking for sys/vnode.h... no
+checking for sys/xattr.h... yes
+checking for syscall.h... yes
+checking for utime.h... yes
+checking for valgrind/memcheck.h... no
+checking for valgrind/valgrind.h... no
+checking for sys/mkdev.h... no
+checking for sys/sysmacros.h... yes
+checking for sys/conf.h... no
+checking for sys/mount.h... yes
+checking for sys/statfs.h... yes
+checking for sys/user.h... (cached) yes
+checking for sys/vfs.h... yes
+checking for sys/sysctl.h... no
+checking for netinet/ip.h... yes
+checking for net/if.h... yes
+checking for net/if_arp.h... yes
+checking for net/if_dl.h... no
+checking for net/if_types.h... no
+checking for net/route.h... yes
+checking for netinet/if_ether.h... yes
+checking for netinet/in_pcb.h... no
+checking for netinet/ip_icmp.h... yes
+checking for netinet/ip_var.h... no
+checking for netinet/udp.h... yes
+checking for netinet6/ip6_var.h... no
+checking for netipx/ipx.h... yes
+checking for sys/un.h... yes
+checking for netinet/udp_var.h... no
+checking for netinet/icmp_var.h... no
+checking for netinet/icmp6.h... yes
+checking for netinet/tcp_var.h... no
+checking for linux/ipx.h... no
+checking for linux/irda.h... no
+checking for linux/rtnetlink.h... yes
+checking for resolv.h... yes
+checking for ifaddrs.h... yes
+checking for sys/ucontext.h... yes
+checking for sys/thr.h... no
+checking for pthread_np.h... no
+checking for linux/videodev2.h... yes
+checking for libprocstat.h... no
+checking for bluetooth/rfcomm.h... no
+checking whether getxattr takes additional arguments... no
+checking for ldd... /usr/bin/ldd
+checking for otool... no
+checking for readelf... readelf
+checking whether -Wl,-z,defs works correctly... yes
+checking whether the compiler supports -Wl,--export-dynamic... yes
+checking whether the compiler supports -static-pie... yes
+checking for pthread_create... yes
+checking for nasm... no
+checking for -lEGL... not found
+checking how to run the C preprocessor... gcc -m64 -E
+checking for X... libraries , headers 
+checking for -lX11... libX11.so.6
+checking for -lXext... libXext.so.6
+checking for X11/extensions/shape.h... yes
+checking for X11/extensions/XInput.h... no
+checking for X11/extensions/XInput2.h... no
+checking for X11/extensions/XShm.h... yes
+checking for X11/extensions/Xfixes.h... no
+checking for X11/extensions/Xinerama.h... no
+checking for X11/extensions/Xrandr.h... no
+checking for X11/extensions/Xrender.h... yes
+checking for X11/extensions/xf86vmode.h... no
+checking for X11/extensions/xf86vmproto.h... yes
+checking for X11/Xcursor/Xcursor.h... no
+checking for X11/extensions/XInput.h... (cached) no
+checking for XShmQueryExtension in -lXext... yes
+checking for XShapeQueryExtension in -lXext... yes
+checking for -lXxf86vm... not found
+checking for -lXrender... libXrender.so.1
+checking for XRenderSetPictureTransform in -lXrender... yes
+checking for XRenderCreateLinearGradient in -lXrender... yes
+checking for X11/extensions/Xcomposite.h... no
+checking for XICCallback.callback... yes
+checking for XEvent.xcookie... yes
+checking for -lGL... not found
+checking for -lGL... (cached) not found
+checking for wayland-client.h... yes
+checking for wl_display_connect... yes
+checking for wayland-scanner... /usr/bin/wayland-scanner
+checking for xkb_context_new... yes
+checking for wayland-egl.h... yes
+checking for wl_egl_window_create... yes
+checking for CL/cl.h... no
+checking for pcap/pcap.h... no
+checking for SCardEstablishContext... no
+checking for sys/inotify.h... yes
+checking for inotify_add_watch... no
+checking for gnutls/gnutls.h... no
+checking for libusb.h... no
+checking for -lv4l2... not found
+checking for va/va_drm.h... no
+checking for gphoto2-camera.h... no
+checking for gphoto2-port.h... no
+checking for resolver library... -lresolv
+checking for res_getservers... no
+checking for ft2build.h... yes
+checking for -lfreetype... libfreetype.so.6
+checking for pthread_getthreadid_np... no
+checking for snd_pcm_hw_params_get_access_mask... yes
+checking for sys/soundcard.h... yes
+checking for oss_sysinfo.numaudioengines... no
+checking for libudev.h... yes
+checking for udev_new... yes
+checking for SDL.h... no
+checking for cups/cups.h... no
+checking for cups/ppd.h... no
+checking for fontconfig/fontconfig.h... yes
+checking for -lfontconfig... libfontconfig.so.1
+checking for -lodbc... not found
+checking for -lvulkan... not found
+checking for -lMoltenVK... not found
+checking whether the compiler supports -Werror=unknown-warning-option... no
+checking whether the compiler supports -Werror=unused-command-line-argument... no
+checking whether the compiler supports -Werror=ignored-optimization-argument... no
+checking whether the compiler supports -fcf-protection=none... yes
+checking whether the compiler supports -fvisibility=hidden... yes
+checking whether the compiler supports -fno-stack-protector... yes
+checking whether the compiler supports -fno-strict-aliasing... yes
+checking whether the compiler supports -Wdeclaration-after-statement... yes
+checking whether the compiler supports -Wempty-body... yes
+checking whether the compiler supports -Wignored-qualifiers... yes
+checking whether the compiler supports -Winit-self... yes
+checking whether the compiler supports -Wlogical-op... yes
+checking whether the compiler supports -Wpacked-not-aligned... yes
+checking whether the compiler supports -Wpointer-arith... yes
+checking whether the compiler supports -Wshift-overflow=2... yes
+checking whether the compiler supports -Wstrict-prototypes... yes
+checking whether the compiler supports -Wtype-limits... yes
+checking whether the compiler supports -Wunused-but-set-parameter... yes
+checking whether the compiler supports -Wvla... yes
+checking whether the compiler supports -Wwrite-strings... yes
+checking whether the compiler supports -flarge-source-files -Wmisleading-indentation... yes
+checking for flags needed for 64-bit compare-and-swap support... none needed
+checking whether the compiler supports -gdwarf-4... yes
+checking whether the compiler supports -mlong-double-64... yes
+checking whether the compiler supports -fno-builtin... yes
+checking whether the compiler supports -fshort-wchar... yes
+checking whether the compiler supports -Wno-format... yes
+checking for working -mabi=ms... yes
+checking for the need to disable Fortify... yes
+checking whether CFI directives are supported in assembly code... yes
+checking for library containing dlopen... none required
+checking for dladdr1... yes
+checking for dlinfo... yes
+checking for epoll_create... yes
+checking for epoll_pwait2... yes
+checking for fstatfs... yes
+checking for futimens... yes
+checking for futimes... yes
+checking for futimesat... yes
+checking for getaddrinfo... yes
+checking for getattrlist... no
+checking for getauxval... yes
+checking for getifaddrs... yes
+checking for getrandom... yes
+checking for kqueue... no
+checking for memfd_create... yes
+checking for pipe2... yes
+checking for port_create... no
+checking for posix_fadvise... yes
+checking for posix_fallocate... yes
+checking for prctl... yes
+checking for process_vm_readv... yes
+checking for process_vm_writev... yes
+checking for sched_getcpu... yes
+checking for sched_yield... yes
+checking for setproctitle... no
+checking for setprogname... no
+checking for sigprocmask... yes
+checking for sysinfo... yes
+checking for tcdrain... yes
+checking for thr_kill2... no
+checking for library containing clock_gettime... none required
+checking for sched_setaffinity... yes
+checking whether we can use re-entrant gethostbyname_r Linux style... yes
+checking for struct sockaddr_un.sun_len... no
+checking for sg_io_hdr_t.interface_id... yes
+checking for siginfo_t.si_fd... yes
+checking for struct mtget.mt_blksiz... no
+checking for struct mtget.mt_gstat... yes
+checking for struct mtget.mt_blkno... yes
+checking for struct stat.st_mtim... yes
+checking for struct stat.st_mtimespec... no
+checking for struct stat.st_ctim... yes
+checking for struct stat.st_ctimespec... no
+checking for struct stat.st_atim... yes
+checking for struct stat.st_atimespec... no
+checking for struct stat.st_birthtime... no
+checking for struct stat.st_birthtim... no
+checking for struct stat.st_birthtimespec... no
+checking for struct stat.__st_birthtime... no
+checking for struct stat.__st_birthtim... no
+checking for struct sockaddr_in6.sin6_scope_id... yes
+checking for struct __res_state._u._ext.nscount6... yes
+checking for struct in6_pktinfo.ipi6_addr... yes
+checking for struct ipstat.ips_total... no
+checking for struct ip_stats.ips_total... no
+checking for struct ip6stat.ip6s_total... no
+checking for struct icmpstat.icps_error... no
+checking for struct icmp6stat.icp6s_error... no
+checking for struct tcpstat.tcps_connattempt... no
+checking for struct tcp_stats.tcps_connattempt... no
+checking for struct udpstat.udps_ipackets... no
+checking for struct ifreq.ifr_hwaddr... yes
+checking for struct sysinfo.totalram... yes
+checking for struct sysinfo.mem_unit... yes
+checking for __builtin_popcount... yes
+checking for __clear_cache... yes
+checking whether we need to define __x86_64__... no
+creating Makefile rules... done
+configure: creating ./config.status
+config.status: creating include/config.h
+config.status: executing include/stamp-h commands
+config.status: executing tools/makedep commands
+config.status: executing Makefile commands
+
+configure: EGL 64-bit development files not found
+configure: libxcursor 64-bit development files not found, the Xcursor extension won't be supported.
+configure: libxi 64-bit development files not found, the Xinput extension won't be supported.
+configure: libXxf86vm 64-bit development files not found, XFree86 Vidmode won't be supported.
+configure: libxrandr 64-bit development files not found, XRandr won't be supported.
+configure: libxfixes 64-bit development files not found, Xfixes won't be supported.
+configure: libxinerama 64-bit development files not found, multi-monitor setups won't be supported.
+configure: libxcomposite 64-bit development files not found, Xcomposite won't be supported.
+configure: libxkbregistry 64-bit development files not found, the Wayland driver won't be supported.
+configure: OpenCL 64-bit development files not found, OpenCL won't be supported.
+configure: pcap 64-bit development files not found, wpcap won't be supported.
+configure: libpcsclite not found, smart cards won't be supported.
+configure: libdbus 64-bit development files not found, no dynamic device support.
+configure: libsane 64-bit development files not found, scanners won't be supported.
+configure: libusb-1.0 64-bit development files not found (or too old), USB devices won't be supported.
+configure: libv4l2 64-bit development files not found.
+configure: libva-drm 64-bit development files not found, VA video acceleration won't be supported.
+configure: libgphoto2 64-bit development files not found, digital cameras won't be supported.
+configure: libgphoto2_port 64-bit development files not found, digital cameras won't be auto-detected.
+configure: libpulse 64-bit development files not found or too old, Pulse won't be supported.
+configure: FFmpeg 64-bit development files not found.
+configure: gstreamer-1.0 base plugins 64-bit development files not found, GStreamer won't be supported.
+configure: OSS sound system found but too old (OSSv4 needed), OSS won't be supported.
+configure: libSDL2 64-bit development files not found, SDL2 won't be supported.
+configure: libcapi20 64-bit development files not found, ISDN won't be supported.
+configure: libcups 64-bit development files not found, CUPS won't be supported.
+configure: libkrb5 64-bit development files not found (or too old), Kerberos won't be supported.
+configure: libgssapi_krb5 64-bit development files not found (or too old), Kerberos won't be supported.
+configure: libnetapi not found, Samba NetAPI won't be supported.
+configure: libvulkan and libMoltenVK 64-bit development files not found, Vulkan won't be supported.
+
+configure: WARNING: gettext tools not found (or too old), translations won't be built.
+
+configure: WARNING: i386 PE compiler supporting C++17 not found, some modules won't be built.
+
+configure: WARNING: No OpenGL library found on this system.
+OpenGL and Direct3D won't be supported.
+
+configure: WARNING: libgnutls 64-bit development files not found, no schannel support.
+
+configure: Finished.  Do 'make' to compile Wine.
+

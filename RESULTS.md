@@ -640,3 +640,77 @@ run of the same binary.
   correctness-preserving (no data is dropped; the existing mapping is
   the data). A crash-avoidance-only NULL check is explicitly NOT the
   fix. Build + gate next. **[Major verdict — repo sync worthwhile.]**
+
+### wined3d map-adoption patch — built, deployed, PARTIALLY verified; game blocked by a second, independent defect
+
+Patch (own build of wine-11.21, tree win32-perf/wine-src, built with the
+workspace mingw --enable-archs=i386; pristine source kept at
+tools/context_gl.c.pristine): in wined3d_allocator_chunk_gl_map() and
+wined3d_bo_gl_map(), when glMapBufferRange/glMapBuffer returns NULL and
+ARB_MAP_BUFFER_RANGE is present, adopt the existing mapping via
+glGetBufferPointervARB(GL_BUFFER_MAP_POINTER) instead of propagating
+NULL. Deployed ONLY into the workspace copy win32-perf/wine32-patched/
+(stock DLL kept as wined3d.dll.stock); production/shared trees untouched.
+
+Established:
+- probe_wgl6: the adoption primitive works in this stack — from ctx2,
+  glGetBufferPointervARB returns ctx1's live mapping pointer, and
+  writing through it succeeds.
+- Patched probe_present (softpipe, CSMT on, unmasked): phase A frames
+  run with presents of 128-512 us (vs 383 ms llvmpipe) and NO crash
+  through the previously fatal early frames; run 1 was lost to session
+  teardown (see below), the full D-phase completion is still open.
+- Patched GAME (softpipe, CSMT on, unmasked, logs/game-patched1.log):
+  STILL crashes in boot, "Unhandled illegal instruction at 7F76EA31
+  (thread 0104)" — different VA because the rebuilt DLL's layout
+  differs; +seh register capture for this build is still open.
+- probe_wgl7 (bisect of the game's other failure): in the shared
+  two-context topology, NEW buffer allocations in ctx2 (BufferData
+  3.6 MB, BufferStorage 16 MiB) fail with **0x505 OUT_OF_MEMORY,
+  size 0** — whether or not ctx1's buffer is currently mapped. The
+  second context's allocation path itself is broken in this
+  guest-softpipe stack; no map-side patch can fix a buffer that has no
+  storage. This is a distinct defect from the already-mapped 0x502 one
+  (which the patch does fix).
+- Note: killing my lever-3 game (pid 5550) also took down my probe
+  session (shared prefix wineserver/session) — run 1 of the patched
+  probe was lost that way at phase A frame 13 (no crash in its log).
+
+### CORRECTION — the two patched probe runs are CONFOUNDED; the ~8 s Present mode identified
+
+Methodology failure (mine, flagged by KK via the parent): the patched
+probe runs logs/probe-present-patched-sp.log (run 1) and
+logs/probe-present-patched-sp2.log (run 2) were launched while the
+prefix registry still carried "csmt"=dword:0 from the lever tests (the
+key was only removed later, for the patched game run). Their CSMT state
+was neither pinned nor verified. **Both runs are CONFOUNDED and must
+not be cited as patch evidence in either direction.** (In my interim
+reading I also took the wrong column of the probe's frame lines: the
+format is frame,<phase>,<i>,<clear_us>,<draw_us>,<present_us>,<cum_us>;
+the ~128-512 us figures were the CLEAR times.)
+
+Recomputed Present-call (tp) medians, phase A, from the frame lines:
+- patched run 1 (patched DLL, csmt off, mask off): 7937.7 ms (n=14)
+- patched run 2 (patched DLL, csmt off, mask off): 8184.1 ms (n=9)
+- STOCK DLL softpipe csmt-off probe (lever era,
+  probes/probe_present-sp-csmt0.log): 7988.2 ms (n=15)
+- nobufstor run (mask ON, probes/probe_present-wgl-era.log): A tp
+  median 0.5 ms; phase walls A 679 ms/90, B 117 ms/90 (~1.3 ms/frame)
+- original softpipe run (csmt on, mask off): A wall ~990 ms/90 frames
+
+Verdict on the fingerprint: the ~8 s Present is a property of
+**CSMT-off + softpipe + buffer_storage mask OFF**, identical for the
+stock and patched DLLs (a suspiciously constant ~8.0 s quantum — a
+fixed timeout-like wait in the serial present path; mechanism not
+isolated). It does NOT contradict the nobufstor baseline: with the mask
+ON the mode vanishes at probe level. Consequence for lever 3 (mask on
++ csmt off, in-game): its 0.022 content-changes/s crawl is NOT
+explained by this 8 s present mode; the heavy-single-thread reading
+stands for that cell. And CSMT-off softpipe in the GAME crashes at
+boot with host signal 11 on BOTH DLLs (lever 1 stock; patched
+logs/game-patched-csmt0.log, same qemu uncaught-signal-11 signature) —
+CSMT-off is a dead cell on this stack regardless of the DLL.
+
+From here: every patched run pins its CSMT state in the registry
+before launch and verifies it from the live process (maps/environ +
+registry hash recorded in a run header).
