@@ -1,0 +1,17 @@
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w6447317766147935452.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+probe_wgl11 start
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+ctx2 created: 00010002
+ctx1 tests:
+  ctx1 BufferData(4096): id=1 err=0 size=4096
+wine: Unhandled illegal instruction at address 00000000 (thread 0024), starting debugger...
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+Can't attach process 0020: error 5

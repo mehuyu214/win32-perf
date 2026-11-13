@@ -1,0 +1,111 @@
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w7975539495231025903.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\wineboot.exe" at 00400000: builtin
+002c:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 7FEF0000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 7FB90000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 7FE80000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 7FA50000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 7F900000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 7FA20000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 7FB40000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 7F850000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 7F860000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ws2_32.dll" at 7F820000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\dnsapi.dll" at 7F800000: builtin
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\services.exe" at 00400000: builtin
+0034:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 7FEF0000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 7FB90000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 7FE80000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 7FA50000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 7F900000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 7FA20000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 7FB40000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 7F850000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 7F860000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cfgmgr32.dll" at 7F780000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\setupapi.dll" at 7F7C0000: builtin
+0034:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\userenv.dll" at 7F770000: builtin
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\winedevice.exe" at 00400000: builtin
+0040:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 7FEF0000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 7FB90000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 7FE80000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 7FA50000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 7F900000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 7FA20000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 7FB40000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 7F870000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\hal.dll" at 7F860000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ntoskrnl.exe" at 7F880000: builtin
+0040:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 7F7C0000: builtin
+004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\drivers\\mountmgr.sys" at 7F7A0000: builtin
+004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cfgmgr32.dll" at 7F6D0000: builtin
+004c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\setupapi.dll" at 7F710000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 7F500000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\user32.dll" at 7F540000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 7F750000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shcore.dll" at 7F480000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shlwapi.dll" at 7F4A0000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shell32.dll" at 1F660000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 7F450000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\combase.dll" at 7F310000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\coml2.dll" at 7F2F0000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ole32.dll" at 7F370000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\mpr.dll" at 7F220000: builtin
+002c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\wininet.dll" at 7F250000: builtin
+0024:trace:loaddll:build_module Loaded L"Z:\\home\\hatch\\workspace\\win32-perf\\probes\\probe_wgl10.exe" at 00400000: native
+0024:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 7FEF0000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 7FB90000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 7FE80000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 7F9A0000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 7F850000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 7F970000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 7FA90000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 7F600000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\user32.dll" at 7F640000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\GDI32.dll" at 7FAE0000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\OPENGL32.DLL" at 7F460000: builtin
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 7F430000: builtin
+probe_wgl10 mode=C
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\explorer.exe" at 00400000: builtin
+0068:trace:loaddll:build_ntdll_module Loaded L"C:\\windows\\system32\\ntdll.dll" at 7FEF0000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernelbase.dll" at 7FB90000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\kernel32.dll" at 7FE80000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\msvcrt.dll" at 7FA50000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ucrtbase.dll" at 7F900000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\sechost.dll" at 7FA20000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\advapi32.dll" at 7FB40000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\win32u.dll" at 7F600000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\user32.dll" at 7F640000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\gdi32.dll" at 7F850000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\cryptbase.dll" at 7F550000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\rpcrt4.dll" at 7F560000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\imm32.dll" at 7F520000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\winex11.drv" at 7F510000: builtin
+0068:trace:loaddll:free_modref Unloaded module L"C:\\windows\\system32\\winex11.drv" : builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\winewayland.drv" at 7F510000: builtin
+0068:trace:loaddll:free_modref Unloaded module L"C:\\windows\\system32\\winewayland.drv" : builtin
+0068:err:vulkan:vulkan_init_once Failed to load libvulkan.so.1
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\uxtheme.dll" at 7F4E0000: builtin
+0068:trace:loaddll:free_modref Unloaded module L"C:\\windows\\system32\\uxtheme.dll" : builtin
+0068:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+0068:err:winediag:nodrv_CreateWindow L"The explorer process failed to start."
+0068:err:systray:initialize_systray Could not create tray window
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shcore.dll" at 7F4A0000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shlwapi.dll" at 7F4C0000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\shell32.dll" at 1F660000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\combase.dll" at 7F360000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\coml2.dll" at 7F340000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\ole32.dll" at 7F3C0000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\oleaut32.dll" at 7F220000: builtin
+0068:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\actxprxy.dll" at 7F300000: builtin
+0068:err:ole:start_rpcss Failed to open RpcSs service
+0024:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\uxtheme.dll" at 7F3F0000: builtin
+0024:trace:loaddll:free_modref Unloaded module L"C:\\windows\\system32\\uxtheme.dll" : builtin
+0024:err:winediag:nodrv_CreateWindow Application tried to create a window, but no driver could be loaded.
+0024:err:winediag:nodrv_CreateWindow L"Make sure that your display server is running and that its variables are set."
+ctx2 created: 00000000 (mode C)
+DONE

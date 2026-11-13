@@ -1,0 +1,9 @@
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w7975539495231025903.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+probe_wgl10 mode=C
+[q32sup] execve /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w16227861303292624687.sh
+ctx2 created: 00000000 (mode C)
+DONE

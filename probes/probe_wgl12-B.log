@@ -1,0 +1,4 @@
+probe_wgl12 seq=B
+  B-legacy BufferData: err=0 size=3686400 (renderer softpipe)
+  B-attribs-after-legacy-destroyed BufferData: err=0 size=3686400 (renderer softpipe)
+DONE

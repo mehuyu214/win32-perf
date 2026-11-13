@@ -1,0 +1,356 @@
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w6447317766147935452.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+probe_wgl10 mode=C
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/hatch/.drirc: No such file or directory.
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/hatch/.drirc: No such file or directory.
+libEGL debug: eglPrintConfigDebug: nothing to print
+libEGL debug: ---------------
+libEGL debug: Configurations:
+libEGL debug: cho       bf lv colourbuffer dp st  ms           vis  cav  bi     renderable           supported
+libEGL debug: sen    id sz  l  r  g  b  a  th cl ns b           id  eat  nd  gl es es2 es3 vg         surfaces
+libEGL debug: ---------------
+libEGL debug:     0x001 32  0  8  8  8  8   0  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x002 32  0  8  8  8  8  16  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x003 32  0  8  8  8  8  24  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x004 32  0  8  8  8  8  24  8  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x005 32  0  8  8  8  8  32  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x006 24  0  8  8  8  0   0  0  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x007 24  0  8  8  8  0  16  0  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x008 24  0  8  8  8  0  24  0  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x009 24  0  8  8  8  0  24  8  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00a 24  0  8  8  8  0  32  0  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00b 32  0  8  8  8  8   0  0  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00c 32  0  8  8  8  8  16  0  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00d 32  0  8  8  8  8  24  0  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00e 32  0  8  8  8  8  24  8  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00f 32  0  8  8  8  8  32  0  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x010 24  0  8  8  8  0   0  0  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x011 24  0  8  8  8  0  16  0  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x012 24  0  8  8  8  0  24  0  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x013 24  0  8  8  8  0  24  8  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x014 24  0  8  8  8  0  32  0  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x015 32  0  8  8  8  8   0  0  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x016 32  0  8  8  8  8  16  0  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x017 32  0  8  8  8  8  24  0  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x018 32  0  8  8  8  8  24  8  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x019 32  0  8  8  8  8  32  0  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug: ---------------
+libEGL debug: Configurations:
+libEGL debug: cho       bf lv colourbuffer dp st  ms           vis  cav  bi     renderable           supported
+libEGL debug: sen    id sz  l  r  g  b  a  th cl ns b           id  eat  nd  gl es es2 es3 vg         surfaces
+libEGL debug: ---------------
+libEGL debug:     0x001 32  0  8  8  8  8   0  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/hatch/.drirc: No such file or directory.
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/hatch/.drirc: No such file or directory.
+libEGL debug: eglPrintConfigDebug: nothing to print
+libEGL debug: ---------------
+libEGL debug: Configurations:
+libEGL debug: cho       bf lv colourbuffer dp st  ms           vis  cav  bi     renderable           supported
+libEGL debug: sen    id sz  l  r  g  b  a  th cl ns b           id  eat  nd  gl es es2 es3 vg         surfaces
+libEGL debug: ---------------
+libEGL debug:     0x001 32  0  8  8  8  8   0  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x002 32  0  8  8  8  8  16  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x003 32  0  8  8  8  8  24  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x004 32  0  8  8  8  8  24  8  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x005 32  0  8  8  8  8  32  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x006 24  0  8  8  8  0   0  0  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x007 24  0  8  8  8  0  16  0  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x008 24  0  8  8  8  0  24  0  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x009 24  0  8  8  8  0  24  8  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00a 24  0  8  8  8  0  32  0  0 0 0x00000021TC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00b 32  0  8  8  8  8   0  0  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00c 32  0  8  8  8  8  16  0  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00d 32  0  8  8  8  8  24  0  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00e 32  0  8  8  8  8  24  8  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x00f 32  0  8  8  8  8  32  0  0 0 0x00000022DC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x010 24  0  8  8  8  0   0  0  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x011 24  0  8  8  8  0  16  0  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x012 24  0  8  8  8  0  24  0  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x013 24  0  8  8  8  0  24  8  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x014 24  0  8  8  8  0  32  0  0 0 0x00000022DC        y   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x015 32  0  8  8  8  8   0  0  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x016 32  0  8  8  8  8  16  0  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x017 32  0  8  8  8  8  24  0  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x018 32  0  8  8  8  8  24  8  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug:     0x019 32  0  8  8  8  8  32  0  0 0 0x00000040TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug: ---------------
+libEGL debug: Configurations:
+libEGL debug: cho       bf lv colourbuffer dp st  ms           vis  cav  bi     renderable           supported
+libEGL debug: sen    id sz  l  r  g  b  a  th cl ns b           id  eat  nd  gl es es2 es3 vg         surfaces
+libEGL debug: ---------------
+libEGL debug:     0x001 32  0  8  8  8  8   0  0  0 0 0x00000021TC        a   y  y   y   y     win,pb,pix,prsv
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3009 (EGL_BAD_MATCH) in eglCreateContext: dri2_create_context
+
+ctx2 created: 00010002 (mode C)
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+libEGL debug: EGL user error 0x3003 (EGL_BAD_ALLOC) in eglCreateContext: dri2_create_context
+
+ctx2: renderer=softpipe version=3.3 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+Mesa: error: GL_OUT_OF_MEMORY in glBufferData
+  ctx2 BufferData: err=0x505 size=0
+Mesa: error: GL_OUT_OF_MEMORY in glBufferStorage
+  ctx2 BufferStorage: err=0x505 size=0
+DONE

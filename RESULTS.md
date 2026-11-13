@@ -714,3 +714,173 @@ CSMT-off is a dead cell on this stack regardless of the DLL.
 From here: every patched run pins its CSMT state in the registry
 before launch and verifies it from the live process (maps/environ +
 registry hash recorded in a run header).
+
+### Second defect characterised (KK: not a known upstream bug; report at resolution)
+
+Established by probes wgl7-wgl9 (softpipe, guest stack), all in
+probes/probe_wgl*.log:
+- In the two-context topology, NEW buffer allocations (BufferData,
+  BufferStorage) in the SECOND context fail with **0x505
+  OUT_OF_MEMORY, BUFFER_SIZE 0** — whether or not any buffer is
+  currently mapped, and (wgl9, corrected attribs) whether the second
+  context is a CORE or a COMPATIBILITY profile (profile mask
+  0x9126 = 1 core / 2 compat; the version string confirms each). The
+  first (legacy) context allocates normally.
+- Correction to my own earlier probe labelling: probes wgl3-wgl8 set
+  attrib 0x2094 (WGL_CONTEXT_FLAGS_ARB) = 2, i.e. FORWARD_COMPATIBLE,
+  not an explicit profile mask; wined3d's own context_create_wgl_
+  attribs (context_gl.c) sets NO profile mask at all, only the GL
+  version (3.3) — so wined3d's dedicated contexts here are default
+  profile. The 0x505 conclusion is profile-independent per wgl9.
+- At most two WGL contexts could be created in these probes; a third
+  creation of any flavour failed (creation-order artefact not yet
+  fully separated from a hard limit).
+- The map-adoption patch does NOT address this defect (nothing exists
+  to adopt when storage itself failed). In the patched CSMT-on probe,
+  the D-phase still dies at frame 1, but the manifestation VARIES by
+  run (map-chain + memcpy at 7FA46861 in one run; a call to address 0
+  with no map-chain in another, in which the diagnostic build's
+  chunk-create/chunk-map diagnostics never fired) — multiple NULL
+  consumptions racing downstream of flaky second-context behaviour.
+- wined3d-side consequence chain (source-verified): the allocator
+  chunk (64 MiB, wined3d_context_gl_allocate_vram_chunk_buffer) is
+  created with glBufferStorage on whichever context first needs VRAM;
+  if that is the CS (second) context, storage fails here, the chunk's
+  map then fails, and copy_bo_address's memcpy branch consumes the
+  NULL (ARB_COPY_BUFFER branch requires both BOs present).
+
+### Defect layer moved: raw EGL and raw GLX are HEALTHY; the break is in Wine 11's win32u OpenGL layer
+
+Discriminators (all softpipe, guest stack):
+- probe_egl2 (raw EGL, X11 platform, shared ctx2): BufferData and
+  BufferStorage SUCCEED in ctx2.
+- probe_glx / glx2 / glxD / glxS (raw GLX: attribs-core, compat,
+  cross-connection, create+destroy-first, stencil configs): ALL
+  healthy, ctx2 allocations succeed everywhere.
+- Via WGL (winex11/win32u): second-context allocations fail 0x505
+  (wgl7-wgl11), with order dependence (wgl12: a lone attribs context
+  allocates fine; legacy-then-attribs-after-destroy fine; two live
+  attribs contexts -> second creation fails outright).
+- Wine 11 win32u/opengl.c architecture (source-read): every app
+  context is created by egldrv_context_create via EGL with
+  EGL_NO_CONFIG_KHR, SHARING with an internal per-profile ROOT
+  context (root_core / root_compat / root_noerror, created lazily by
+  internal_context_create), plus per-thread internal contexts sharing
+  the root. In the wgl10 run, win32u logged:
+  "err:wgl:internal_context_create Failed to create internal thread
+  context with attrs {format 101 ... profile 0x1}" — an internal
+  context creation failed across all formats.
+- Working model (hypothesis, to be bisected by patch): the SECOND
+  root context created lands on a broken EGL screen instance in this
+  stack; contexts sharing that root inherit the allocation failure
+  (0x505). First root (and its members) are healthy — matching
+  wgl10 (compat ctx1 healthy, core ctx2 broken) and wgl12-A/C
+  (first-created profile's contexts healthy).
+- Fix candidates in win32u (buildable in win32-perf/build):
+  V1 = single share-root for all profiles in get_root_context.
+  V2 = default attribs profile -> compat (single root_compat).
+
+### Wine MR !11161 — ABSENT from our 11.21 (established); backport in progress
+
+MR !11161 "opengl32: Implement wglShareLists on the PE side and share
+all unix contexts together" (7 commits, merged to master 2026-06-17;
+key commit e0a0ab55202d "win32u: Share all unix-side GL contexts with
+a global context"). Content check against the 11.21 tree
+(win32-perf/wine-src): the MR's markers (global_context, null_context,
+the new p_context_create(struct opengl_context*, HDC, const int*)
+driver signature in include/wine/opengl_driver.h) are ABSENT; 11.21
+carries the older root-context design (root_core/root_compat/
+root_noerror + internal_context_create with the attrs-based
+p_context_create). So the MR is a live candidate for our chain — it
+reworks exactly the internal-context/sharing machinery whose failure
+we measured (err:wgl internal_context_create, second-context 0x505).
+Backport (cherry-pick onto 11.21) + discriminator ladder
+(wgl10-C -> wgl12-C -> probe_present D -> game gate) in progress.
+Also open from the raw-EGL work: config-less eglCreateContext fails
+0x3004 on a fresh platform-X11 display in raw EGL for every profile
+combination (probe_egl6), yet succeeds inside Wine — the in-Wine
+display path differs from the raw probes in some loader respect not
+yet isolated; the MR test may moot it.
+
+## PATCH LINE FROZEN (2026-11-13 ~18:40, KK order)
+
+State at freeze: winex11.drv version-supply patch (supply GL 3.3 attribs
+when a profile mask is given without a version, for win32u internal
+thread contexts) built as i386 via a local -m32 pipeline
+(scripts/build-winex11-32.sh; extracted libc6-dev-i386/lib32gcc debs).
+Blocker that froze the line: the self-built winex11.so does NOT
+reproduce the Kron4ek binary's behaviour — with the self-build (patched
+OR pristine source, verified both), the graphics driver fails to load
+in the prefix (nodrv) unless linked -Bsymbolic, and even then attribs
+context creation returns NULL where the Kron4ek build creates it (root
+cause traced to build configuration: my configure lacked the host -dev
+libraries, so SONAME_LIBGL and the X-extension sonames are UNDEFINED in
+my config.h — the GLX/opengl support is compiled out). Comparisons
+against the Kron4ek baseline are therefore meaningless on the self-build
+tree. The MR !11161 backport is likewise parked (absent from 11.21,
+established; its patches do not apply to 11.21 due to structural drift).
+The patched tree currently holds the self-built winex11.so — DO NOT
+USE wine32-patched for game runs; the stock tree is the baseline.
+Repo-sync note: this freeze state + the virgl section below are
+sync-worthy.
+
+## VIRGL/VTEST CAMPAIGN (2026-11-13 evening) — game boots and renders
+## on virgl, stalls at the title loop
+
+KEY DISCOVERY (the earlier "guest selection blocked" verdict was
+WRONG): the software-winsys virgl-over-vtest screen is selected with
+GALLIUM_DRIVER=virpipe (not "virgl" — mesa-src
+auxiliary/target-helpers/inline_sw_helper.h: driver name "virpipe" ->
+virgl_vtest_winsys_wrap -> virgl_create_screen). The shipped Ubuntu
+libgallium-25.2.8 in the sysroot contains "virpipe" and
+"VTEST_SOCKET_NAME" strings — the path is compiled in. No custom Mesa
+build needed. virgl_test_server (win32-perf/virgl, --use-egl-surfaceless,
+socket win32-perf/virgl.sock) verified accepting; guest contexts
+connect ("vtest_client_dispatch_commands: client context created").
+
+ESTABLISHED:
+- Raw GLX on virpipe (probe_glxswap.py, own :115 X server, guest stack):
+  legacy context window swaps WORK: swap0 30.2 ms, swaps 1-4 =
+  14.1/1.6/1.5/1.6 ms, err 0. (Compare: softpipe D3D9 Present median
+  ~400 ms; the virgl present path is ~2 orders faster at the GL level.)
+- The GAME (stock wine tree, own prefix, GALLIUM_DRIVER=virpipe +
+  VTEST_SOCKET_NAME) boots through the logo sequence to the FULL TITLE
+  SCREEN, rendered CORRECTLY (all textures, menu, logo;
+  logs/shot-virgl3-t240.png, shot-virgl7-b.png). Boot-to-title ~3.5-4 min
+  wall under current VM contention (production recording holds ~100%
+  of one core). No crash in CSMT-on or CSMT-off virgl runs.
+- At the title, the game then stalls: XDamage on :115 = 0.05 events/s
+  (1 event in 20 s, attributable to my own screenshot) across virgl4/5/6/7;
+  a 60 s x11grab capture (logs/cap-virgl6-60s.mkv) shows the title
+  pixel-static over 25 s windows; the game does not respond to ANY input:
+  scripts/click (XSendEvent), xdotool XTEST clicks (instant and 1.5 s
+  held, with windowfocus on the correct game window 0xa00005 and on the
+  second fullscreen window), keyboard Down/Return/Space after
+  windowfocus (KK's suggestion — no effect, no highlight movement).
+  vblank_mode=0 and CSMT-off variants: identical stall.
+- Not audio: my line's PulseAudio (tcp 47135) had died in a VM restart
+  (as had the :115 Xvfb — both restarted); with PA up, the game holds a
+  live sink input (TVP/KIRIKIRI, not corked, BGM flowing, buffer
+  latency ~341 ms) and STILL stalls. Wine game log: no err/fixme lines.
+- Thread state at the stall (virgl7, game qemu): the two busiest
+  threads (51 s and 30 s cumulative CPU) both blocked in anon_pipe_read;
+  main thread near-idle. NOT a CPU-bound render loop; NOT a hard crash.
+- Control memory: on THIS line with llvmpipe (Phase 1-2, hours earlier)
+  the same prefix/game was driven into dialogue Ch.1-1 with the same
+  input tooling — input worked there. (Not re-run; llvmpipe retired by
+  KK. A fresh control would separate virgl-specific from
+  environment-drift, since Xvfb/PA died unnoticed today once already.)
+
+HYPOTHESIS (not established): after presenting the title, the game's
+main loop blocks on a pipe-based wait that never completes on the virgl
+path (candidates: a wined3d sync/fence completion routed differently
+under virgl, or a TVP helper/movie-thread pipe), while boot-phase
+presents (loading-driven) succeed. The stall is ABOVE the Mesa present
+path — raw virgl swaps are fast and correct — and is not explained by
+audio, vsync throttling, CSMT state, focus, or input method.
+
+STATUS vs GATE: virgl FAILS the in-game gate as it stands (cannot enter
+the story), despite passing rendering correctness at title and a ~250x
+faster raw present. Story video/numbers: not obtainable until the
+title stall is broken. Live instance left running: virgl7 (CSMT off,
+title, sup-pid 20697) for any follow-up test.

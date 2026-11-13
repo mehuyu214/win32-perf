@@ -1,1 +1,2 @@
 W: [pulseaudio] main.c: Couldn't canonicalize binary path, cannot self execute.
+W: [pulseaudio] main.c: /proc/self/exe does not point to /usr/bin/pulseaudio, cannot self execute. Are you playing games?

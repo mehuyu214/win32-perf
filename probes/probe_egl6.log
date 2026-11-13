@@ -1,0 +1,5 @@
+EGL 1.5 no_config_ext=True
+root (noconfig, profile=compat) = None err=0x3004
+second (noconfig, profile=compat, shared) = None err=0x3004
+third (noconfig, profile=compat, ver 3.3, shared) = None err=0x3004
+DONE

@@ -1,0 +1,9 @@
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w6447317766147935452.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+終了コード: 0
+
+qemu: uncaught target signal 11 (Segmentation fault) - core dumped

@@ -1,0 +1,4 @@
+probe_wgl12 seq=C
+  C-attribs1 BufferData: err=0 size=3686400 (renderer softpipe)
+  C-attribs2-shared: NO CONTEXT
+DONE

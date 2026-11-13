@@ -1,0 +1,3 @@
+RUN: probe_present patched-DLL CSMT-ON (key absent) softpipe unmasked
+user.reg sha256=f3687668fbd3be22f59535d550965cc20d67375f5bde59b8eff80068f757b35b csmt=ABSENT(ON)
+WINEBIN target: /home/hatch/workspace/win32-perf/wine32-patched/wine-11.21-x86/bin/wine

@@ -1,0 +1,3 @@
+probe_wgl12 seq=A
+  A-attribs-only BufferData: err=0 size=3686400 (renderer softpipe)
+DONE

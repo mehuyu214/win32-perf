@@ -1,0 +1,23 @@
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/context_gl.o ../wine-src/dlls/wined3d/context_gl.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+In file included from ../wine-src/dlls/wined3d/context_gl.c:28:
+../wine-src/dlls/wined3d/context_gl.c: In function 'wined3d_context_gl_allocate_vram_chunk_buffer':
+../wine-src/dlls/wined3d/wined3d_gl.h:379:43: error: 'const struct <anonymous>' has no member named 'p_glGetError'
+  379 | #define GL_EXTCALL(f) (gl_info->gl_ops.ext.p_##f)
+      |                                           ^
+../wine-src/dlls/wined3d/context_gl.c:2689:20: note: in expansion of macro 'GL_EXTCALL'
+ 2689 |         GLenum e = GL_EXTCALL(glGetError());
+      |                    ^~~~~~~~~~
+../wine-src/dlls/wined3d/context_gl.c: In function 'wined3d_allocator_chunk_gl_map':
+../wine-src/dlls/wined3d/wined3d_gl.h:379:43: error: 'const struct <anonymous>' has no member named 'p_glGetError'
+  379 | #define GL_EXTCALL(f) (gl_info->gl_ops.ext.p_##f)
+      |                                           ^
+../wine-src/dlls/wined3d/context_gl.c:2728:24: note: in expansion of macro 'GL_EXTCALL'
+ 2728 |             GLenum e = GL_EXTCALL(glGetError());
+      |                        ^~~~~~~~~~
+make: *** [Makefile:172867: dlls/wined3d/i386-windows/context_gl.o] Error 1

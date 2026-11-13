@@ -1,0 +1,7 @@
+window 0xe00002 mapped
+legacy ctx=143121344
+legacy-red swap0 30.2 ms err=0x0
+legacy-red swap1 14.1 ms err=0x0
+legacy-red swap2 1.6 ms err=0x0
+legacy-red swap3 1.5 ms err=0x0
+legacy-red swap4 1.6 ms err=0x0

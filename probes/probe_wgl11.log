@@ -1,0 +1,4 @@
+probe_wgl11 start
+ctx2 created: 00010002
+ctx1 tests:
+  ctx1 BufferData(4096): id=1 err=0 size=4096

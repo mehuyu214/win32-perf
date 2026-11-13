@@ -1,0 +1,401 @@
+W: [pulseaudio] main.c: This program is not intended to be run as root (unless --system is specified).
+I: [pulseaudio] main.c: setrlimit(RLIMIT_NICE, (31, 31)) failed: Operation not permitted
+I: [pulseaudio] main.c: setrlimit(RLIMIT_RTPRIO, (9, 9)) failed: Operation not permitted
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [pulseaudio] core-util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+I: [pulseaudio] core-util.c: Failed to acquire high-priority scheduling: Input/output error
+I: [pulseaudio] main.c: This is PulseAudio 16.1
+I: [pulseaudio] main.c: Page size is 4096 bytes
+I: [pulseaudio] main.c: Machine ID is 1e37a5e9520b492caab9dc2ce6297184.
+I: [pulseaudio] main.c: Using runtime directory /home/hatch/.config/pulse/1e37a5e9520b492caab9dc2ce6297184-runtime.
+I: [pulseaudio] main.c: Using state directory /home/hatch/.config/pulse.
+I: [pulseaudio] main.c: Using modules directory /home/hatch/workspace/win32-perf/pa-bin/usr/lib/pulse-16.1+dfsg1/modules.
+I: [pulseaudio] main.c: Running in system mode: no
+I: [pulseaudio] main.c: System supports high resolution timers
+I: [pulseaudio] cpu-x86.c: CPU flags: CMOV MMX SSE SSE2 SSE3 SSSE3 SSE4_1 SSE4_2 MMXEXT 
+I: [pulseaudio] svolume_mmx.c: Initialising MMX optimized volume functions.
+I: [pulseaudio] remap_mmx.c: Initialising MMX optimized remappers.
+I: [pulseaudio] svolume_sse.c: Initialising SSE2 optimized volume functions.
+I: [pulseaudio] remap_sse.c: Initialising SSE2 optimized remappers.
+I: [pulseaudio] sconv_sse.c: Initialising SSE2 optimized conversions.
+I: [pulseaudio] svolume_orc.c: Initialising ORC optimized volume functions.
+I: [pulseaudio] module.c: Loaded "module-native-protocol-unix" (index: #0; argument: "socket=/home/hatch/workspace/win32-perf/pa/native auth-anonymous=1").
+I: [pulseaudio] module.c: Loaded "module-native-protocol-tcp" (index: #1; argument: "port=47135 auth-anonymous=1 auth-ip-acl=127.0.0.1").
+I: [pulseaudio] sink.c: Created sink 0 "game" with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink.c:     device.description = "GameSinkPerf"
+I: [pulseaudio] sink.c:     device.class = "abstract"
+I: [pulseaudio] sink.c:     device.icon_name = "audio-card"
+I: [pulseaudio] source.c: Created source 0 "game.monitor" with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] source.c:     device.description = "Monitor of GameSinkPerf"
+I: [pulseaudio] source.c:     device.class = "monitor"
+I: [pulseaudio] source.c:     device.icon_name = "audio-input-microphone"
+E: [null-sink] util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [null-sink] util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [null-sink] util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [null-sink] util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+E: [null-sink] util.c: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+I: [null-sink] util.c: Failed to acquire real-time scheduling: Input/output error
+I: [pulseaudio] core.c: default_source: (unset) -> game.monitor
+I: [pulseaudio] core.c: default_sink: (unset) -> game
+I: [pulseaudio] module.c: Loaded "module-null-sink" (index: #2; argument: "sink_name=game rate=48000 format=float32le channels=2 sink_properties=device.description=GameSinkPerf").
+I: [pulseaudio] module.c: Loaded "module-always-sink" (index: #3; argument: "").
+W: [pulseaudio] server-lookup.c: Unable to contact D-Bus: org.freedesktop.DBus.Error.NotSupported: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+W: [pulseaudio] main.c: Unable to contact D-Bus: org.freedesktop.DBus.Error.NotSupported: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+I: [pulseaudio] main.c: Daemon startup complete.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 0 "Native client (TCP/IP client from 127.0.0.1:43438)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] sink-input.c: Created input 0 "format test stream" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "format test stream"
+I: [pulseaudio] sink-input.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:43438"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "16137"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 770.00 ms = 710.00 ms + 2*20.00 ms + 20.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 0 "format test stream"
+I: [pulseaudio] sink-input.c: Created input 1 "format test stream" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "format test stream"
+I: [pulseaudio] sink-input.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:43438"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "16137"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 770.00 ms = 710.00 ms + 2*20.00 ms + 20.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 1 "format test stream"
+I: [pulseaudio] source-output.c: Created output 0 "format test stream" on game.monitor with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] source-output.c:     media.name = "format test stream"
+I: [pulseaudio] source-output.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] source-output.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:43438"
+I: [pulseaudio] source-output.c:     native-protocol.version = "35"
+I: [pulseaudio] source-output.c:     application.process.id = "16137"
+I: [pulseaudio] source-output.c:     application.process.user = "root"
+I: [pulseaudio] source-output.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] source-output.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] source-output.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] source-output.c:     window.x11.display = ":115"
+I: [pulseaudio] source-output.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Final latency 1500.00 ms = 750.00 ms + 750.00 ms
+I: [pulseaudio] source-output.c: Freeing output 0 "format test stream"
+I: [pulseaudio] source-output.c: Created output 1 "format test stream" on game.monitor with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] source-output.c:     media.name = "format test stream"
+I: [pulseaudio] source-output.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] source-output.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:43438"
+I: [pulseaudio] source-output.c:     native-protocol.version = "35"
+I: [pulseaudio] source-output.c:     application.process.id = "16137"
+I: [pulseaudio] source-output.c:     application.process.user = "root"
+I: [pulseaudio] source-output.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] source-output.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] source-output.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] source-output.c:     window.x11.display = ":115"
+I: [pulseaudio] source-output.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Final latency 1500.00 ms = 750.00 ms + 750.00 ms
+I: [pulseaudio] source-output.c: Freeing output 1 "format test stream"
+I: [pulseaudio] client.c: Freed 0 "sanoba_trial.exe"
+I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 1 "Native client (TCP/IP client from 127.0.0.1:43444)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] speex.c: Choosing speex quality setting 1.
+I: [pulseaudio] sink-input.c: Created input 2 "audio stream #1" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "audio stream #1"
+I: [pulseaudio] sink-input.c:     application.name = "TVP(KIRIKIRI) Z core / Scripting Platform for Win32"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:43444"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "16137"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 750.00 ms = 355.00 ms + 2*20.00 ms + 355.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 2 "audio stream #1"
+I: [pulseaudio] client.c: Freed 1 "TVP(KIRIKIRI) Z core / Scripting Platform for Win32"
+I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 2 "Native client (TCP/IP client from 127.0.0.1:33568)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] sink-input.c: Created input 3 "format test stream" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "format test stream"
+I: [pulseaudio] sink-input.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:33568"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "18505"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 770.00 ms = 710.00 ms + 2*20.00 ms + 20.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 3 "format test stream"
+I: [pulseaudio] sink-input.c: Created input 4 "format test stream" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "format test stream"
+I: [pulseaudio] sink-input.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:33568"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "18505"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 770.00 ms = 710.00 ms + 2*20.00 ms + 20.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 4 "format test stream"
+I: [pulseaudio] source-output.c: Created output 2 "format test stream" on game.monitor with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] source-output.c:     media.name = "format test stream"
+I: [pulseaudio] source-output.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] source-output.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:33568"
+I: [pulseaudio] source-output.c:     native-protocol.version = "35"
+I: [pulseaudio] source-output.c:     application.process.id = "18505"
+I: [pulseaudio] source-output.c:     application.process.user = "root"
+I: [pulseaudio] source-output.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] source-output.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] source-output.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] source-output.c:     window.x11.display = ":115"
+I: [pulseaudio] source-output.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Final latency 1500.00 ms = 750.00 ms + 750.00 ms
+I: [pulseaudio] source-output.c: Freeing output 2 "format test stream"
+I: [pulseaudio] source-output.c: Created output 3 "format test stream" on game.monitor with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] source-output.c:     media.name = "format test stream"
+I: [pulseaudio] source-output.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] source-output.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:33568"
+I: [pulseaudio] source-output.c:     native-protocol.version = "35"
+I: [pulseaudio] source-output.c:     application.process.id = "18505"
+I: [pulseaudio] source-output.c:     application.process.user = "root"
+I: [pulseaudio] source-output.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] source-output.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] source-output.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] source-output.c:     window.x11.display = ":115"
+I: [pulseaudio] source-output.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Final latency 1500.00 ms = 750.00 ms + 750.00 ms
+I: [pulseaudio] source-output.c: Freeing output 3 "format test stream"
+I: [pulseaudio] client.c: Freed 2 "sanoba_trial.exe"
+I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 3 "Native client (TCP/IP client from 127.0.0.1:33584)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] speex.c: Choosing speex quality setting 1.
+I: [pulseaudio] sink-input.c: Created input 5 "audio stream #1" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "audio stream #1"
+I: [pulseaudio] sink-input.c:     application.name = "TVP(KIRIKIRI) Z core / Scripting Platform for Win32"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:33584"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "18505"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 750.00 ms = 355.00 ms + 2*20.00 ms + 355.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 5 "audio stream #1"
+I: [pulseaudio] client.c: Freed 3 "TVP(KIRIKIRI) Z core / Scripting Platform for Win32"
+I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 4 "Native client (TCP/IP client from 127.0.0.1:54236)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] sink-input.c: Created input 6 "format test stream" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "format test stream"
+I: [pulseaudio] sink-input.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:54236"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "19557"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 770.00 ms = 710.00 ms + 2*20.00 ms + 20.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 6 "format test stream"
+I: [pulseaudio] sink-input.c: Created input 7 "format test stream" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "format test stream"
+I: [pulseaudio] sink-input.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:54236"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "19557"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 770.00 ms = 710.00 ms + 2*20.00 ms + 20.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 7 "format test stream"
+I: [pulseaudio] source-output.c: Created output 4 "format test stream" on game.monitor with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] source-output.c:     media.name = "format test stream"
+I: [pulseaudio] source-output.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] source-output.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:54236"
+I: [pulseaudio] source-output.c:     native-protocol.version = "35"
+I: [pulseaudio] source-output.c:     application.process.id = "19557"
+I: [pulseaudio] source-output.c:     application.process.user = "root"
+I: [pulseaudio] source-output.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] source-output.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] source-output.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] source-output.c:     window.x11.display = ":115"
+I: [pulseaudio] source-output.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Final latency 1500.00 ms = 750.00 ms + 750.00 ms
+I: [pulseaudio] source-output.c: Freeing output 4 "format test stream"
+I: [pulseaudio] source-output.c: Created output 5 "format test stream" on game.monitor with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] source-output.c:     media.name = "format test stream"
+I: [pulseaudio] source-output.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] source-output.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:54236"
+I: [pulseaudio] source-output.c:     native-protocol.version = "35"
+I: [pulseaudio] source-output.c:     application.process.id = "19557"
+I: [pulseaudio] source-output.c:     application.process.user = "root"
+I: [pulseaudio] source-output.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] source-output.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] source-output.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] source-output.c:     window.x11.display = ":115"
+I: [pulseaudio] source-output.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Final latency 1500.00 ms = 750.00 ms + 750.00 ms
+I: [pulseaudio] source-output.c: Freeing output 5 "format test stream"
+I: [pulseaudio] client.c: Freed 4 "sanoba_trial.exe"
+I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 5 "Native client (TCP/IP client from 127.0.0.1:53030)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] speex.c: Choosing speex quality setting 1.
+I: [pulseaudio] sink-input.c: Created input 8 "audio stream #1" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "audio stream #1"
+I: [pulseaudio] sink-input.c:     application.name = "TVP(KIRIKIRI) Z core / Scripting Platform for Win32"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:53030"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "19557"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 750.00 ms = 355.00 ms + 2*20.00 ms + 355.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 8 "audio stream #1"
+I: [pulseaudio] client.c: Freed 5 "TVP(KIRIKIRI) Z core / Scripting Platform for Win32"
+I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 6 "Native client (TCP/IP client from 127.0.0.1:35950)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] sink-input.c: Created input 9 "format test stream" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "format test stream"
+I: [pulseaudio] sink-input.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:35950"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "20699"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 770.00 ms = 710.00 ms + 2*20.00 ms + 20.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 9 "format test stream"
+I: [pulseaudio] sink-input.c: Created input 10 "format test stream" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "format test stream"
+I: [pulseaudio] sink-input.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:35950"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "20699"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 770.00 ms = 710.00 ms + 2*20.00 ms + 20.00 ms
+I: [pulseaudio] sink-input.c: Freeing input 10 "format test stream"
+I: [pulseaudio] source-output.c: Created output 6 "format test stream" on game.monitor with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] source-output.c:     media.name = "format test stream"
+I: [pulseaudio] source-output.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] source-output.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:35950"
+I: [pulseaudio] source-output.c:     native-protocol.version = "35"
+I: [pulseaudio] source-output.c:     application.process.id = "20699"
+I: [pulseaudio] source-output.c:     application.process.user = "root"
+I: [pulseaudio] source-output.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] source-output.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] source-output.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] source-output.c:     window.x11.display = ":115"
+I: [pulseaudio] source-output.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Final latency 1500.00 ms = 750.00 ms + 750.00 ms
+I: [pulseaudio] source-output.c: Freeing output 6 "format test stream"
+I: [pulseaudio] source-output.c: Created output 7 "format test stream" on game.monitor with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] source-output.c:     media.name = "format test stream"
+I: [pulseaudio] source-output.c:     application.name = "sanoba_trial.exe"
+I: [pulseaudio] source-output.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:35950"
+I: [pulseaudio] source-output.c:     native-protocol.version = "35"
+I: [pulseaudio] source-output.c:     application.process.id = "20699"
+I: [pulseaudio] source-output.c:     application.process.user = "root"
+I: [pulseaudio] source-output.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] source-output.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] source-output.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] source-output.c:     window.x11.display = ":115"
+I: [pulseaudio] source-output.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Final latency 1500.00 ms = 750.00 ms + 750.00 ms
+I: [pulseaudio] source-output.c: Freeing output 7 "format test stream"
+I: [pulseaudio] client.c: Freed 6 "sanoba_trial.exe"
+I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 7 "Native client (TCP/IP client from 127.0.0.1:35956)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] speex.c: Choosing speex quality setting 1.
+I: [pulseaudio] sink-input.c: Created input 11 "audio stream #1" on game with sample spec float32le 2ch 48000Hz and channel map front-left,front-right
+I: [pulseaudio] sink-input.c:     media.name = "audio stream #1"
+I: [pulseaudio] sink-input.c:     application.name = "TVP(KIRIKIRI) Z core / Scripting Platform for Win32"
+I: [pulseaudio] sink-input.c:     native-protocol.peer = "TCP/IP client from 127.0.0.1:35956"
+I: [pulseaudio] sink-input.c:     native-protocol.version = "35"
+I: [pulseaudio] sink-input.c:     application.process.id = "20699"
+I: [pulseaudio] sink-input.c:     application.process.user = "root"
+I: [pulseaudio] sink-input.c:     application.process.host = "htch-runtime"
+I: [pulseaudio] sink-input.c:     application.process.binary = "wine-preloader"
+I: [pulseaudio] sink-input.c:     application.language = "ja_JP.UTF-8"
+I: [pulseaudio] sink-input.c:     window.x11.display = ":115"
+I: [pulseaudio] sink-input.c:     application.process.machine_id = "1e37a5e9520b492caab9dc2ce6297184"
+I: [pulseaudio] protocol-native.c: Requested tlength=750.00 ms, minreq=20.00 ms
+I: [pulseaudio] protocol-native.c: Final latency 750.00 ms = 355.00 ms + 2*20.00 ms + 355.00 ms
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 8 "Native client (TCP/IP client from 127.0.0.1:47584)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] client.c: Freed 8 "pactl"
+I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 9 "Native client (TCP/IP client from 127.0.0.1:47598)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] client.c: Freed 9 "pactl"
+I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] socket-server.c: TCP connection accepted by tcpwrap.
+I: [pulseaudio] client.c: Created 10 "Native client (TCP/IP client from 127.0.0.1:37878)"
+I: [pulseaudio] protocol-native.c: Client authenticated anonymously.
+I: [pulseaudio] client.c: Freed 10 "pactl"
+I: [pulseaudio] protocol-native.c: Connection died.

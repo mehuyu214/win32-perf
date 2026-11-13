@@ -1,0 +1,4 @@
+EGL surfaceless 1.5
+ctx1 (no-config, empty attribs) = None err=0x3003
+ctx2 (no-config, 3.3 core, shared) = None err=0x3004
+FAIL create

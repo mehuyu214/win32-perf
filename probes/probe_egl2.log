@@ -1,0 +1,9 @@
+EGL 1.5
+ctx1=0x8892ae0 ctx2=0x8a4daf0
+ctx1 renderer=b'softpipe'
+  ctx1 BufferData: err=0x0 size=3686400
+  ctx1 BufferStorage: err=0x0 size=16777216
+ctx2 renderer=b'softpipe'
+  ctx2 BufferData: err=0x0 size=3686400
+  ctx2 BufferStorage: err=0x0 size=16777216
+DONE

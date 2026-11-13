@@ -1,0 +1,31 @@
+i686-w64-mingw32-gcc -c -o dlls/wined3d/i386-windows/context_gl.o ../wine-src/dlls/wined3d/context_gl.c -Idlls/wined3d -I../wine-src/dlls/wined3d \
+  -Iinclude -I../wine-src/include -I../wine-src/include/msvcrt -I../wine-src/libs/vkd3d/include \
+  -D_UCRT -D__WINESRC__ -D__WINE_PE_BUILD -Wall -fno-strict-aliasing -Wempty-body \
+  -Wignored-qualifiers -Winit-self -Wno-packed-not-aligned -Wshift-overflow=2 -Wtype-limits \
+  -Wunused-but-set-parameter -Wvla -Wwrite-strings -Wpointer-arith -Wlogical-op -ffunction-sections \
+  -Wno-misleading-indentation -fno-omit-frame-pointer -mpreferred-stack-boundary=2 -mlong-double-64 \
+  -msse2 -gdwarf-4 -Wdeclaration-after-statement -Wstrict-prototypes -Wabsolute-value -g -O2
+tools/winegcc/winegcc -o dlls/wined3d/i386-windows/wined3d.dll --wine-objdir . --cc-cmd="i686-w64-mingw32-gcc" -b i686-w64-mingw32 \
+  -Wl,--wine-builtin -shared ../wine-src/dlls/wined3d/wined3d.spec \
+  dlls/wined3d/i386-windows/adapter_gl.o dlls/wined3d/i386-windows/adapter_vk.o \
+  dlls/wined3d/i386-windows/buffer.o dlls/wined3d/i386-windows/context.o \
+  dlls/wined3d/i386-windows/context_gl.o dlls/wined3d/i386-windows/context_vk.o \
+  dlls/wined3d/i386-windows/cs.o dlls/wined3d/i386-windows/decoder.o \
+  dlls/wined3d/i386-windows/device.o dlls/wined3d/i386-windows/directx.o \
+  dlls/wined3d/i386-windows/ffp_gl.o dlls/wined3d/i386-windows/ffp_hlsl.o \
+  dlls/wined3d/i386-windows/gl_compat.o dlls/wined3d/i386-windows/glsl_shader.o \
+  dlls/wined3d/i386-windows/palette.o dlls/wined3d/i386-windows/query.o \
+  dlls/wined3d/i386-windows/resource.o dlls/wined3d/i386-windows/sampler.o \
+  dlls/wined3d/i386-windows/shader.o dlls/wined3d/i386-windows/shader_sm1.o \
+  dlls/wined3d/i386-windows/shader_sm4.o dlls/wined3d/i386-windows/shader_spirv.o \
+  dlls/wined3d/i386-windows/stateblock.o dlls/wined3d/i386-windows/surface.o \
+  dlls/wined3d/i386-windows/swapchain.o dlls/wined3d/i386-windows/texture.o \
+  dlls/wined3d/i386-windows/texture_gl.o dlls/wined3d/i386-windows/texture_vk.o \
+  dlls/wined3d/i386-windows/utils.o dlls/wined3d/i386-windows/vertexdeclaration.o \
+  dlls/wined3d/i386-windows/view.o dlls/wined3d/i386-windows/wined3d_main.o \
+  dlls/wined3d/resource.res dlls/wined3d/version.res libs/vkd3d/i386-windows/libvkd3d.a \
+  dlls/opengl32/i386-windows/libopengl32.a dlls/user32/i386-windows/libuser32.a \
+  dlls/gdi32/i386-windows/libgdi32.a dlls/advapi32/i386-windows/libadvapi32.a \
+  libs/winecrt0/i386-windows/libwinecrt0.a libs/compiler-rt/i386-windows/libcompiler-rt.a \
+  dlls/ucrtbase/i386-windows/libucrtbase.a dlls/kernel32/i386-windows/libkernel32.a \
+  dlls/ntdll/i386-windows/libntdll.a -Wl,--disable-stdcall-fixup -Wl,--build-id

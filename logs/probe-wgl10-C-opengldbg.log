@@ -1,0 +1,657 @@
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w6447317766147935452.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+probe_wgl10 mode=C
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+0068:err:vulkan:vulkan_init_once Failed to load libvulkan.so.1
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+0068:err:ole:start_rpcss Failed to open RpcSs service
+0024:trace:opengl:wglChoosePixelFormat 20010043 0033FE48: size 40 version 1 flags 37 type 0 color 32 0,0,0,0 accum 0 depth 24 stencil 8 aux 0
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 0, size 0, ppfd 00000000
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 1, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 2, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 3, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 4, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 5, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=5
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 6, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=6
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 7, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=7
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 8, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=8
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 9, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=9
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 10, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=10
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 11, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=11
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 12, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=12
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 13, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=13
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 14, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 15, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=15
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 16, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=16
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 17, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=17
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 18, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=18
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 19, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=19
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 20, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=20
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 21, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=21
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 22, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=22
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 23, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=23
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 24, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=24
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 25, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=25
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 26, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 27, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 28, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 29, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 30, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=30
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 31, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=31
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 32, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=32
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 33, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=33
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 34, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=34
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 35, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=35
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 36, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=36
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 37, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=37
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 38, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=38
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 39, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 40, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=40
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 41, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=41
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 42, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=42
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 43, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=43
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 44, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=44
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 45, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=45
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 46, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=46
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 47, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=47
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 48, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=48
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 49, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=49
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 50, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=50
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 51, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=51
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 52, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=52
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 53, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=53
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 54, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 55, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=55
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 56, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=56
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 57, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=57
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 58, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=58
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 59, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=59
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 60, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=60
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 61, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=61
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 62, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=62
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 63, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=63
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 64, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 65, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat stencil mismatch for iPixelFormat=65
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 66, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=66
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 67, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=67
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 68, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=68
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 69, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=69
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 70, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat color mismatch for iPixelFormat=70
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 71, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=71
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 72, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=72
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 73, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=73
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 74, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=74
+0024:trace:opengl:wglDescribePixelFormat hdc 20010043, index 75, size 40, ppfd 0033FDD4
+0024:trace:opengl:wglChoosePixelFormat PFD_DRAW_TO_WINDOW required but not found for iPixelFormat=75
+0024:trace:opengl:wglChoosePixelFormat returning 29
+0024:trace:opengl:wglSetPixelFormat hdc 20010043, ipfd 29, ppfd 0033FE48
+0024:trace:opengl:wglCreateContext hdc 20010043
+0024:trace:opengl:wglCreateContextAttribsARB hdc 20010043, share 00000000, attribs 7F5A7FAC
+0024:trace:opengl:wglMakeCurrent hdc 20010043, handle 00010001
+0024:trace:opengl:wglMakeContextCurrentARB draw_hdc 20010043, read_hdc 20010043, handle 00010001
+0024:trace:opengl:init_client_context context 0x36eb18 attributes {format 29 major 3 minor 3 flags 0 profile 0x2 no_error 0} version 3.3 (Compatibility Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+0024:trace:opengl:init_client_context ++ GL_3DFX_texture_compression_FXT1
+0024:trace:opengl:init_client_context ++ GL_AMD_conservative_depth
+0024:trace:opengl:init_client_context ++ GL_AMD_draw_buffers_blend
+0024:trace:opengl:init_client_context ++ GL_AMD_multi_draw_indirect
+0024:trace:opengl:init_client_context ++ GL_AMD_seamless_cubemap_per_texture
+0024:trace:opengl:init_client_context ++ GL_AMD_shader_stencil_export
+0024:trace:opengl:init_client_context ++ GL_AMD_shader_trinary_minmax
+0024:trace:opengl:init_client_context ++ GL_AMD_texture_texture4
+0024:trace:opengl:init_client_context ++ GL_AMD_vertex_shader_layer
+0024:trace:opengl:init_client_context ++ GL_AMD_vertex_shader_viewport_index
+0024:trace:opengl:init_client_context ++ GL_APPLE_packed_pixels
+0024:trace:opengl:init_client_context ++ GL_ARB_ES2_compatibility
+0024:trace:opengl:init_client_context ++ GL_ARB_ES3_1_compatibility
+0024:trace:opengl:init_client_context ++ GL_ARB_ES3_compatibility
+0024:trace:opengl:init_client_context ++ GL_ARB_arrays_of_arrays
+0024:trace:opengl:init_client_context ++ GL_ARB_base_instance
+0024:trace:opengl:init_client_context ++ GL_ARB_blend_func_extended
+0024:trace:opengl:init_client_context ++ GL_ARB_buffer_storage
+0024:trace:opengl:init_client_context ++ GL_ARB_clear_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_clear_texture
+0024:trace:opengl:init_client_context ++ GL_ARB_clip_control
+0024:trace:opengl:init_client_context ++ GL_ARB_color_buffer_float
+0024:trace:opengl:init_client_context ++ GL_ARB_compatibility
+0024:trace:opengl:init_client_context ++ GL_ARB_compressed_texture_pixel_storage
+0024:trace:opengl:init_client_context ++ GL_ARB_compute_shader
+0024:trace:opengl:init_client_context ++ GL_ARB_conditional_render_inverted
+0024:trace:opengl:init_client_context ++ GL_ARB_conservative_depth
+0024:trace:opengl:init_client_context ++ GL_ARB_copy_buffer
+0024:trace:opengl:init_client_context ++ GL_ARB_copy_image
+0024:trace:opengl:init_client_context ++ GL_ARB_cull_distance
+0024:trace:opengl:init_client_context ++ GL_ARB_debug_output
+0024:trace:opengl:init_client_context ++ GL_ARB_depth_buffer_float
+0024:trace:opengl:init_client_context ++ GL_ARB_depth_clamp
+0024:trace:opengl:init_client_context ++ GL_ARB_depth_texture
+0024:trace:opengl:init_client_context ++ GL_ARB_derivative_control
+0024:trace:opengl:init_client_context ++ GL_ARB_direct_state_access
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_buffers
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_buffers_blend
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_elements_base_vertex
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_indirect
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_instanced
+0024:trace:opengl:init_client_context ++ GL_ARB_enhanced_layouts
+0024:trace:opengl:init_client_context ++ GL_ARB_explicit_attrib_location
+0024:trace:opengl:init_client_context ++ GL_ARB_explicit_uniform_location
+0024:trace:opengl:init_client_context ++ GL_ARB_fragment_coord_conventions
+0024:trace:opengl:init_client_context ++ GL_ARB_fragment_layer_viewport
+0024:trace:opengl:init_client_context ++ GL_ARB_fragment_program
+0024:trace:opengl:init_client_context ++ GL_ARB_fragment_program_shadow
+0024:trace:opengl:init_client_context ++ GL_ARB_fragment_shader
+0024:trace:opengl:init_client_context ++ GL_ARB_framebuffer_no_attachments
+0024:trace:opengl:init_client_context ++ GL_ARB_framebuffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_framebuffer_sRGB
+0024:trace:opengl:init_client_context ++ GL_ARB_get_program_binary
+0024:trace:opengl:init_client_context ++ GL_ARB_get_texture_sub_image
+0024:trace:opengl:init_client_context ++ GL_ARB_gpu_shader5
+0024:trace:opengl:init_client_context ++ GL_ARB_gpu_shader_fp64
+0024:trace:opengl:init_client_context ++ GL_ARB_half_float_pixel
+0024:trace:opengl:init_client_context ++ GL_ARB_half_float_vertex
+0024:trace:opengl:init_client_context ++ GL_ARB_instanced_arrays
+0024:trace:opengl:init_client_context ++ GL_ARB_internalformat_query
+0024:trace:opengl:init_client_context ++ GL_ARB_internalformat_query2
+0024:trace:opengl:init_client_context ++ GL_ARB_invalidate_subdata
+0024:trace:opengl:init_client_context ++ GL_ARB_map_buffer_alignment
+0024:trace:opengl:init_client_context ++ GL_ARB_map_buffer_range
+0024:trace:opengl:init_client_context ++ GL_ARB_multi_bind
+0024:trace:opengl:init_client_context ++ GL_ARB_multi_draw_indirect
+0024:trace:opengl:init_client_context ++ GL_ARB_multisample
+0024:trace:opengl:init_client_context ++ GL_ARB_multitexture
+0024:trace:opengl:init_client_context ++ GL_ARB_occlusion_query
+0024:trace:opengl:init_client_context ++ GL_ARB_occlusion_query2
+0024:trace:opengl:init_client_context ++ GL_ARB_parallel_shader_compile
+0024:trace:opengl:init_client_context ++ GL_ARB_pipeline_statistics_query
+0024:trace:opengl:init_client_context ++ GL_ARB_pixel_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_point_parameters
+0024:trace:opengl:init_client_context ++ GL_ARB_point_sprite
+0024:trace:opengl:init_client_context ++ GL_ARB_program_interface_query
+0024:trace:opengl:init_client_context ++ GL_ARB_provoking_vertex
+0024:trace:opengl:init_client_context ++ GL_ARB_robustness
+0024:trace:opengl:init_client_context ++ GL_ARB_sampler_objects
+0024:trace:opengl:init_client_context ++ GL_ARB_seamless_cube_map
+0024:trace:opengl:init_client_context ++ GL_ARB_seamless_cubemap_per_texture
+0024:trace:opengl:init_client_context ++ GL_ARB_separate_shader_objects
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_atomic_counter_ops
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_atomic_counters
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_bit_encoding
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_image_load_store
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_image_size
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_objects
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_stencil_export
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_storage_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_subroutine
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_texture_lod
+0024:trace:opengl:init_client_context ++ GL_ARB_shading_language_100
+0024:trace:opengl:init_client_context ++ GL_ARB_shading_language_420pack
+0024:trace:opengl:init_client_context ++ GL_ARB_shading_language_include
+0024:trace:opengl:init_client_context ++ GL_ARB_shading_language_packing
+0024:trace:opengl:init_client_context ++ GL_ARB_shadow
+0024:trace:opengl:init_client_context ++ GL_ARB_stencil_texturing
+0024:trace:opengl:init_client_context ++ GL_ARB_sync
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_border_clamp
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_buffer_object_rgb32
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_buffer_range
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_compression
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_compression_bptc
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_compression_rgtc
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_cube_map
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_cube_map_array
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_env_add
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_env_combine
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_env_crossbar
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_env_dot3
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_filter_anisotropic
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_float
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_gather
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_mirror_clamp_to_edge
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_mirrored_repeat
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_multisample
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_non_power_of_two
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_query_levels
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_query_lod
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_rectangle
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_rg
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_rgb10_a2ui
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_stencil8
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_storage
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_storage_multisample
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_swizzle
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_view
+0024:trace:opengl:init_client_context ++ GL_ARB_timer_query
+0024:trace:opengl:init_client_context ++ GL_ARB_transform_feedback2
+0024:trace:opengl:init_client_context ++ GL_ARB_transform_feedback3
+0024:trace:opengl:init_client_context ++ GL_ARB_transform_feedback_instanced
+0024:trace:opengl:init_client_context ++ GL_ARB_transform_feedback_overflow_query
+0024:trace:opengl:init_client_context ++ GL_ARB_transpose_matrix
+0024:trace:opengl:init_client_context ++ GL_ARB_uniform_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_array_bgra
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_array_object
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_attrib_64bit
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_attrib_binding
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_program
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_shader
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_type_10f_11f_11f_rev
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_type_2_10_10_10_rev
+0024:trace:opengl:init_client_context ++ GL_ARB_viewport_array
+0024:trace:opengl:init_client_context ++ GL_ARB_window_pos
+0024:trace:opengl:init_client_context ++ GL_ATI_blend_equation_separate
+0024:trace:opengl:init_client_context ++ GL_ATI_draw_buffers
+0024:trace:opengl:init_client_context ++ GL_ATI_fragment_shader
+0024:trace:opengl:init_client_context ++ GL_ATI_meminfo
+0024:trace:opengl:init_client_context ++ GL_ATI_separate_stencil
+0024:trace:opengl:init_client_context ++ GL_ATI_texture_compression_3dc
+0024:trace:opengl:init_client_context ++ GL_ATI_texture_env_combine3
+0024:trace:opengl:init_client_context ++ GL_ATI_texture_float
+0024:trace:opengl:init_client_context ++ GL_ATI_texture_mirror_once
+0024:trace:opengl:init_client_context ++ GL_EXT_EGL_image_storage
+0024:trace:opengl:init_client_context ++ GL_EXT_EGL_image_storage_compression
+0024:trace:opengl:init_client_context ++ GL_EXT_EGL_sync
+0024:trace:opengl:init_client_context ++ GL_EXT_abgr
+0024:trace:opengl:init_client_context ++ GL_EXT_bgra
+0024:trace:opengl:init_client_context ++ GL_EXT_blend_color
+0024:trace:opengl:init_client_context ++ GL_EXT_blend_equation_separate
+0024:trace:opengl:init_client_context ++ GL_EXT_blend_func_separate
+0024:trace:opengl:init_client_context ++ GL_EXT_blend_minmax
+0024:trace:opengl:init_client_context ++ GL_EXT_blend_subtract
+0024:trace:opengl:init_client_context ++ GL_EXT_compiled_vertex_array
+0024:trace:opengl:init_client_context ++ GL_EXT_copy_texture
+0024:trace:opengl:init_client_context ++ GL_EXT_debug_label
+0024:trace:opengl:init_client_context ++ GL_EXT_depth_bounds_test
+0024:trace:opengl:init_client_context ++ GL_EXT_direct_state_access
+0024:trace:opengl:init_client_context ++ GL_EXT_draw_buffers2
+0024:trace:opengl:init_client_context ++ GL_EXT_draw_instanced
+0024:trace:opengl:init_client_context ++ GL_EXT_draw_range_elements
+0024:trace:opengl:init_client_context ++ GL_EXT_fog_coord
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_blit
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_multisample
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_multisample_blit_scaled
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_object
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_sRGB
+0024:trace:opengl:init_client_context ++ GL_EXT_gpu_program_parameters
+0024:trace:opengl:init_client_context ++ GL_EXT_gpu_shader4
+0024:trace:opengl:init_client_context ++ GL_EXT_multi_draw_arrays
+0024:trace:opengl:init_client_context ++ GL_EXT_packed_depth_stencil
+0024:trace:opengl:init_client_context ++ GL_EXT_packed_float
+0024:trace:opengl:init_client_context ++ GL_EXT_packed_pixels
+0024:trace:opengl:init_client_context ++ GL_EXT_pixel_buffer_object
+0024:trace:opengl:init_client_context ++ GL_EXT_point_parameters
+0024:trace:opengl:init_client_context ++ GL_EXT_provoking_vertex
+0024:trace:opengl:init_client_context ++ GL_EXT_rescale_normal
+0024:trace:opengl:init_client_context ++ GL_EXT_secondary_color
+0024:trace:opengl:init_client_context ++ GL_EXT_separate_specular_color
+0024:trace:opengl:init_client_context ++ GL_EXT_shader_integer_mix
+0024:trace:opengl:init_client_context ++ GL_EXT_shadow_funcs
+0024:trace:opengl:init_client_context ++ GL_EXT_stencil_two_side
+0024:trace:opengl:init_client_context ++ GL_EXT_stencil_wrap
+0024:trace:opengl:init_client_context ++ GL_EXT_subtexture
+0024:trace:opengl:init_client_context ++ GL_EXT_texture
+0024:trace:opengl:init_client_context ++ GL_EXT_texture3D
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_array
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_buffer_object
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_compression_dxt1
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_compression_latc
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_compression_rgtc
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_compression_s3tc
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_cube_map
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_edge_clamp
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_env_add
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_env_combine
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_env_dot3
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_filter_anisotropic
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_integer
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_lod_bias
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_mirror_clamp
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_object
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_rectangle
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_sRGB
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_sRGB_R8
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_sRGB_RG8
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_sRGB_decode
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_shared_exponent
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_snorm
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_storage
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_swizzle
+0024:trace:opengl:init_client_context ++ GL_EXT_timer_query
+0024:trace:opengl:init_client_context ++ GL_EXT_transform_feedback
+0024:trace:opengl:init_client_context ++ GL_EXT_vertex_array
+0024:trace:opengl:init_client_context ++ GL_EXT_vertex_array_bgra
+0024:trace:opengl:init_client_context ++ GL_EXT_vertex_attrib_64bit
+0024:trace:opengl:init_client_context ++ GL_IBM_multimode_draw_arrays
+0024:trace:opengl:init_client_context ++ GL_IBM_rasterpos_clip
+0024:trace:opengl:init_client_context ++ GL_IBM_texture_mirrored_repeat
+0024:trace:opengl:init_client_context ++ GL_INGR_blend_func_separate
+0024:trace:opengl:init_client_context ++ GL_KHR_context_flush_control
+0024:trace:opengl:init_client_context ++ GL_KHR_debug
+0024:trace:opengl:init_client_context ++ GL_KHR_no_error
+0024:trace:opengl:init_client_context ++ GL_KHR_parallel_shader_compile
+0024:trace:opengl:init_client_context ++ GL_KHR_texture_compression_astc_ldr
+0024:trace:opengl:init_client_context ++ GL_KHR_texture_compression_astc_sliced_3d
+0024:trace:opengl:init_client_context ++ GL_MESA_pack_invert
+0024:trace:opengl:init_client_context ++ GL_MESA_shader_integer_functions
+0024:trace:opengl:init_client_context ++ GL_MESA_texture_signed_rgba
+0024:trace:opengl:init_client_context ++ GL_MESA_window_pos
+0024:trace:opengl:init_client_context ++ GL_MESA_ycbcr_texture
+0024:trace:opengl:init_client_context ++ GL_NVX_gpu_memory_info
+0024:trace:opengl:init_client_context ++ GL_NV_ES1_1_compatibility
+0024:trace:opengl:init_client_context ++ GL_NV_blend_square
+0024:trace:opengl:init_client_context ++ GL_NV_conditional_render
+0024:trace:opengl:init_client_context ++ GL_NV_copy_depth_to_color
+0024:trace:opengl:init_client_context ++ GL_NV_copy_image
+0024:trace:opengl:init_client_context ++ GL_NV_depth_clamp
+0024:trace:opengl:init_client_context ++ GL_NV_fog_distance
+0024:trace:opengl:init_client_context ++ GL_NV_half_float
+0024:trace:opengl:init_client_context ++ GL_NV_light_max_exponent
+0024:trace:opengl:init_client_context ++ GL_NV_packed_depth_stencil
+0024:trace:opengl:init_client_context ++ GL_NV_primitive_restart
+0024:trace:opengl:init_client_context ++ GL_NV_shader_atomic_float
+0024:trace:opengl:init_client_context ++ GL_NV_texgen_reflection
+0024:trace:opengl:init_client_context ++ GL_NV_texture_env_combine4
+0024:trace:opengl:init_client_context ++ GL_NV_texture_rectangle
+0024:trace:opengl:init_client_context ++ GL_OES_read_format
+0024:trace:opengl:init_client_context ++ GL_S3_s3tc
+0024:trace:opengl:init_client_context ++ GL_SGIS_generate_mipmap
+0024:trace:opengl:init_client_context ++ GL_SGIS_texture_border_clamp
+0024:trace:opengl:init_client_context ++ GL_SGIS_texture_edge_clamp
+0024:trace:opengl:init_client_context ++ GL_SGIS_texture_lod
+0024:trace:opengl:init_client_context ++ GL_SUN_multi_draw_arrays
+0024:trace:opengl:init_client_context ++ WGL_EXT_extensions_string
+0024:trace:opengl:init_client_context ++ WGL_EXT_swap_control
+0024:trace:opengl:wglCreateContextAttribsARB hdc 20010043, share 00010001, attribs 0033FECC
+ctx2 created: 00010002 (mode C)
+0024:trace:opengl:wglMakeCurrent hdc 00000000, handle 00000000
+0024:trace:opengl:wglMakeContextCurrentARB draw_hdc 00000000, read_hdc 00000000, handle 00000000
+0024:err:wgl:internal_context_create Failed to create internal thread context with attrs {format 101 major -1 minor -1 flags 0 profile 0x1 no_error 0}
+0024:err:seh:segv_handler Got unexpected trap -1
+0024:warn:opengl:wglMakeContextCurrentARB wglMakeContextCurrentARB returned 0xc000001d
+0024:trace:opengl:wglMakeCurrent hdc 20010043, handle 00010002
+0024:trace:opengl:wglMakeContextCurrentARB draw_hdc 20010043, read_hdc 20010043, handle 00010002
+0024:trace:opengl:init_client_context context 0x90be80 attributes {format 29 major 3 minor 3 flags 0 profile 0x1 no_error 0} version 3.3 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+0024:trace:opengl:init_client_context ++ GL_3DFX_texture_compression_FXT1
+0024:trace:opengl:init_client_context ++ GL_AMD_conservative_depth
+0024:trace:opengl:init_client_context ++ GL_AMD_draw_buffers_blend
+0024:trace:opengl:init_client_context ++ GL_AMD_gpu_shader_int64
+0024:trace:opengl:init_client_context ++ GL_AMD_multi_draw_indirect
+0024:trace:opengl:init_client_context ++ GL_AMD_seamless_cubemap_per_texture
+0024:trace:opengl:init_client_context ++ GL_AMD_shader_stencil_export
+0024:trace:opengl:init_client_context ++ GL_AMD_shader_trinary_minmax
+0024:trace:opengl:init_client_context ++ GL_AMD_texture_texture4
+0024:trace:opengl:init_client_context ++ GL_AMD_vertex_shader_layer
+0024:trace:opengl:init_client_context ++ GL_AMD_vertex_shader_viewport_index
+0024:trace:opengl:init_client_context ++ GL_ARB_ES2_compatibility
+0024:trace:opengl:init_client_context ++ GL_ARB_ES3_1_compatibility
+0024:trace:opengl:init_client_context ++ GL_ARB_ES3_compatibility
+0024:trace:opengl:init_client_context ++ GL_ARB_arrays_of_arrays
+0024:trace:opengl:init_client_context ++ GL_ARB_base_instance
+0024:trace:opengl:init_client_context ++ GL_ARB_blend_func_extended
+0024:trace:opengl:init_client_context ++ GL_ARB_buffer_storage
+0024:trace:opengl:init_client_context ++ GL_ARB_clear_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_clear_texture
+0024:trace:opengl:init_client_context ++ GL_ARB_clip_control
+0024:trace:opengl:init_client_context ++ GL_ARB_color_buffer_float
+0024:trace:opengl:init_client_context ++ GL_ARB_compressed_texture_pixel_storage
+0024:trace:opengl:init_client_context ++ GL_ARB_compute_shader
+0024:trace:opengl:init_client_context ++ GL_ARB_conditional_render_inverted
+0024:trace:opengl:init_client_context ++ GL_ARB_conservative_depth
+0024:trace:opengl:init_client_context ++ GL_ARB_copy_buffer
+0024:trace:opengl:init_client_context ++ GL_ARB_copy_image
+0024:trace:opengl:init_client_context ++ GL_ARB_cull_distance
+0024:trace:opengl:init_client_context ++ GL_ARB_debug_output
+0024:trace:opengl:init_client_context ++ GL_ARB_depth_buffer_float
+0024:trace:opengl:init_client_context ++ GL_ARB_depth_clamp
+0024:trace:opengl:init_client_context ++ GL_ARB_derivative_control
+0024:trace:opengl:init_client_context ++ GL_ARB_direct_state_access
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_buffers
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_buffers_blend
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_elements_base_vertex
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_indirect
+0024:trace:opengl:init_client_context ++ GL_ARB_draw_instanced
+0024:trace:opengl:init_client_context ++ GL_ARB_enhanced_layouts
+0024:trace:opengl:init_client_context ++ GL_ARB_explicit_attrib_location
+0024:trace:opengl:init_client_context ++ GL_ARB_explicit_uniform_location
+0024:trace:opengl:init_client_context ++ GL_ARB_fragment_coord_conventions
+0024:trace:opengl:init_client_context ++ GL_ARB_fragment_layer_viewport
+0024:trace:opengl:init_client_context ++ GL_ARB_fragment_shader
+0024:trace:opengl:init_client_context ++ GL_ARB_framebuffer_no_attachments
+0024:trace:opengl:init_client_context ++ GL_ARB_framebuffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_framebuffer_sRGB
+0024:trace:opengl:init_client_context ++ GL_ARB_get_program_binary
+0024:trace:opengl:init_client_context ++ GL_ARB_get_texture_sub_image
+0024:trace:opengl:init_client_context ++ GL_ARB_gpu_shader5
+0024:trace:opengl:init_client_context ++ GL_ARB_gpu_shader_fp64
+0024:trace:opengl:init_client_context ++ GL_ARB_gpu_shader_int64
+0024:trace:opengl:init_client_context ++ GL_ARB_half_float_pixel
+0024:trace:opengl:init_client_context ++ GL_ARB_half_float_vertex
+0024:trace:opengl:init_client_context ++ GL_ARB_instanced_arrays
+0024:trace:opengl:init_client_context ++ GL_ARB_internalformat_query
+0024:trace:opengl:init_client_context ++ GL_ARB_internalformat_query2
+0024:trace:opengl:init_client_context ++ GL_ARB_invalidate_subdata
+0024:trace:opengl:init_client_context ++ GL_ARB_map_buffer_alignment
+0024:trace:opengl:init_client_context ++ GL_ARB_map_buffer_range
+0024:trace:opengl:init_client_context ++ GL_ARB_multi_bind
+0024:trace:opengl:init_client_context ++ GL_ARB_multi_draw_indirect
+0024:trace:opengl:init_client_context ++ GL_ARB_occlusion_query2
+0024:trace:opengl:init_client_context ++ GL_ARB_parallel_shader_compile
+0024:trace:opengl:init_client_context ++ GL_ARB_pipeline_statistics_query
+0024:trace:opengl:init_client_context ++ GL_ARB_pixel_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_point_sprite
+0024:trace:opengl:init_client_context ++ GL_ARB_program_interface_query
+0024:trace:opengl:init_client_context ++ GL_ARB_provoking_vertex
+0024:trace:opengl:init_client_context ++ GL_ARB_robustness
+0024:trace:opengl:init_client_context ++ GL_ARB_sampler_objects
+0024:trace:opengl:init_client_context ++ GL_ARB_seamless_cube_map
+0024:trace:opengl:init_client_context ++ GL_ARB_seamless_cubemap_per_texture
+0024:trace:opengl:init_client_context ++ GL_ARB_separate_shader_objects
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_atomic_counter_ops
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_atomic_counters
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_bit_encoding
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_image_load_store
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_image_size
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_objects
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_stencil_export
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_storage_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_subroutine
+0024:trace:opengl:init_client_context ++ GL_ARB_shader_texture_lod
+0024:trace:opengl:init_client_context ++ GL_ARB_shading_language_420pack
+0024:trace:opengl:init_client_context ++ GL_ARB_shading_language_include
+0024:trace:opengl:init_client_context ++ GL_ARB_shading_language_packing
+0024:trace:opengl:init_client_context ++ GL_ARB_stencil_texturing
+0024:trace:opengl:init_client_context ++ GL_ARB_sync
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_border_clamp
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_buffer_object_rgb32
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_buffer_range
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_compression_bptc
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_compression_rgtc
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_cube_map_array
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_filter_anisotropic
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_float
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_gather
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_mirror_clamp_to_edge
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_multisample
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_non_power_of_two
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_query_levels
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_query_lod
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_rectangle
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_rg
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_rgb10_a2ui
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_stencil8
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_storage
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_storage_multisample
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_swizzle
+0024:trace:opengl:init_client_context ++ GL_ARB_texture_view
+0024:trace:opengl:init_client_context ++ GL_ARB_timer_query
+0024:trace:opengl:init_client_context ++ GL_ARB_transform_feedback2
+0024:trace:opengl:init_client_context ++ GL_ARB_transform_feedback3
+0024:trace:opengl:init_client_context ++ GL_ARB_transform_feedback_instanced
+0024:trace:opengl:init_client_context ++ GL_ARB_transform_feedback_overflow_query
+0024:trace:opengl:init_client_context ++ GL_ARB_uniform_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_array_bgra
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_array_object
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_attrib_64bit
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_attrib_binding
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_buffer_object
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_shader
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_type_10f_11f_11f_rev
+0024:trace:opengl:init_client_context ++ GL_ARB_vertex_type_2_10_10_10_rev
+0024:trace:opengl:init_client_context ++ GL_ARB_viewport_array
+0024:trace:opengl:init_client_context ++ GL_ATI_blend_equation_separate
+0024:trace:opengl:init_client_context ++ GL_ATI_meminfo
+0024:trace:opengl:init_client_context ++ GL_ATI_texture_float
+0024:trace:opengl:init_client_context ++ GL_ATI_texture_mirror_once
+0024:trace:opengl:init_client_context ++ GL_EXT_EGL_image_storage
+0024:trace:opengl:init_client_context ++ GL_EXT_EGL_image_storage_compression
+0024:trace:opengl:init_client_context ++ GL_EXT_EGL_sync
+0024:trace:opengl:init_client_context ++ GL_EXT_abgr
+0024:trace:opengl:init_client_context ++ GL_EXT_blend_equation_separate
+0024:trace:opengl:init_client_context ++ GL_EXT_debug_label
+0024:trace:opengl:init_client_context ++ GL_EXT_depth_bounds_test
+0024:trace:opengl:init_client_context ++ GL_EXT_draw_buffers2
+0024:trace:opengl:init_client_context ++ GL_EXT_draw_instanced
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_blit
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_multisample
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_multisample_blit_scaled
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_object
+0024:trace:opengl:init_client_context ++ GL_EXT_framebuffer_sRGB
+0024:trace:opengl:init_client_context ++ GL_EXT_packed_depth_stencil
+0024:trace:opengl:init_client_context ++ GL_EXT_packed_float
+0024:trace:opengl:init_client_context ++ GL_EXT_pixel_buffer_object
+0024:trace:opengl:init_client_context ++ GL_EXT_provoking_vertex
+0024:trace:opengl:init_client_context ++ GL_EXT_shader_integer_mix
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_array
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_compression_dxt1
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_compression_rgtc
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_compression_s3tc
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_filter_anisotropic
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_integer
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_mirror_clamp
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_sRGB
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_sRGB_R8
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_sRGB_RG8
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_sRGB_decode
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_shared_exponent
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_snorm
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_storage
+0024:trace:opengl:init_client_context ++ GL_EXT_texture_swizzle
+0024:trace:opengl:init_client_context ++ GL_EXT_timer_query
+0024:trace:opengl:init_client_context ++ GL_EXT_transform_feedback
+0024:trace:opengl:init_client_context ++ GL_EXT_vertex_array_bgra
+0024:trace:opengl:init_client_context ++ GL_EXT_vertex_attrib_64bit
+0024:trace:opengl:init_client_context ++ GL_IBM_multimode_draw_arrays
+0024:trace:opengl:init_client_context ++ GL_KHR_context_flush_control
+0024:trace:opengl:init_client_context ++ GL_KHR_debug
+0024:trace:opengl:init_client_context ++ GL_KHR_no_error
+0024:trace:opengl:init_client_context ++ GL_KHR_parallel_shader_compile
+0024:trace:opengl:init_client_context ++ GL_KHR_texture_compression_astc_ldr
+0024:trace:opengl:init_client_context ++ GL_KHR_texture_compression_astc_sliced_3d
+0024:trace:opengl:init_client_context ++ GL_MESA_pack_invert
+0024:trace:opengl:init_client_context ++ GL_MESA_shader_integer_functions
+0024:trace:opengl:init_client_context ++ GL_MESA_texture_signed_rgba
+0024:trace:opengl:init_client_context ++ GL_MESA_ycbcr_texture
+0024:trace:opengl:init_client_context ++ GL_NVX_gpu_memory_info
+0024:trace:opengl:init_client_context ++ GL_NV_conditional_render
+0024:trace:opengl:init_client_context ++ GL_NV_copy_image
+0024:trace:opengl:init_client_context ++ GL_NV_depth_clamp
+0024:trace:opengl:init_client_context ++ GL_NV_packed_depth_stencil
+0024:trace:opengl:init_client_context ++ GL_NV_shader_atomic_float
+0024:trace:opengl:init_client_context ++ GL_S3_s3tc
+0024:trace:opengl:init_client_context ++ WGL_EXT_extensions_string
+0024:trace:opengl:init_client_context ++ WGL_EXT_swap_control
+0024:trace:opengl:glGetString name 7938
+0024:trace:opengl:glGetString name 7937
+ctx2: renderer=softpipe version=3.3 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+0024:trace:opengl:glGenBuffers n 1, buffers 0033FEC0
+0024:trace:opengl:set_object Inserted buffer client 0x1, host 0x1
+0024:warn:opengl:set_context_attribute Unsupported attribute on context 0090BE80
+0024:trace:opengl:glBindBuffer target 34962, buffer 1
+0024:trace:opengl:get_object Found buffer client 0x1, host 0x1
+0024:trace:opengl:get_object Found buffer client 0x1, host 0x1
+0024:trace:opengl:glBufferData target 34962, size 3686400, data 00000000, usage 35040
+0024:trace:opengl:glGetError 
+0024:trace:opengl:glGetBufferParameteriv target 34962, pname 34660, params 0033FEC4
+  ctx2 BufferData: err=0x505 size=0
+0024:trace:opengl:glGenBuffers n 1, buffers 0033FEC8
+0024:trace:opengl:set_object Inserted buffer client 0x2, host 0x2
+0024:trace:opengl:glBindBuffer target 34962, buffer 2
+0024:trace:opengl:get_object Found buffer client 0x2, host 0x2
+0024:trace:opengl:get_object Found buffer client 0x2, host 0x2
+0024:trace:opengl:glBufferStorage target 34962, size 16777216, data 00000000, flags 451
+0024:trace:opengl:glGetError 
+0024:trace:opengl:glGetBufferParameteriv target 34962, pname 34660, params 0033FEC4
+  ctx2 BufferStorage: err=0x505 size=0
+0024:trace:opengl:glBindBuffer target 34962, buffer 0
+0024:trace:opengl:wglMakeCurrent hdc 00000000, handle 00000000
+0024:trace:opengl:wglMakeContextCurrentARB draw_hdc 00000000, read_hdc 00000000, handle 00000000
+0024:err:seh:segv_handler Got unexpected trap -1
+0024:warn:opengl:wglMakeContextCurrentARB wglMakeContextCurrentARB returned 0xc000001d
+DONE

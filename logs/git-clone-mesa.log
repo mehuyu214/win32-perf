@@ -1,0 +1,19 @@
+Cloning into 'mesa-src'...
+Note: switching to 'f97d7dcca0e51d7e20ed4342bb5ea8afea7db7fa'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files:  26% (2977/11102)Updating files:  27% (2998/11102)Updating files:  28% (3109/11102)Updating files:  29% (3220/11102)Updating files:  30% (3331/11102)Updating files:  31% (3442/11102)Updating files:  32% (3553/11102)Updating files:  33% (3664/11102)Updating files:  34% (3775/11102)Updating files:  35% (3886/11102)Updating files:  36% (3997/11102)Updating files:  37% (4108/11102)Updating files:  38% (4219/11102)Updating files:  39% (4330/11102)Updating files:  40% (4441/11102)Updating files:  41% (4552/11102)Updating files:  42% (4663/11102)Updating files:  43% (4774/11102)Updating files:  44% (4885/11102)Updating files:  45% (4996/11102)Updating files:  46% (5107/11102)Updating files:  47% (5218/11102)Updating files:  48% (5329/11102)Updating files:  48% (5331/11102)Updating files:  49% (5440/11102)Updating files:  50% (5551/11102)Updating files:  51% (5663/11102)Updating files:  52% (5774/11102)Updating files:  53% (5885/11102)Updating files:  54% (5996/11102)Updating files:  55% (6107/11102)Updating files:  56% (6218/11102)Updating files:  57% (6329/11102)Updating files:  58% (6440/11102)Updating files:  59% (6551/11102)Updating files:  59% (6593/11102)Updating files:  60% (6662/11102)Updating files:  61% (6773/11102)Updating files:  62% (6884/11102)Updating files:  63% (6995/11102)Updating files:  64% (7106/11102)Updating files:  65% (7217/11102)Updating files:  66% (7328/11102)Updating files:  67% (7439/11102)Updating files:  68% (7550/11102)Updating files:  69% (7661/11102)Updating files:  70% (7772/11102)Updating files:  71% (7883/11102)Updating files:  72% (7994/11102)Updating files:  73% (8105/11102)Updating files:  74% (8216/11102)Updating files:  75% (8327/11102)Updating files:  76% (8438/11102)Updating files:  76% (8472/11102)Updating files:  77% (8549/11102)Updating files:  78% (8660/11102)Updating files:  79% (8771/11102)Updating files:  80% (8882/11102)Updating files:  81% (8993/11102)Updating files:  82% (9104/11102)Updating files:  83% (9215/11102)Updating files:  84% (9326/11102)Updating files:  85% (9437/11102)Updating files:  86% (9548/11102)Updating files:  86% (9653/11102)Updating files:  87% (9659/11102)Updating files:  88% (9770/11102)Updating files:  89% (9881/11102)Updating files:  90% (9992/11102)Updating files:  91% (10103/11102)Updating files:  92% (10214/11102)Updating files:  93% (10325/11102)Updating files:  94% (10436/11102)Updating files:  95% (10547/11102)Updating files:  96% (10658/11102)Updating files:  97% (10769/11102)Updating files:  98% (10880/11102)Updating files:  99% (10991/11102)Updating files: 100% (11102/11102)Updating files: 100% (11102/11102), done.

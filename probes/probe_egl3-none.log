@@ -1,0 +1,6 @@
+profile mode=none ctx1=143178944 ctx2=144995296 eglErr=0x3000
+ctx1 renderer=b'softpipe'
+  ctx1 BufferData: err=0x0 size=3686400 profile_mask=0x0
+ctx2 renderer=b'softpipe'
+  ctx2 BufferData: err=0x0 size=3686400 profile_mask=0x0
+DONE
