@@ -1,0 +1,181 @@
+00010000-00110000 rw-p 00000000 00:00 0 
+00110000-0012c000 ---p 00000000 00:00 0 
+0012c000-00130000 rw-p 00000000 00:00 0 
+00130000-00132000 r--p 00000000 00:44 245178                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/share/wine/nls/l_intl.nls
+00132000-00140000 ---p 00000000 00:00 0 
+00140000-00142000 ---p 00000000 00:00 0 
+00142000-00340000 rw-p 00000000 00:00 0 
+00340000-00356000 r--p 00000000 00:44 245439                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/apisetschema.dll
+00356000-00360000 ---p 00000000 00:00 0 
+00360000-00376000 rw-p 00000000 00:00 0 
+00376000-00380000 ---p 00000000 00:00 0 
+00380000-003a8000 r--p 00000000 00:44 245219                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/share/wine/nls/c_932.nls
+003a8000-003b0000 ---p 00000000 00:00 0 
+003b0000-003d8000 r--p 00000000 00:44 245219                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/share/wine/nls/c_932.nls
+003d8000-003e0000 ---p 00000000 00:00 0 
+003e0000-003ef000 r--p 00000000 00:44 245199                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/share/wine/nls/normnfc.nls
+003ef000-003f0000 ---p 00000000 00:00 0 
+003f0000-00400000 rw-p 00000000 00:00 0 
+00400000-00418000 r--p 00000000 00:44 246075                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/conhost.exe
+00418000-00419000 rw-p 00018000 00:44 246075                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/conhost.exe
+00419000-0041e000 r--p 00019000 00:44 246075                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/conhost.exe
+0041e000-00420000 rw-p 00000000 00:00 0 
+00420000-00423000 rw-p 0001e000 00:44 246075                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/conhost.exe
+00423000-00443000 r--p 00021000 00:44 246075                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/conhost.exe
+00443000-00450000 ---p 00000000 00:00 0 
+00450000-00513000 r--p 00000000 00:44 245226                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/share/wine/nls/locale.nls
+00513000-00520000 ---p 00000000 00:00 0 
+00520000-005a0000 rw-p 00000000 00:00 0 
+005a0000-008de000 r--p 00000000 00:44 245220                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/share/wine/nls/sortdefault.nls
+008de000-008e0000 ---p 00000000 00:00 0 
+008e0000-008e6000 rw-p 00000000 00:00 0 
+008e6000-008f0000 ---p 00000000 00:00 0 
+008f0000-00901000 r--p 00000000 00:44 245193                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/share/wine/nls/c_20127.nls
+00901000-7d400000 ---p 00000000 00:00 0 
+7d400000-7d403000 r--p 00001000 00:44 246573                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader
+7d403000-7d404000 ---p 00000000 00:00 0 
+7d404000-7d405000 rw-p 00004000 00:44 246573                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader
+7d405000-7d406000 ---p 00000000 00:00 0 
+7d406000-7dc06000 rw-p 00000000 00:00 0 
+7dc06000-7dc07000 r--p 00000000 00:00 0 
+7dc07000-7dc09000 rw-p 00000000 00:00 0 
+7dc09000-7dc0a000 r--p 00000000 00:44 246695                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine
+7dc0a000-7dc0b000 ---p 00001000 00:44 246695                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine
+7dc0b000-7dc0c000 r--p 00001000 00:44 246695                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine
+7dc0c000-7dc0d000 rw-p 00002000 00:44 246695                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine
+7dc0d000-7dc3f000 r--p 00000000 00:44 248738                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/ld-linux.so.2
+7dc3f000-7dc41000 r--p 00031000 00:44 248738                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/ld-linux.so.2
+7dc41000-7dc42000 rw-p 00033000 00:44 248738                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/ld-linux.so.2
+7dc42000-7dc44000 rw-p 00000000 00:00 0 
+7dc44000-7dc45000 r--p 00000000 00:44 298612                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_IDENTIFICATION
+7dc45000-7dc48000 r--p 00000000 00:44 248743                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libdl.so.2
+7dc48000-7dc49000 r--p 00002000 00:44 248743                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libdl.so.2
+7dc49000-7dc4a000 rw-p 00003000 00:44 248743                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libdl.so.2
+7dc4a000-7dc4d000 r--p 00000000 00:44 248752                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libpthread.so.0
+7dc4d000-7dc4e000 r--p 00002000 00:44 248752                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libpthread.so.0
+7dc4e000-7dc4f000 rw-p 00003000 00:44 248752                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libpthread.so.0
+7dc4f000-7de7d000 r--p 00000000 00:44 248741                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libc.so.6
+7de7d000-7de7f000 r--p 0022e000 00:44 248741                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libc.so.6
+7de7f000-7de80000 rw-p 00230000 00:44 248741                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libc.so.6
+7de80000-7df8c000 rw-p 00000000 00:00 0 
+7df8c000-7e037000 r--p 00000000 00:44 246470                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/ntdll.so
+7e037000-7e038000 ---p 000ab000 00:44 246470                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/ntdll.so
+7e038000-7e039000 r--p 000ab000 00:44 246470                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/ntdll.so
+7e039000-7e03b000 rw-p 000ac000 00:44 246470                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/ntdll.so
+7e03b000-7e2a0000 rw-p 00000000 00:00 0 
+7e2a0000-7e33b000 r--p 00000000 00:44 298600                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_CTYPE
+7e33b000-7e342000 r--s 00000000 00:44 248729                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/gconv/gconv-modules.cache
+7e342000-7e343000 r--p 00000000 00:44 298611                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_MEASUREMENT
+7e343000-7e344000 r--p 00000000 00:44 298610                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_TELEPHONE
+7e344000-7e345000 r--p 00000000 00:44 298609                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_ADDRESS
+7e345000-7e346000 r--p 00000000 00:44 298608                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_NAME
+7e346000-7e347000 r--p 00000000 00:44 298607                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_PAPER
+7e347000-7e348000 r--p 00000000 00:44 298606                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_MESSAGES/SYS_LC_MESSAGES
+7e348000-7e349000 r--p 00000000 00:44 298604                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_MONETARY
+7e349000-7e3b5000 r--p 00000000 00:44 298603                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_COLLATE
+7e3b5000-7e3b7000 r--p 00000000 00:44 298602                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_TIME
+7e3b7000-7e3b8000 r--p 00000000 00:44 298601                             /home/hatch/workspace/vn-trials/locales/ja_JP.UTF-8/LC_NUMERIC
+7e3b8000-7e3c0000 ---p 00000000 00:00 0 
+7e3c0000-7e4d0000 rw-p 00000000 00:00 0 
+7e4d0000-7f600000 ---p 00000000 00:00 0 
+7f600000-7f614000 r--p 00000000 00:44 245923                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/win32u.dll
+7f614000-7f615000 rw-p 00014000 00:44 245923                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/win32u.dll
+7f615000-7f62b000 r--p 00015000 00:44 245923                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/win32u.dll
+7f62b000-7f62c000 rw-p 00000000 00:00 0 
+7f62c000-7f63a000 r--p 0002b000 00:44 245923                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/win32u.dll
+7f63a000-7f63c000 rw-p 00039000 00:44 245923                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/win32u.dll
+7f63c000-7f63e000 r--p 0003b000 00:44 245923                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/win32u.dll
+7f63e000-7f640000 ---p 00000000 00:00 0 
+7f640000-7f70a000 r--p 00000000 00:44 246326                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/user32.dll
+7f70a000-7f70b000 rw-p 000ca000 00:44 246326                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/user32.dll
+7f70b000-7f748000 r--p 000cb000 00:44 246326                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/user32.dll
+7f748000-7f749000 rw-p 00000000 00:00 0 
+7f749000-7f750000 r--p 00108000 00:44 246326                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/user32.dll
+7f750000-7f756000 rw-p 0010f000 00:44 246326                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/user32.dll
+7f756000-7f846000 r--p 00115000 00:44 246326                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/user32.dll
+7f846000-7f850000 ---p 00000000 00:00 0 
+7f850000-7f8bd000 r--p 00000000 00:44 246184                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/gdi32.dll
+7f8bd000-7f8be000 rw-p 0006d000 00:44 246184                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/gdi32.dll
+7f8be000-7f8e6000 r--p 0006e000 00:44 246184                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/gdi32.dll
+7f8e6000-7f8e7000 rw-p 00000000 00:00 0 
+7f8e7000-7f8eb000 r--p 00096000 00:44 246184                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/gdi32.dll
+7f8eb000-7f8ef000 rw-p 0009a000 00:44 246184                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/gdi32.dll
+7f8ef000-7f8f9000 r--p 0009e000 00:44 246184                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/gdi32.dll
+7f8f9000-7f900000 ---p 00000000 00:00 0 
+7f900000-7f9c2000 r--p 00000000 00:44 245614                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ucrtbase.dll
+7f9c2000-7f9c4000 rw-p 000c2000 00:44 245614                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ucrtbase.dll
+7f9c4000-7fa01000 r--p 000c4000 00:44 245614                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ucrtbase.dll
+7fa01000-7fa03000 rw-p 00000000 00:00 0 
+7fa03000-7fa11000 r--p 00101000 00:44 245614                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ucrtbase.dll
+7fa11000-7fa14000 rw-p 0010f000 00:44 245614                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ucrtbase.dll
+7fa14000-7fa1d000 r--p 00112000 00:44 245614                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ucrtbase.dll
+7fa1d000-7fa20000 ---p 00000000 00:00 0 
+7fa20000-7fa35000 r--p 00000000 00:44 245987                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/sechost.dll
+7fa35000-7fa36000 rw-p 00015000 00:44 245987                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/sechost.dll
+7fa36000-7fa41000 r--p 00016000 00:44 245987                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/sechost.dll
+7fa41000-7fa42000 rw-p 00000000 00:00 0 
+7fa42000-7fa44000 r--p 00021000 00:44 245987                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/sechost.dll
+7fa44000-7fa46000 rw-p 00023000 00:44 245987                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/sechost.dll
+7fa46000-7fa48000 r--p 00025000 00:44 245987                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/sechost.dll
+7fa48000-7fa50000 ---p 00000000 00:00 0 
+7fa50000-7faf2000 r--p 00000000 00:44 245929                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/msvcrt.dll
+7faf2000-7faf4000 rw-p 000a2000 00:44 245929                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/msvcrt.dll
+7faf4000-7fb1e000 r--p 000a4000 00:44 245929                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/msvcrt.dll
+7fb1e000-7fb20000 rw-p 00000000 00:00 0 
+7fb20000-7fb27000 r--p 000ce000 00:44 245929                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/msvcrt.dll
+7fb27000-7fb2a000 rw-p 000d5000 00:44 245929                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/msvcrt.dll
+7fb2a000-7fb31000 r--p 000d8000 00:44 245929                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/msvcrt.dll
+7fb31000-7fb40000 ---p 00000000 00:00 0 
+7fb40000-7fb69000 r--p 00000000 00:44 246270                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/advapi32.dll
+7fb69000-7fb6a000 rw-p 00029000 00:44 246270                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/advapi32.dll
+7fb6a000-7fb7c000 r--p 0002a000 00:44 246270                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/advapi32.dll
+7fb7c000-7fb7d000 rw-p 00000000 00:00 0 
+7fb7d000-7fb82000 r--p 0003c000 00:44 246270                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/advapi32.dll
+7fb82000-7fb86000 rw-p 00041000 00:44 246270                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/advapi32.dll
+7fb86000-7fb8a000 r--p 00045000 00:44 246270                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/advapi32.dll
+7fb8a000-7fb90000 ---p 00000000 00:00 0 
+7fb90000-7fc3e000 r--p 00000000 00:44 245475                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernelbase.dll
+7fc3e000-7fc40000 rw-p 000ae000 00:44 245475                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernelbase.dll
+7fc40000-7fc78000 r--p 000b0000 00:44 245475                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernelbase.dll
+7fc78000-7fc7a000 rw-p 00000000 00:00 0 
+7fc7a000-7fc85000 r--p 000e8000 00:44 245475                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernelbase.dll
+7fc85000-7fc8a000 rw-p 000f3000 00:44 245475                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernelbase.dll
+7fc8a000-7fe7b000 r--p 000f8000 00:44 245475                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernelbase.dll
+7fe7b000-7fe80000 ---p 00000000 00:00 0 
+7fe80000-7feb7000 r--p 00000000 00:44 245834                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernel32.dll
+7feb7000-7feb8000 rw-p 00037000 00:44 245834                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernel32.dll
+7feb8000-7fecf000 r--p 00038000 00:44 245834                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernel32.dll
+7fecf000-7fed0000 rw-p 00000000 00:00 0 
+7fed0000-7fedc000 r--p 0004f000 00:44 245834                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernel32.dll
+7fedc000-7fee5000 rw-p 0005b000 00:44 245834                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernel32.dll
+7fee5000-7feee000 r--p 00064000 00:44 245834                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/kernel32.dll
+7feee000-7fef0000 ---p 00000000 00:00 0 
+7fef0000-7ff8b000 r--p 00000000 00:44 245712                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ntdll.dll
+7ff8b000-7ff8c000 rw-p 0009b000 00:44 245712                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ntdll.dll
+7ff8c000-7ffc0000 r--p 0009c000 00:44 245712                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ntdll.dll
+7ffc0000-7ffc3000 rw-p 00000000 00:00 0 
+7ffc3000-7ffce000 r--p 000d0000 00:44 245712                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ntdll.dll
+7ffce000-7ffd0000 rw-p 000db000 00:44 245712                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ntdll.dll
+7ffd0000-7ffd6000 r--p 000dd000 00:44 245712                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-windows/ntdll.dll
+7ffd6000-7ffe0000 ---p 00000000 00:00 0 
+7ffe0000-7ffe1000 r--s 00000000 00:55 238                                /tmp/.wine-0/server-5b-565e1/tmpmap-96a4407d (deleted)
+7ffe1000-100000000 ---p 00000000 00:00 0 
+55555bbe8000-55555bd77000 rw-p 00000000 00:00 0                          [heap]
+730d28000000-730d2ffff000 rwxp 00000000 00:00 0 
+730d2ffff000-730d30000000 ---p 00000000 00:00 0 
+730d30000000-730d30021000 rw-p 00000000 00:00 0 
+730d30021000-730d34000000 ---p 00000000 00:00 0 
+730d36f7e000-730d36fff000 rw-p 00000000 00:00 0 
+730d36fff000-730d37000000 ---p 00000000 00:00 0 
+730d37000000-730d37800000 rw-p 00000000 00:00 0 
+730d37800000-730d37831000 r--p 00000000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+730d37831000-730d37a60000 r-xp 00031000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+730d37a60000-730d37b4f000 r--p 00260000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+730d37b4f000-730d37b6d000 r--p 0034e000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+730d37b6d000-730d37b98000 rw-p 0036c000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+730d37b98000-730d37baa000 rw-p 00000000 00:00 0 
+730d37c15000-730d37c19000 r--p 00000000 00:00 0                          [vvar]
+730d37c19000-730d37c1b000 r--p 00000000 00:00 0                          [vvar_vclock]
+730d37c1b000-730d37c1d000 r-xp 00000000 00:00 0                          [vdso]
+7ffd4d97a000-7ffd4d99d000 rw-p 00000000 00:00 0                          [stack]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]

@@ -1,0 +1,17 @@
+CreateDevice hr=0x00000000
+CreateTexture hr=0x00000000
+frame,A_clear_present,0,0,0,8182784,8386048
+frame,A_clear_present,1,0,0,7498240,7498752
+frame,A_clear_present,2,0,0,7612416,7612928
+frame,A_clear_present,3,0,0,7988224,7988224
+frame,A_clear_present,4,512,0,9790976,9791488
+frame,A_clear_present,5,1024,0,7724032,7728128
+frame,A_clear_present,6,512,0,8373248,8374272
+frame,A_clear_present,7,512,0,8425472,8425984
+frame,A_clear_present,8,0,0,9195008,9195008
+frame,A_clear_present,9,512,0,7872512,7873024
+frame,A_clear_present,10,0,0,8019456,8020992
+frame,A_clear_present,11,512,0,7468544,7469568
+frame,A_clear_present,12,0,0,8294912,8295424
+frame,A_clear_present,13,512,0,7610880,7612928
+frame,A_clear_present,14,512,0,7521792,7522304

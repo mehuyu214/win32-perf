@@ -1,0 +1,50 @@
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w6447317766147935452.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+QPC freq = 10000000 Hz
+--- clock agreement (sampled every ~500 ms of Sleep(500)) ---
+qpc=+504.8 gtc=500 tgt=505
+qpc=+1011.2 gtc=1013 tgt=1011
+qpc=+1512.2 gtc=1500 tgt=1512
+qpc=+2012.1 gtc=2000 tgt=2012
+qpc=+2513.5 gtc=2501 tgt=2514
+qpc=+3014.1 gtc=3013 tgt=3014
+qpc=+3514.5 gtc=3513 tgt=3515
+qpc=+4015.3 gtc=4018 tgt=4015
+qpc=+4516.0 gtc=4516 tgt=4516
+qpc=+5017.2 gtc=5011 tgt=5017
+qpc=+5517.5 gtc=5516 tgt=5518
+qpc=+6019.5 gtc=6016 tgt=6020
+qpc=+6520.2 gtc=6516 tgt=6520
+qpc=+7020.0 gtc=7014 tgt=7020
+qpc=+7520.5 gtc=7516 tgt=7521
+qpc=+8021.5 gtc=8016 tgt=8022
+qpc=+8522.3 gtc=8510 tgt=8522
+qpc=+9023.6 gtc=9016 tgt=9024
+qpc=+9524.6 gtc=9518 tgt=9525
+qpc=+10025.0 gtc=10022 tgt=10025
+qpc=+10526.4 gtc=10516 tgt=10526
+qpc=+11027.3 gtc=11016 tgt=11027
+qpc=+11528.5 gtc=11517 tgt=11529
+qpc=+12030.0 gtc=12019 tgt=12030
+--- Sleep accuracy, default timer resolution ---
+Sleep(0) n=60 min=0.006 med=0.007 p90=0.226 max=62.889
+Sleep(1) n=60 min=1.024 med=1.079 p90=1.575 max=46.078
+Sleep(2) n=60 min=1.286 med=2.081 p90=3.896 max=42.469
+Sleep(5) n=60 min=4.553 med=5.098 p90=6.514 max=55.674
+Sleep(10) n=60 min=9.464 med=10.096 p90=11.301 max=60.867
+Sleep(16) n=60 min=15.210 med=16.195 p90=49.584 max=68.196
+Sleep(33) n=40 min=31.993 med=33.564 p90=67.464 max=72.815
+Sleep(100) n=20 min=99.672 med=100.191 p90=101.280 max=102.881
+--- WaitForSingleObject timeouts ---
+WFSO(timeout=1) n=60 min=1.103 med=1.182 p90=4.016 max=60.028
+WFSO(timeout=10) n=60 min=10.139 med=10.314 p90=54.583 max=75.075
+WFSO(timeout=100) n=20 min=100.271 med=100.952 p90=155.229 max=589.503
+--- with timeBeginPeriod(1) ---
+Sleep(1)[tbp1] n=60 min=0.191 med=1.079 p90=1.227 max=3.261
+Sleep(10)[tbp1] n=60 min=9.757 med=10.098 p90=10.912 max=59.980
+WFSO(timeout=1) n=60 min=1.055 med=1.132 p90=3.151 max=46.145
+ALU 20M iters: 183.2 ms (acc=10000000)
+DONE

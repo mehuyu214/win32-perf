@@ -1,0 +1,8 @@
+# runtime state and game data never belong in this repo
+game/
+prefix/
+mingw/
+apt/
+*.sock
+core
+core.*

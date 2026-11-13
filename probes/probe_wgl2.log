@@ -1,0 +1,9 @@
+probe_wgl2 start
+wglShareLists -> 1 (err 0)
+ctx1 renderer: softpipe
+ctx1: storage_err=0
+ctx1: BUFFER_SIZE=67108864
+ctx1: map=34131040 err=0 -> PASS
+ctx2: BUFFER_SIZE=0 (err 0)
+ctx2: map=00000000 err=0x502 -> FAIL(NULL)
+DONE

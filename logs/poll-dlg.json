@@ -1,0 +1,1 @@
+{"polls": 1200, "poll_hz": 20.0, "xerrors": 0, "chg_per_s_ge_0.05": 0.267, "chg_per_s_ge_0.2": 0.25, "chg_per_s_ge_1.0": 0.167, "chg_per_s_ge_5.0": 0.05, "longest_stretch_below_0.2_s": 7.39}

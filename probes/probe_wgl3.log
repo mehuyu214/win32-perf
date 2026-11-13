@@ -1,0 +1,10 @@
+probe_wgl3 start
+ctx2 (attribs+share) = 00010002 err 0
+ctx1: storage_err=0 BUFFER_SIZE=67108864
+ctx1: map=34131040 err=0 -> PASS
+ctx2 renderer: softpipe
+ctx2 version: 3.3 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4
+ctx2: BUFFER_SIZE=67108864 err=0
+ctx2: map=00000000 err=0x502 -> FAIL(NULL)
+ctx2 PBO: bufdata_err=0x505 BUFFER_SIZE=0 map=00000000 err=0x501 -> FAIL(NULL)
+DONE

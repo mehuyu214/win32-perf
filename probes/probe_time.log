@@ -1,0 +1,45 @@
+QPC freq = 10000000 Hz
+--- clock agreement (sampled every ~500 ms of Sleep(500)) ---
+qpc=+502.0 gtc=495 tgt=502
+qpc=+1005.8 gtc=1008 tgt=1006
+qpc=+1506.7 gtc=1498 tgt=1507
+qpc=+2007.5 gtc=1995 tgt=2007
+qpc=+2508.5 gtc=2499 tgt=2508
+qpc=+3013.7 gtc=3008 tgt=3014
+qpc=+3515.1 gtc=3512 tgt=3515
+qpc=+4060.0 gtc=4063 tgt=4060
+qpc=+4561.4 gtc=4563 tgt=4561
+qpc=+5061.8 gtc=5063 tgt=5062
+qpc=+5563.3 gtc=5563 tgt=5563
+qpc=+6063.6 gtc=6063 tgt=6063
+qpc=+6567.6 gtc=6563 tgt=6567
+qpc=+7070.8 gtc=7063 tgt=7071
+qpc=+7571.3 gtc=7560 tgt=7571
+qpc=+8071.3 gtc=8064 tgt=8071
+qpc=+8571.3 gtc=8564 tgt=8571
+qpc=+9071.3 gtc=9063 tgt=9071
+qpc=+9571.8 gtc=9563 tgt=9572
+qpc=+10072.5 gtc=10063 tgt=10072
+qpc=+10574.8 gtc=10563 tgt=10575
+qpc=+11075.4 gtc=11079 tgt=11075
+qpc=+11577.9 gtc=11582 tgt=11578
+qpc=+12078.8 gtc=12079 tgt=12079
+--- Sleep accuracy, default timer resolution ---
+Sleep(0) n=60 min=0.004 med=0.004 p90=0.004 max=0.092
+Sleep(1) n=60 min=0.430 med=1.073 p90=1.533 max=20.999
+Sleep(2) n=60 min=1.157 med=2.286 p90=4.305 max=65.285
+Sleep(5) n=60 min=4.101 med=5.089 p90=5.407 max=53.513
+Sleep(10) n=60 min=9.429 med=10.098 p90=11.409 max=49.292
+Sleep(16) n=60 min=15.136 med=16.131 p90=51.942 max=67.738
+Sleep(33) n=40 min=32.372 med=33.385 p90=67.025 max=67.600
+Sleep(100) n=20 min=99.264 med=100.178 p90=101.512 max=132.233
+--- WaitForSingleObject timeouts ---
+WFSO(timeout=1) n=60 min=1.090 med=1.186 p90=5.651 max=66.005
+WFSO(timeout=10) n=60 min=10.092 med=10.252 p90=59.352 max=69.671
+WFSO(timeout=100) n=20 min=100.606 med=101.018 p90=106.704 max=109.707
+--- with timeBeginPeriod(1) ---
+Sleep(1)[tbp1] n=60 min=0.209 med=1.074 p90=1.303 max=41.552
+Sleep(10)[tbp1] n=60 min=9.289 med=10.108 p90=48.698 max=70.562
+WFSO(timeout=1) n=60 min=1.096 med=1.148 p90=2.397 max=46.971
+ALU 20M iters: 300.4 ms (acc=10000000)
+DONE

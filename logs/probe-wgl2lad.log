@@ -1,0 +1,23 @@
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w6447317766147935452.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+probe_wgl2 start
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+wglShareLists -> 1 (err 0)
+ctx1 renderer: softpipe
+ctx1 ladder: size=1048576 storage_err=0x505 BUFFER_SIZE=0
+ctx1 ladder: size=3686400 storage_err=0x505 BUFFER_SIZE=0
+ctx1 ladder: size=16777216 storage_err=0x505 BUFFER_SIZE=0
+ctx1 ladder: size=67108864 storage_err=0x505 BUFFER_SIZE=0
+ctx1: storage_err=0x505
+ctx1: BUFFER_SIZE=0
+ctx1: map=00000000 err=0x501 -> FAIL
+ctx2: BUFFER_SIZE=0 (err 0)
+ctx2: map=00000000 err=0x501 -> FAIL(NULL)
+DONE

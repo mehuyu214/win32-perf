@@ -1,0 +1,41 @@
+00010000-00400000 ---p 00000000 00:00 0 
+00400000-004ca000 r--p 00000000 00:44 248316                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/bin/wineserver
+004ca000-004cf000 r--p 000c9000 00:44 248316                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/bin/wineserver
+004cf000-004d0000 rw-p 000ce000 00:44 248316                             /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/bin/wineserver
+004d0000-00513000 rw-p 00000000 00:00 0 
+00513000-009bf000 rw-p 00000000 00:00 0 
+009bf000-40000000 ---p 00000000 00:00 0 
+40000000-40001000 ---p 00000000 00:00 0 
+40001000-40801000 rw-p 00000000 00:00 0 
+40801000-40833000 r--p 00000000 00:44 248738                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/ld-linux.so.2
+40833000-40835000 r--p 00031000 00:44 248738                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/ld-linux.so.2
+40835000-40836000 rw-p 00033000 00:44 248738                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/ld-linux.so.2
+40836000-40837000 r--p 00000000 00:00 0 
+40837000-4083b000 rw-p 00000000 00:00 0 
+4083b000-4083c000 -w-s 00000000 00:55 238                                /tmp/.wine-0/server-5b-565e1/tmpmap-96a4407d (deleted)
+4083c000-40a6a000 r--p 00000000 00:44 248741                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libc.so.6
+40a6a000-40a6c000 r--p 0022e000 00:44 248741                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libc.so.6
+40a6c000-40a6d000 rw-p 00230000 00:44 248741                             /home/hatch/workspace/vn-trials/sysroot32/root/usr/lib/i386-linux-gnu/libc.so.6
+40a6d000-40a77000 rw-p 00000000 00:00 0 
+40a77000-40bbf000 rw-s 00000000 00:55 239                                /tmp/.wine-0/server-5b-565e1/tmpmap-e1f66fec (deleted)
+40bbf000-100000000 ---p 00000000 00:00 0 
+555577d95000-555577e99000 rw-p 00000000 00:00 0                          [heap]
+555577e99000-555577f43000 rw-p 00000000 00:00 0                          [heap]
+7044e4000000-7044ebfff000 rwxp 00000000 00:00 0 
+7044ebfff000-7044ec000000 ---p 00000000 00:00 0 
+7044ec000000-7044ec021000 rw-p 00000000 00:00 0 
+7044ec021000-7044f0000000 ---p 00000000 00:00 0 
+7044f237e000-7044f23ff000 rw-p 00000000 00:00 0 
+7044f23ff000-7044f2400000 ---p 00000000 00:00 0 
+7044f2400000-7044f2c00000 rw-p 00000000 00:00 0 
+7044f2c00000-7044f2c31000 r--p 00000000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+7044f2c31000-7044f2e60000 r-xp 00031000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+7044f2e60000-7044f2f4f000 r--p 00260000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+7044f2f4f000-7044f2f6d000 r--p 0034e000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+7044f2f6d000-7044f2f98000 rw-p 0036c000 00:44 249115                     /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static
+7044f2f98000-7044f2faa000 rw-p 00000000 00:00 0 
+7044f3010000-7044f3014000 r--p 00000000 00:00 0                          [vvar]
+7044f3014000-7044f3016000 r--p 00000000 00:00 0                          [vvar_vclock]
+7044f3016000-7044f3018000 r-xp 00000000 00:00 0                          [vdso]
+7ffed9750000-7ffed9773000 rw-p 00000000 00:00 0                          [stack]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]

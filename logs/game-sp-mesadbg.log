@@ -1,0 +1,385 @@
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/../../bin/wineserver -> /home/hatch/workspace/vn-trials/qemu10/wrap/w6447317766147935452.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+0054:trace:seh:NtGetContextThread 0xfffffffe: eax=00000006 ebx=008e2c04 ecx=00000000 edx=00000000 esi=008e2b68 edi=0161ff34
+0054:trace:seh:NtGetContextThread 0xfffffffe: ebp=0161fe54 esp=0161fe14 eip=7fefd310 cs=0023 ss=002b flags=00000246
+0054:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+006c:fixme:ver:GetCurrentPackageId (0136FF40 00000000): stub
+006c:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+0074:err:vulkan:vulkan_init_once Failed to load libvulkan.so.1
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/hatch/.drirc: No such file or directory.
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/hatch/.drirc: No such file or directory.
+0074:trace:seh:dispatch_exception code=6ba (RPC_S_SERVER_UNAVAILABLE) flags=0 addr=7FBECFA9
+0074:trace:seh:dispatch_exception eip=7fbecfa9 esp=0033e348 ebp=0033e39c eflags=00000246
+0074:trace:seh:dispatch_exception eax=0033e348 ebx=0033e9c4 ecx=00000000 edx=00000000
+0074:trace:seh:dispatch_exception esi=7f38b888 edi=00000005 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0074:trace:seh:call_seh_handlers calling handler at 7F5A70F0 code=6ba flags=0
+0074:trace:seh:call_seh_handlers handler at 7F5A70F0 returned 1
+0074:trace:seh:call_seh_handlers calling handler at 7F36B5D0 code=6ba flags=0
+0074:trace:seh:__regs_RtlUnwind code=6ba flags=2
+0074:trace:seh:__regs_RtlUnwind eip=7f354f2a esp=0033d8e4 ebp=0033d8ec eflags=00000206
+0074:trace:seh:__regs_RtlUnwind eax=00000000 ebx=00000000 ecx=7f3806d0 edx=0033f114
+0074:trace:seh:__regs_RtlUnwind esi=0033da08 edi=0033da08 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0074:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=6ba flags=2
+0074:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0074:trace:seh:__regs_RtlUnwind calling handler at 7F5A70F0 code=6ba flags=2
+0074:trace:seh:__regs_RtlUnwind handler at 7F5A70F0 returned 1
+0074:err:ole:start_rpcss Failed to open RpcSs service
+0024:fixme:mpr:WNetGetUniversalNameW (L"Z:\\home\\hatch\\workspace\\win32-perf\\game\\sanoba\\savedata", 0x00000001, 00000000, 0023F854): stub
+0024:trace:seh:NtGetContextThread 0xfffffffe: eax=00000007 ebx=0023f524 ecx=00000000 edx=00000000 esi=0023f580 edi=0023f560
+0024:trace:seh:NtGetContextThread 0xfffffffe: ebp=0023f538 esp=0023f4f0 eip=7fefd320 cs=0023 ss=002b flags=00000202
+0024:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+0024:fixme:mpr:WNetGetUniversalNameW (L"Z:\\home\\hatch\\workspace\\win32-perf\\game\\sanoba\\savedata", 0x00000001, 00000000, 0023F7B0): stub
+0024:trace:seh:NtGetContextThread 0xfffffffe: eax=00000007 ebx=0023f47c ecx=00000000 edx=00000000 esi=0023f4d8 edi=0023f4b8
+0024:trace:seh:NtGetContextThread 0xfffffffe: ebp=0023f490 esp=0023f448 eip=7fefd320 cs=0023 ss=002b flags=00000202
+0024:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+0024:trace:seh:dispatch_exception code=e06d7363 (EXCEPTION_WINE_CXX_EXCEPTION) flags=1 addr=7FBECFA9
+0024:trace:seh:dispatch_exception  info[0]=19930520
+0024:trace:seh:dispatch_exception  info[1]=00239954
+0024:trace:seh:dispatch_exception  info[2]=00742A68
+0024:trace:seh:dispatch_exception eip=7fbecfa9 esp=002398b0 ebp=00239904 eflags=00000246
+0024:trace:seh:dispatch_exception eax=002398b0 ebx=00742a68 ecx=00239930 edx=0000000c
+0024:trace:seh:dispatch_exception esi=00239a38 edi=0023dc50 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:call_seh_handlers calling handler at 0069A748 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 0069A748 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00699B78 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 00699B78 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00695740 code=e06d7363 flags=1
+0024:trace:seh:__regs_RtlUnwind code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind eip=00637214 esp=00238d48 ebp=00238d5c eflags=00000246
+0024:trace:seh:__regs_RtlUnwind eax=00000000 ebx=002399cc ecx=00638883 edx=00239954
+0024:trace:seh:__regs_RtlUnwind esi=00238e74 edi=002399cc cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 0069A748 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 0069A748 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 00699B78 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 00699B78 returned 1
+0024:trace:seh:dispatch_exception code=e06d7363 (EXCEPTION_WINE_CXX_EXCEPTION) flags=1 addr=7FBECFA9
+0024:trace:seh:dispatch_exception  info[0]=19930520
+0024:trace:seh:dispatch_exception  info[1]=00239954
+0024:trace:seh:dispatch_exception  info[2]=00742A68
+0024:trace:seh:dispatch_exception eip=7fbecfa9 esp=002398b0 ebp=00239904 eflags=00000246
+0024:trace:seh:dispatch_exception eax=002398b0 ebx=00742a68 ecx=00239930 edx=0000000c
+0024:trace:seh:dispatch_exception esi=00239a38 edi=0023dc50 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:call_seh_handlers calling handler at 0069A748 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 0069A748 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00699B78 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 00699B78 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00695740 code=e06d7363 flags=1
+0024:trace:seh:__regs_RtlUnwind code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind eip=00637214 esp=00238d48 ebp=00238d5c eflags=00000246
+0024:trace:seh:__regs_RtlUnwind eax=00000000 ebx=002399cc ecx=00638883 edx=00239954
+0024:trace:seh:__regs_RtlUnwind esi=00238e74 edi=002399cc cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 0069A748 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 0069A748 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 00699B78 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 00699B78 returned 1
+0024:trace:seh:dispatch_exception code=e06d7363 (EXCEPTION_WINE_CXX_EXCEPTION) flags=1 addr=7FBECFA9
+0024:trace:seh:dispatch_exception  info[0]=19930520
+0024:trace:seh:dispatch_exception  info[1]=00239954
+0024:trace:seh:dispatch_exception  info[2]=00742A68
+0024:trace:seh:dispatch_exception eip=7fbecfa9 esp=002398b0 ebp=00239904 eflags=00000246
+0024:trace:seh:dispatch_exception eax=002398b0 ebx=00742a68 ecx=00239930 edx=0000000c
+0024:trace:seh:dispatch_exception esi=00239a38 edi=0023dc50 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:call_seh_handlers calling handler at 0069A748 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 0069A748 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00699B78 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 00699B78 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00695740 code=e06d7363 flags=1
+0024:trace:seh:__regs_RtlUnwind code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind eip=00637214 esp=00238d48 ebp=00238d5c eflags=00000246
+0024:trace:seh:__regs_RtlUnwind eax=00000000 ebx=002399cc ecx=00638883 edx=00239954
+0024:trace:seh:__regs_RtlUnwind esi=00238e74 edi=002399cc cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 0069A748 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 0069A748 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 00699B78 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 00699B78 returned 1
+0024:trace:seh:dispatch_exception code=e06d7363 (EXCEPTION_WINE_CXX_EXCEPTION) flags=1 addr=7FBECFA9
+0024:trace:seh:dispatch_exception  info[0]=19930520
+0024:trace:seh:dispatch_exception  info[1]=00239954
+0024:trace:seh:dispatch_exception  info[2]=00742A68
+0024:trace:seh:dispatch_exception eip=7fbecfa9 esp=002398b0 ebp=00239904 eflags=00000246
+0024:trace:seh:dispatch_exception eax=002398b0 ebx=00742a68 ecx=00239930 edx=0000000c
+0024:trace:seh:dispatch_exception esi=00239a38 edi=0023dc50 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:call_seh_handlers calling handler at 0069A748 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 0069A748 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00699B78 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 00699B78 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00695740 code=e06d7363 flags=1
+0024:trace:seh:__regs_RtlUnwind code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind eip=00637214 esp=00238d48 ebp=00238d5c eflags=00000246
+0024:trace:seh:__regs_RtlUnwind eax=00000000 ebx=002399cc ecx=00638883 edx=00239954
+0024:trace:seh:__regs_RtlUnwind esi=00238e74 edi=002399cc cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 0069A748 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 0069A748 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 00699B78 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 00699B78 returned 1
+0024:trace:seh:dispatch_exception code=e06d7363 (EXCEPTION_WINE_CXX_EXCEPTION) flags=1 addr=7FBECFA9
+0024:trace:seh:dispatch_exception  info[0]=19930520
+0024:trace:seh:dispatch_exception  info[1]=00239954
+0024:trace:seh:dispatch_exception  info[2]=00742A68
+0024:trace:seh:dispatch_exception eip=7fbecfa9 esp=002398b0 ebp=00239904 eflags=00000246
+0024:trace:seh:dispatch_exception eax=002398b0 ebx=00742a68 ecx=00239930 edx=0000000c
+0024:trace:seh:dispatch_exception esi=00239a38 edi=0023dc50 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:call_seh_handlers calling handler at 0069A748 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 0069A748 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00699B78 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 00699B78 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00695740 code=e06d7363 flags=1
+0024:trace:seh:__regs_RtlUnwind code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind eip=00637214 esp=00238d48 ebp=00238d5c eflags=00000246
+0024:trace:seh:__regs_RtlUnwind eax=00000000 ebx=002399cc ecx=00638883 edx=00239954
+0024:trace:seh:__regs_RtlUnwind esi=00238e74 edi=002399cc cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 0069A748 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 0069A748 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 00699B78 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 00699B78 returned 1
+0024:trace:seh:dispatch_exception code=e06d7363 (EXCEPTION_WINE_CXX_EXCEPTION) flags=1 addr=7FBECFA9
+0024:trace:seh:dispatch_exception  info[0]=19930520
+0024:trace:seh:dispatch_exception  info[1]=00239954
+0024:trace:seh:dispatch_exception  info[2]=00742A68
+0024:trace:seh:dispatch_exception eip=7fbecfa9 esp=002398b0 ebp=00239904 eflags=00000246
+0024:trace:seh:dispatch_exception eax=002398b0 ebx=00742a68 ecx=00239930 edx=0000000c
+0024:trace:seh:dispatch_exception esi=00239a38 edi=0023dc50 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:call_seh_handlers calling handler at 0069A748 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 0069A748 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00699B78 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 00699B78 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00695740 code=e06d7363 flags=1
+0024:trace:seh:__regs_RtlUnwind code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind eip=00637214 esp=00238d48 ebp=00238d5c eflags=00000246
+0024:trace:seh:__regs_RtlUnwind eax=00000000 ebx=002399cc ecx=00638883 edx=00239954
+0024:trace:seh:__regs_RtlUnwind esi=00238e74 edi=002399cc cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 0069A748 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 0069A748 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 00699B78 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 00699B78 returned 1
+0024:trace:seh:dispatch_exception code=e06d7363 (EXCEPTION_WINE_CXX_EXCEPTION) flags=1 addr=7FBECFA9
+0024:trace:seh:dispatch_exception  info[0]=19930520
+0024:trace:seh:dispatch_exception  info[1]=00239954
+0024:trace:seh:dispatch_exception  info[2]=00742A68
+0024:trace:seh:dispatch_exception eip=7fbecfa9 esp=002398b0 ebp=00239904 eflags=00000246
+0024:trace:seh:dispatch_exception eax=002398b0 ebx=00742a68 ecx=00239930 edx=0000000c
+0024:trace:seh:dispatch_exception esi=00239a38 edi=0023dc50 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:call_seh_handlers calling handler at 0069A748 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 0069A748 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00699B78 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 00699B78 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00695740 code=e06d7363 flags=1
+0024:trace:seh:__regs_RtlUnwind code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind eip=00637214 esp=00238d48 ebp=00238d5c eflags=00000246
+0024:trace:seh:__regs_RtlUnwind eax=00000000 ebx=002399cc ecx=00638883 edx=00239954
+0024:trace:seh:__regs_RtlUnwind esi=00238e74 edi=002399cc cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 0069A748 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 0069A748 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 00699B78 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 00699B78 returned 1
+0024:trace:seh:dispatch_exception code=e06d7363 (EXCEPTION_WINE_CXX_EXCEPTION) flags=1 addr=7FBECFA9
+0024:trace:seh:dispatch_exception  info[0]=19930520
+0024:trace:seh:dispatch_exception  info[1]=00239954
+0024:trace:seh:dispatch_exception  info[2]=00742A68
+0024:trace:seh:dispatch_exception eip=7fbecfa9 esp=002398b0 ebp=00239904 eflags=00000246
+0024:trace:seh:dispatch_exception eax=002398b0 ebx=00742a68 ecx=00239930 edx=0000000c
+0024:trace:seh:dispatch_exception esi=00239a38 edi=0023dc50 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:call_seh_handlers calling handler at 0069A748 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 0069A748 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00699B78 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 00699B78 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 00695740 code=e06d7363 flags=1
+0024:trace:seh:__regs_RtlUnwind code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind eip=00637214 esp=00238d48 ebp=00238d5c eflags=00000246
+0024:trace:seh:__regs_RtlUnwind eax=00000000 ebx=002399cc ecx=00638883 edx=00239954
+0024:trace:seh:__regs_RtlUnwind esi=00238e74 edi=002399cc cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 0069A748 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 0069A748 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 00699B78 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 00699B78 returned 1
+0024:fixme:win:IsTouchWindow hwnd 00010076, flags 00000000 stub!
+0024:fixme:dwmapi:DwmSetWindowAttribute (00010076, 7, 0023E804, 4) stub
+0024:fixme:win:IsTouchWindow hwnd 00010076, flags 00000000 stub!
+0024:fixme:win:IsTouchWindow hwnd 00010076, flags 00000000 stub!
+0024:fixme:win:IsTouchWindow hwnd 00010076, flags 00000000 stub!
+0024:trace:seh:dispatch_exception code=e06d7363 (EXCEPTION_WINE_CXX_EXCEPTION) flags=1 addr=7FBECFA9
+0024:trace:seh:dispatch_exception  info[0]=19930520
+0024:trace:seh:dispatch_exception  info[1]=0023C6F8
+0024:trace:seh:dispatch_exception  info[2]=00742C8C
+0024:trace:seh:dispatch_exception eip=7fbecfa9 esp=0023c658 ebp=0023c6ac eflags=00000246
+0024:trace:seh:dispatch_exception eax=0023c658 ebx=00742c8c ecx=0023c6d8 edx=0000000c
+0024:trace:seh:dispatch_exception esi=021dc8b0 edi=01f0bce8 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:call_seh_handlers calling handler at 006A0FE8 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 006A0FE8 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 006A53B0 code=e06d7363 flags=1
+0024:trace:seh:call_seh_handlers handler at 006A53B0 returned 1
+0024:trace:seh:call_seh_handlers calling handler at 006A51E0 code=e06d7363 flags=1
+0024:trace:seh:__regs_RtlUnwind code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind eip=00637214 esp=0023bb08 ebp=0023bb1c eflags=00000246
+0024:trace:seh:__regs_RtlUnwind eax=00000000 ebx=0023c788 ecx=00638883 edx=00758ed0
+0024:trace:seh:__regs_RtlUnwind esi=0023bc34 edi=0023c788 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+0024:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 006A0FE8 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 006A0FE8 returned 1
+0024:trace:seh:__regs_RtlUnwind calling handler at 006A53B0 code=e06d7363 flags=3
+0024:trace:seh:__regs_RtlUnwind handler at 006A53B0 returned 1
+0024:err:vulkan:vulkan_init_once Failed to load libvulkan.so.1
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/hatch/.drirc: No such file or directory.
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/hatch/.drirc: No such file or directory.
+0024:fixme:d3d:wined3d_guess_card No card selector available for card vendor 0000 (using GL_RENDERER "softpipe").
+010c:fixme:wgl:win32u_context_create Unknown WGL_CONTEXT_FLAGS_ARB 0x1
+Mesa: error: GL_OUT_OF_MEMORY in glTexStorage2D
+Mesa: error: GL_OUT_OF_MEMORY in glTexStorage2D
+010c:fixme:d3d:wined3d_context_gl_check_fbo_status FBO status GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT (0x8cd6).
+010c:fixme:d3d:context_dump_fbo_attachment     GL_DEPTH_ATTACHMENT: NONE.
+010c:fixme:d3d:context_dump_fbo_attachment     GL_STENCIL_ATTACHMENT: NONE.
+010c:fixme:d3d:context_dump_fbo_attachment     GL_COLOR_ATTACHMENT0: 2d texture 11, 0x0, 0 samples, format 0x1908.
+010c:fixme:d3d:context_dump_fbo_attachment     GL_COLOR_ATTACHMENT1: NONE.
+010c:fixme:d3d:context_dump_fbo_attachment     GL_COLOR_ATTACHMENT2: NONE.
+010c:fixme:d3d:context_dump_fbo_attachment     GL_COLOR_ATTACHMENT3: NONE.
+010c:fixme:d3d:context_dump_fbo_attachment     GL_COLOR_ATTACHMENT4: NONE.
+010c:fixme:d3d:context_dump_fbo_attachment     GL_COLOR_ATTACHMENT5: NONE.
+010c:fixme:d3d:context_dump_fbo_attachment     GL_COLOR_ATTACHMENT6: NONE.
+010c:fixme:d3d:context_dump_fbo_attachment     GL_COLOR_ATTACHMENT7: NONE.
+Mesa: error: GL_INVALID_FRAMEBUFFER_OPERATION in glClear(incomplete framebuffer)
+Mesa: error: GL_OUT_OF_MEMORY in glBufferStorage
+Mesa: error: GL_INVALID_VALUE in glMapBufferRange(offset 0 + length 67108864 > buffer_size 0)
+010c:err:d3d:wined3d_allocator_chunk_gl_map Failed to map chunk memory.
+010c:err:d3d:wined3d_bo_gl_map Failed to map chunk.
+010c:err:d3d:wined3d_context_gl_map_bo_address Failed to map bo.
+010c:err:seh:segv_handler Got unexpected trap -1
+010c:trace:seh:dispatch_exception code=c000001d (EXCEPTION_ILLEGAL_INSTRUCTION) flags=0 addr=1F9FE0C4
+010c:trace:seh:dispatch_exception eip=1f9fe0c4 esp=0d6cfdac ebp=0d6cfe0c eflags=00000246
+010c:trace:seh:dispatch_exception eax=00000000 ebx=0d6cfe5c ecx=000e1000 edx=00000000
+010c:trace:seh:dispatch_exception esi=00384000 edi=00000000 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+010c:trace:seh:call_seh_handlers calling handler at 7FF48BA0 code=c000001d flags=0
+wine: Unhandled illegal instruction at address 1F9FE0C4 (thread 010c), starting debugger...
+010c:trace:seh:start_debugger Starting debugger L"winedbg --auto 32 440"
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+00a0:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=ffffffff edi=03f3a018
+00a0:trace:seh:NtGetContextThread 0xfffffffe: ebp=04d2fe94 esp=04d2fe78 eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00a0:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+0088:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00cd3700 edi=00000000
+0088:trace:seh:NtGetContextThread 0xfffffffe: ebp=0166feac esp=0166fe90 eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+0088:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00a4:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733241 edi=04a09160
+00a4:trace:seh:NtGetContextThread 0xfffffffe: ebp=05d7fec8 esp=05d7feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00a4:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00a8:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733290 edi=04a09200
+00a8:trace:seh:NtGetContextThread 0xfffffffe: ebp=05f8fec8 esp=05f8feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00a8:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00ac:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733296 edi=04a09250
+00ac:trace:seh:NtGetContextThread 0xfffffffe: ebp=0619fec8 esp=0619feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00ac:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00b0:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=007332a0 edi=04a092a0
+00b0:trace:seh:NtGetContextThread 0xfffffffe: ebp=063afec8 esp=063afeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00b0:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00b4:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=007332a7 edi=04a092f0
+00b4:trace:seh:NtGetContextThread 0xfffffffe: ebp=065bfec8 esp=065bfeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00b4:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00b8:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=007332a7 edi=04a09340
+00b8:trace:seh:NtGetContextThread 0xfffffffe: ebp=067cfec8 esp=067cfeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00b8:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00bc:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=007332ee edi=04a09390
+00bc:trace:seh:NtGetContextThread 0xfffffffe: ebp=069dfec8 esp=069dfeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00bc:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00c4:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=007332fe edi=04a09480
+00c4:trace:seh:NtGetContextThread 0xfffffffe: ebp=06dffec8 esp=06dffeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00c4:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+009c:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=018afec8 ecx=00000000 edx=00000000 esi=01daccf8 edi=7ff17100
+00c8:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=007332fb edi=04a093e0
+0024:trace:seh:NtGetContextThread 0xfffffffe: eax=00000034 ebx=000b0c14 ecx=00638883 edx=00758ed0 esi=0ccb0020 edi=00008001
+00c8:trace:seh:NtGetContextThread 0xfffffffe: ebp=0704fec8 esp=0704feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+009c:trace:seh:NtGetContextThread 0xfffffffe: ebp=018afed4 esp=018afeb8 eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+0024:trace:seh:NtGetContextThread 0xfffffffe: ebp=0023f9ac esp=0023f988 eip=7fefd5f0 cs=0023 ss=002b flags=00000216
+009c:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+0024:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00c8:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00cc:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733303 edi=04a094d0
+00cc:trace:seh:NtGetContextThread 0xfffffffe: ebp=0725fec8 esp=0725feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00cc:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00c0:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=007332f4 edi=04a09430
+00d0:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733302 edi=04a09520
+00c0:trace:seh:NtGetContextThread 0xfffffffe: ebp=06befec8 esp=06befeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00d0:trace:seh:NtGetContextThread 0xfffffffe: ebp=0746fec8 esp=0746feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00c0:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00d0:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+006c:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=0136fe54 ecx=00000000 edx=00000000 esi=00000f68 edi=70cf61ff
+00d4:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733306 edi=04a09570
+006c:trace:seh:NtGetContextThread 0xfffffffe: ebp=0136fe60 esp=0136fe44 eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00d4:trace:seh:NtGetContextThread 0xfffffffe: ebp=0767fec8 esp=0767feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+006c:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00d4:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00d8:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733308 edi=04a095c0
+00d8:trace:seh:NtGetContextThread 0xfffffffe: ebp=0885fec8 esp=0885feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00d8:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00dc:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=0073330e edi=04a09610
+00dc:trace:seh:NtGetContextThread 0xfffffffe: ebp=08a6fec8 esp=08a6feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00dc:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00e0:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=0073330f edi=04a09660
+00e0:trace:seh:NtGetContextThread 0xfffffffe: ebp=08c7fec8 esp=08c7feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00e0:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00e4:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733311 edi=04a096b0
+00e4:trace:seh:NtGetContextThread 0xfffffffe: ebp=08e8fec8 esp=08e8feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00e4:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00e8:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=0073334e edi=04a09700
+00e8:trace:seh:NtGetContextThread 0xfffffffe: ebp=09b9fec8 esp=09b9feac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00e8:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00ec:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733352 edi=04a09750
+00ec:trace:seh:NtGetContextThread 0xfffffffe: ebp=09eafec8 esp=09eafeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00ec:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00f0:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733358 edi=04a097f0
+00f0:trace:seh:NtGetContextThread 0xfffffffe: ebp=0a0bfec8 esp=0a0bfeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00f0:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00f4:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=0073335a edi=04a09840
+00f4:trace:seh:NtGetContextThread 0xfffffffe: ebp=0a2cfec8 esp=0a2cfeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00f8:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=0073335b edi=04a097a0
+00f4:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00f8:trace:seh:NtGetContextThread 0xfffffffe: ebp=0a4dfec8 esp=0a4dfeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00f8:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+0100:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=00733366 edi=04a09930
+0100:trace:seh:NtGetContextThread 0xfffffffe: ebp=0a8ffec8 esp=0a8ffeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+0100:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+0108:trace:seh:NtGetContextThread 0xfffffffe: eax=000014bb ebx=0ccafef0 ecx=00000000 edx=00000000 esi=7f9d9a20 edi=7f9e39c0
+0108:trace:seh:NtGetContextThread 0xfffffffe: ebp=0ccaff50 esp=0ccafeb0 eip=7f611c48 cs=0023 ss=002b flags=00000246
+0108:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+00fc:trace:seh:NtGetContextThread 0xfffffffe: eax=00000004 ebx=00000000 ecx=00000000 edx=00000000 esi=0073335f edi=04a09890
+00fc:trace:seh:NtGetContextThread 0xfffffffe: ebp=0a6efec8 esp=0a6efeac eip=7fefd2f0 cs=0023 ss=002b flags=00000246
+00fc:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+010c:trace:seh:NtGetContextThread 0xfffffffe: eax=0000005b ebx=00000002 ecx=00000000 edx=00000000 esi=00000002 edi=0d6cf210
+010c:trace:seh:NtGetContextThread 0xfffffffe: ebp=0d6cf31c esp=0d6cf1f0 eip=7fefd860 cs=0023 ss=002b flags=00000246
+010c:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+0104:trace:seh:NtGetContextThread 0xfffffffe: eax=000014d0 ebx=9f260000 ecx=00000000 edx=00000000 esi=04632780 edi=04632750
+0104:trace:seh:NtGetContextThread 0xfffffffe: ebp=0ca9fea0 esp=0ca9fe8c eip=7f611d98 cs=0023 ss=002b flags=00000283
+0104:trace:seh:NtGetContextThread 0xfffffffe: ds=002b es=002b fs=0033 gs=003b
+010c:trace:seh:__regs_RtlUnwind code=c000001d flags=2
+010c:trace:seh:__regs_RtlUnwind eip=7fefe646 esp=0d6cf664 ebp=0d6cf66c eflags=00000202
+010c:trace:seh:__regs_RtlUnwind eax=00000000 ebx=00000000 ecx=7ff81bc0 edx=0d6cff94
+010c:trace:seh:__regs_RtlUnwind esi=0d6cf788 edi=0d6cf788 cs=0023 ds=002b es=002b fs=0033 gs=003b ss=002b
+010c:trace:seh:__regs_RtlUnwind calling handler at 7FF7B5F0 code=c000001d flags=2
+010c:trace:seh:__regs_RtlUnwind handler at 7FF7B5F0 returned 1

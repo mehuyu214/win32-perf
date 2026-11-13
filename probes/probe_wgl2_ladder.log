@@ -1,0 +1,13 @@
+probe_wgl2 start
+wglShareLists -> 1 (err 0)
+ctx1 renderer: softpipe
+ctx1 ladder: size=1048576 storage_err=0x505 BUFFER_SIZE=0
+ctx1 ladder: size=3686400 storage_err=0x505 BUFFER_SIZE=0
+ctx1 ladder: size=16777216 storage_err=0x505 BUFFER_SIZE=0
+ctx1 ladder: size=67108864 storage_err=0x505 BUFFER_SIZE=0
+ctx1: storage_err=0x505
+ctx1: BUFFER_SIZE=0
+ctx1: map=00000000 err=0x501 -> FAIL
+ctx2: BUFFER_SIZE=0 (err 0)
+ctx2: map=00000000 err=0x501 -> FAIL(NULL)
+DONE
