@@ -1,0 +1,14 @@
+[q32sup] execve /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/lib/wine/i386-unix/wine-preloader -> /home/hatch/workspace/vn-trials/qemu10/wrap/w3251695097899501468.sh
+probe_wgl5 start
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+renderer: llvmpipe (LLVM 20.1.2, 256 bits)
+  make_bo 1: storage_err=0 BUFFER_SIZE=16777216
+  caseA ctx1 map: map -> 596a2000 err=0
+  make_bo 2: storage_err=0 BUFFER_SIZE=16777216
+  case0 ctx1 map (stays): map -> 5a6a4000 err=0
+  caseA ctx2 map (after ctx1 unmap): map -> 596a2000 err=0
+caseA verdict: SUCCEEDED
+  case0 ctx2 map (still mapped in ctx1): map -> 00000000 err=0x502
+case0 verdict: FAILED
+DONE

@@ -42,21 +42,21 @@ static void *getp(const char *n) {
 static PFN_glGenBuffers pGen; static PFN_glBindBuffer pBind;
 static PFN_glBufferStorage pStor; static PFN_glMapBufferRange pMapR;
 static PFN_glUnmapBuffer pUnmap;
-static const GLsizeiptr SIZE = 67108864;
+static const GLsizeiptr BSIZE = 67108864;
 static const GLbitfield STOR = GL_MAP_READ_BIT | GL_MAP_WRITE_BIT |
     GL_MAP_PERSISTENT_BIT | GL_MAP_COHERENT_BIT | GL_DYNAMIC_STORAGE_BIT;
 
 static GLuint make_bo(void) {
     GLuint b = 0;
     pGen(1, &b); pBind(GL_ARRAY_BUFFER, b);
-    pStor(GL_ARRAY_BUFFER, SIZE, NULL, STOR);
+    pStor(GL_ARRAY_BUFFER, BSIZE, NULL, STOR);
     if (glGetError()) { out("  make_bo storage err\n"); }
     pBind(GL_ARRAY_BUFFER, 0);
     return b;
 }
 static void *map_in(GLuint b) {
     pBind(GL_ARRAY_BUFFER, b);
-    void *p = pMapR(GL_ARRAY_BUFFER, 0, SIZE, 0xD3);
+    void *p = pMapR(GL_ARRAY_BUFFER, 0, BSIZE, 0xD3);
     GLenum e = glGetError();
     pBind(GL_ARRAY_BUFFER, 0);
     out("    map -> %p err=%#x\n", p, e);

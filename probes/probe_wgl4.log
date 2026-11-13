@@ -1,0 +1,17 @@
+probe_wgl4 start
+renderer: softpipe
+  make_bo storage err
+caseB same-context double map:
+    map -> 38450040 err=0
+    map -> 00000000 err=0x502
+  caseB: first=38450040 second=00000000 -> second FAILED (0x502 class)
+setup: map bo0 (stays), map+unmap boA, in ctx1:
+    map -> 3444f040 err=0
+    map -> 00000000 err=0x501
+case0 ctx2 maps bo0 (still mapped in ctx1):
+    map -> 00000000 err=0x502
+  case0 -> FAILED
+caseA ctx2 maps boA (unmapped in ctx1):
+    map -> 00000000 err=0x501
+  caseA -> FAILED
+DONE

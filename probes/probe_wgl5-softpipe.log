@@ -1,0 +1,11 @@
+probe_wgl5 start
+renderer: softpipe
+  make_bo 1: storage_err=0 BUFFER_SIZE=16777216
+  caseA ctx1 map: map -> 3444f040 err=0
+  make_bo 2: storage_err=0 BUFFER_SIZE=16777216
+  case0 ctx1 map (stays): map -> 35450040 err=0
+  caseA ctx2 map (after ctx1 unmap): map -> 3444f040 err=0
+caseA verdict: SUCCEEDED
+  case0 ctx2 map (still mapped in ctx1): map -> 00000000 err=0x502
+case0 verdict: FAILED
+DONE

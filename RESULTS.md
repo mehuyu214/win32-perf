@@ -609,3 +609,34 @@ trend across the same window. Instance NOT restarted.
   workaround, not the fix. The gate therefore still hinges on the
   CSMT-on fast path, i.e. on KK's already-mapped hypothesis and the
   wined3d patch route.
+
+### KK's already-mapped hypothesis — CONFIRMED as the mechanism class
+
+Probes: probe_wgl4.c (controls), probe_wgl5.c (clean pair), topology as
+in wgl3 (ctx2 = core profile, shared at creation; 16 MiB BufferStorage
+BOs, storage verified via BUFFER_SIZE). Sources: probes/probe_wgl5.log
+(softpipe) and probes/probe_wgl5-softpipe.log naming aside, the llvmpipe
+run of the same binary.
+
+- **Control (same-context double map):** second map -> NULL, err
+  **0x502** (GL_INVALID_OPERATION) — the error means "already mapped",
+  as KK stated.
+- **case0 (ctx1 maps, stays mapped; ctx2 maps):** -> NULL, err **0x502**
+  under softpipe AND under llvmpipe (identical). Not driver leniency:
+  both drivers are spec-strict.
+- **caseA (ctx1 maps, ctx1 UNMAPS, ctx2 maps):** -> **SUCCEEDS** under
+  both drivers (ctx2 even returns the same pointer value).
+- Verdict: **the mapping state of shared BOs is the blocker.** A fresh
+  map of an already-mapped shared BO fails with 0x502+NULL by spec;
+  wined3d's allocator/BO map path attempts exactly that in the softpipe
+  topology (its own map_ptr bookkeeping desyncs from the GL object's
+  mapped state across wined3d's two contexts) and downstream code
+  proceeds with the NULL. Under llvmpipe the game survives because
+  wined3d happens never to attempt the double map there (different
+  context/path timing), not because the driver tolerates it.
+- Fix direction (KK's programme): patch wined3d's map handling so a
+  map attempt on an already-mapped target REUSES the existing mapping
+  (glGetBufferPointerv fallback) instead of failing into NULL —
+  correctness-preserving (no data is dropped; the existing mapping is
+  the data). A crash-avoidance-only NULL check is explicitly NOT the
+  fix. Build + gate next. **[Major verdict — repo sync worthwhile.]**
