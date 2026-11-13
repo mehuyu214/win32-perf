@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /home/hatch/workspace/vn-trials/qemu/usr/bin/qemu-i386-static -L /home/hatch/workspace/win32-perf/trackb/root /home/hatch/workspace/win32-perf/trackb/root/usr/lib/llvm-20/bin/llvm-config "$@"

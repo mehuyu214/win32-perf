@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/g++ -m32 --sysroot=/home/hatch/workspace/win32-perf/trackb/root -B/home/hatch/workspace/win32-perf/trackb/root/usr/lib/gcc/x86_64-linux-gnu/13/32/ -B/home/hatch/workspace/win32-perf/trackb/root/usr/lib/gcc/i686-linux-gnu/13/ -nostdinc++ -I/home/hatch/workspace/win32-perf/trackb/root/usr/include/c++/13 -I/home/hatch/workspace/win32-perf/trackb/root/usr/include/i386-linux-gnu/c++/13 -L/home/hatch/workspace/win32-perf/trackb/root/usr/lib/gcc/i686-linux-gnu/13 -L/home/hatch/workspace/win32-perf/trackb/root/usr/lib/i386-linux-gnu "$@"

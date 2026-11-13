@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/gcc -m32 --sysroot=/home/hatch/workspace/win32-perf/trackb/root -B/home/hatch/workspace/win32-perf/trackb/root/usr/lib/gcc/x86_64-linux-gnu/13/32/ "$@"

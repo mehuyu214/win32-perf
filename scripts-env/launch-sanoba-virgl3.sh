@@ -1,0 +1,33 @@
+#!/bin/bash
+# virgl3 = virgl2 + KK fix-first rule (2026-11-13 22:59): QEMU TCG
+# translation cache raised via -tb-size 512 (was: qemu default).
+# -cpu max was already on this path (verified in virgl2). CSMT is
+# set in the prefix registry, not here. See RESULTS.md fix list.
+# virgl variant of the env recipe: same as launch-sanoba-env.sh, plus
+# GALLIUM_DRIVER=virpipe + VTEST_SOCKET_NAME to the game-facing server
+# (virgl_test_server --use-egl-surfaceless, clean env, $WP/virgl.sock).
+# DISPLAY :116, WINEPREFIX prefix-fresh, ALSA null, lineage q32sup.
+set -u
+VT=$HOME/workspace/vn-trials
+WP=$HOME/workspace/win32-perf
+export DISPLAY=:116
+export LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8 LOCPATH=$VT/locales
+export ALSA_CONFIG_PATH=$HOME/workspace/win32-env/scripts/games/asound-null.conf
+export __EGL_VENDOR_LIBRARY_DIRS=$VT/sysroot32/root/usr/share/glvnd/egl_vendor.d
+export LIBGL_DRIVERS_PATH=$VT/sysroot32/root/usr/lib/i386-linux-gnu/dri
+export WINEDEBUG=-all
+export WINEPREFIX=$WP/prefix-fresh
+export Q32_SYSROOT=$VT/sysroot32/root
+export Q32_WRAPDIR=$WP/wrap-env
+unset Q32_QEMU LP_NUM_THREADS PULSE_SERVER PULSE_LATENCY_MSEC LD_LIBRARY_PATH
+export GALLIUM_DRIVER=virpipe
+export VTEST_SOCKET_NAME=$WP/virgl.sock
+SUP=$VT/qemu10/q32sup
+QEMU="$VT/qemu10/usr/bin/qemu-i386 -cpu max -tb-size 512 -L $VT/sysroot32/root"
+WINEBIN=$VT/wine32/wine-11.21-x86/bin/wine
+GAMEEXE='Z:\\home\\hatch\\workspace\\win32-perf\\game\\sanoba\\sanoba_trial.exe'
+LOG="${LOGFILE:-$WP/logs/game-virgl11-fixed.log}"
+cd /tmp || exit 1
+setsid nohup $SUP $QEMU "$WINEBIN" "$GAMEEXE" >> "$LOG" 2>&1 &
+echo $! > "$WP/logs/game-virgl11-sup.pid"
+echo "launched sup-pid $! log=$LOG"

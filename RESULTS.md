@@ -1674,3 +1674,489 @@ SYNC-WORTHY: virgl8 story run + bursty-delivery reading + title
 v2 re-score (0.0). Parent: please re-sync win32-perf (RESULTS.md +
 scripts-env/launch-sanoba-virgl2.sh + logs incl. cap-virgl8-story60
 + scores-v2 + shot-virgl8-*.png + game-virgl8-story.log).
+
+## SETTINGS LEVER — text/AUTO speed to max on virgl (2026-11-13 21:39-21:47 JST)
+Run virgl9: same virgl stack as virgl8 (server pid 24054 still
+healthy, clean-env surfaceless; launch-sanoba-virgl2.sh, log
+game-virgl9-settings.log, sup 26429). Boot to title ~2 min.
+Config interaction ESTABLISHED: the SYSTEM config UI responds to
+HELD mouse input -- holdclick (0.5 s) switches tabs, and a new
+/tmp/drag.py (XTEST press -> stepped motion -> release) drags
+sliders. (Title-menu tap-clicks still do not register; config
+widgets accept held press/drag.) Exact changes made in the
+テキスト tab via the game's own UI (normal play, no file edits):
+- テキスト速度 (text display speed): **50 -> 100** (slider max;
+  verified value box 100, shot-virgl9-config-textmax.png)
+- オート速度 (AUTO speed): **50 -> 100** (slider max; verified
+  value box 100, shot-virgl9-config-automax.png)
+- オートモードパターン: **ノーマルモード -> スピードモード**
+  (help text: advances at the AUTO-speed setting without waiting
+  for voice; shot-virgl9-config-final.png)
+Before-values were the defaults (50/50/ノーマル) seen on entry
+(shot-virgl9-config-text2.png). Settings took effect immediately:
+first Ch.1-1 line rendered instantly full-line; AUTO reached the
+hallway narration within ~2 s of being switched on.
+Capture logs/cap-virgl9-fasttext-story60.mkv (60.0 s, 20 fps,
+2,491,089 B), AUTO from hallway narration to the two-sprite
+hallway scene. v2 score (eps=0.05): **mean 2.333 pts/s, median
+2.0, 0/60 s >= 10, only 2/60 s zero**. analyze_smooth: meaningful
+frames 140/1200, longest no-change gap **1.55 s** (max gap 32
+frames), gap p95 23 frames.
+READING vs virgl8 (defaults, same stack): mean is UNCHANGED
+(2.283 -> 2.333) and total meaningful frames are the same
+(137 -> 140) -- the settings do NOT create more picture change.
+What changes is the DISTRIBUTION: zero-seconds 25 -> 2, median
+1.0 -> 2.0, longest freeze 5.75 s -> 1.55 s. ESTABLISHED: with
+default settings AUTO delivery was bursty because lines waited
+on typewriter + voice-wait; at max settings the same content
+arrives as a steady ~2-3 changes/s with no freeze over 1.55 s.
+CAVEAT: capture windows differ slightly (virgl8 from the sky
+scene's first line; virgl9 from hallway narration, because AUTO
+raced ahead before the grab started) -- both are Ch.1-1
+dialogue/narration under AUTO; the comparison is distribution-
+level, not frame-aligned. NOTE for KK's ideal: dialogue at max
+advance still yields only ~2.3 pts/s mean and 0 s >= 10 -- the
+10 pts/s ideal is unreachable in dialogue at any setting; it
+requires motion (fades/pans), which is the next test.
+
+## FADE / MOTION TEST — virgl vs llvmpipe (2026-11-13 21:48-21:56 JST)
+New tool: tools/fade_analyze.py -- native-rate per-frame MAD at
+160x90 (eps=0.05 = distinct; at 20 fps capture one slot = 50 ms,
+KK's unit) + brightness series; detects sustained-change windows
+and reports delivered distinct frames vs stalled (duplicate) slots.
+Procedure, identical on both stacks (max text/AUTO settings set
+beforehand on virgl; config re-verification on llvmpipe was
+derailed by a quit-dialog mishap -- see below): at title, arm
+START, start x11grab 20 fps, Return at +1 s, AUTO on after the
+black load, capture the scenario start (cap-fade-virgl.mkv 45 s;
+cap-fade-llvmpipe.mkv 60 s -- llvmpipe given a longer window for
+its slower load; windows are located by content, so the totals
+do not bias the comparison). Both captures contain the same two
+transitions, verified on extracted frames:
+(1) **Fade-in from black** (scenario start, brightness 0 -> ~155):
+- virgl: brightness ramp 0->35->67->103->136->157 in 5 big steps
+  at ~100 ms cadence (19.70-20.10 s), UI fade steps continuing
+  to 20.65 s -- window total **14 distinct / 22 slots**, 8
+  stalled, longest internal stall 2 slots.
+- llvmpipe: **2 delivered frames total** -- 0->31 at 20.75 s,
+  a 0.90 s freeze, then 31->157 in ONE jump (MAD 126). The fade
+  is a single intermediate frame plus a jump cut.
+(2) **Crossfade sky -> hallway** (brightness ~156 -> 189):
+- virgl: 8 blend steps of MAD ~5-6.5 over 22.40-23.20 s
+  (156->163->168->171->174->177->181->184->188->189) -- a real
+  crossfade ramp; window total 11 distinct / 19 slots.
+- llvmpipe: **2 blend steps** -- 156->177 at 34.65 s (MAD 34.6),
+  177->189 at 35.65 s (MAD 18.4), 1.0 s apart.
+ESTABLISHED: on the motion metric, virgl delivers ~5-8
+intermediate frames per fade at ~100 ms cadence (~10 distinct
+frames/s during transitions -- the game's own render loop under
+QEMU is now the limiter, not the swap); llvmpipe delivers ~2
+frames per fade regardless of fade duration, i.e. fades render
+as jump cuts. This is the first clean stack discrimination on
+KK's actual complaint (カクカク): the dialogue v2 score could
+not separate the stacks; the fade test does. Black-load duration
+(title -> fade-in) was comparable: ~18 s virgl, ~17 s llvmpipe.
+Also recorded: llvmpipe title key handling is treacherous --
+0.4 s holds under llvmpipe queue and drain late; a Return sent
+with SYSTEM highlighted executed on EXIT (a leftover Down step
+landed first) and raised the quit dialog (cancelled with
+いいえ). Verify selection by screenshot IMMEDIATELY before
+Return on this stack, with a pause for the queue to drain.
+Settings persistence across processes: NOT re-verified on
+llvmpipe (the config check was the derailed step); functionally
+AUTO advanced the story through the hallway into the sprite
+scene inside the capture window.
+
+## TRACK B PROBE SALVAGE — interrupted run (2026-11-13 22:02-22:05 JST, recorded 22:4x JST by successor agent)
+CONTEXT: the predecessor agent was interrupted at 22:25 JST with this
+line idle afterwards; two completed/near-completed probe runs were
+never written up. Salvaged here from the raw stdout logs so the work
+is not lost. Probe = probes/probe_present.c via scripts/run-probe.sh
+(my.env harness, llvmpipe). Columns per probes/probe_present.c:
+frame,<phase>,<i>, **clear_us, draw_us, present_us, total_us** (QPC
+microseconds). Stats below are median / p95 of the QPC total column
+unless noted; wall = phase wall_ms / frames.
+### Run 1 — logs/probe_present-trackb2.stdout.log (COMPLETE, DONE)
+- A clear+present: wall 205.5 ms/fr; total med 196.6 / p95 291.2;
+  present med 196.1 ms (cost is the present call itself).
+- B present-only: wall 184.6 ms/fr; total med 188.7 / p95 247.2;
+  present med 188.4 ms.
+- C clear-only: wall 0.2 ms/fr; total med ~0.0 ms.
+- D quad+present: wall 766.2 ms/fr; total med 764.7 / p95 889.6;
+  draw med 733.2 ms, present med 0.5 ms (draw-bound).
+- A2 (A + Sleep(16)): wall 182.6 ms/fr; total med 189.2 / p95 249.2;
+  present med 125.4 ms. Total ~= A total: at ~190 ms/frame a 16 ms
+  pace cap is free (the sleep overlaps the present wait).
+### Run 2 — logs/probe_present-lp1.stdout.log (LP_NUM_THREADS=1; CUT mid-D by the interruption: A/B/C complete, D has 74/90 frames, no A2, no DONE)
+- A clear+present: wall 242.5 ms/fr; total med 234.8 / p95 279.9;
+  present med 234.5 ms.
+- B present-only: wall 236.6 ms/fr; total med 232.5 / p95 251.3;
+  present med 232.5 ms.
+- C clear-only: wall 0.1 ms/fr.
+- D quad+present (74 frames only): total med 1,126.1 / p95 1,290.3;
+  draw med 1,125.9 ms, present med ~0.0 ms.
+### What this does and does not establish
+- vs the stock llvmpipe probe baselines recorded earlier in this
+  file (present-only 373 ms/fr, clear+present 428 ms/fr, textured
+  quad+present 1,645 ms/fr): trackb2 is ~1.8-2.2x faster per phase
+  (B 185 vs 373; A 205 vs 428; D 766 vs 1,645). **This CANNOT be
+  attributed to any named mod or config change**: no variant
+  description was recorded with either run (nothing in the logs,
+  scripts, or env files names what "trackb2" changed — run-probe.sh
+  + my.env is the standard harness and sets no LP_NUM_THREADS), and
+  the stock baselines were measured under recording-line contention
+  while these runs were uncontended (post-21:17). The base3 game
+  baseline showed the same ~2x contention effect. TREATMENT:
+  trackb2 is the current UNCONTENDED llvmpipe probe reference,
+  not evidence of a Track B mod effect.
+- LP_NUM_THREADS=1 vs trackb2 (same evening, same harness, minutes
+  apart): lp1 is slower on EVERY phase — A total med +19%,
+  B +23%, D +47% (draw-bound). ESTABLISHED (modulo the trackb2
+  config caveat above): cutting llvmpipe to one raster thread HURTS
+  on this VM; the LP-thread-reduction lever is measured-dead. Track
+  B effort goes to partial/dirty-region present, not thread count.
+- Noted but unused: probes/probe_present-trackb-base.log (08:29 UTC)
+  has present medians ~0.3 ms (not llvmpipe-class) and its D phase
+  cut after 1 frame; its config is likewise unrecorded, so it is
+  NOT used as a comparison baseline.
+
+## VIRGL SERVER RESTART + VERIFICATION (2026-11-13 22:47-22:52 JST, successor agent)
+The 22:25 interruption had killed the virgl server (pid 24054) and
+both Xvfb displays. Restarted: Xvfb :116 (pid 6965, log
+xvfb116-succ1.log); virgl_test_server --use-egl-surfaceless in the
+clean env of the revival section (env -i; LD_LIBRARY_PATH =
+virgl/usr/lib + virgl-libs/usr/lib x86_64; __EGL_VENDOR_LIBRARY_DIRS
+= virgl-libs 50_mesa.json), socket $WP/virgl.sock, **server pid
+6989**, log virgl-server-succ1.log EMPTY (= no renderer-init
+failure, the healthy signature). VERIFIED before any game boot with
+the raw GLX probe (probes/probe_glxswap.py, DISPLAY :116,
+GALLIUM_DRIVER=virpipe, VTEST_SOCKET_NAME=$WP/virgl.sock; log
+probe_glxswap-succ1.log): legacy ctx created, 5 swaps **21.2 / 0.8
+/ 0.6 / 0.6 / 0.5 ms, all err=0x0**. (The probe script then dies in
+its cleanup call glXMakeCurrent(None) — a pre-existing script bug
+after the measured section; the measurements are complete and
+match the expected signature.)
+
+## VIRGL LONG RUN — 30-min stability + fast-text distribution (2026-11-13 22:36- JST, RUNNING)
+Launch: scripts-env/launch-sanoba-virgl2.sh (log
+game-virgl10-longrun.log, sup 7085) against the restarted server
+(pid 6989). Pre-flight: no other qemu/supervisor instances on this
+line; Xvfb :116 fresh (pid 6965). Boot to title ~2.5 min, correct
+render, 0 assertions. Navigation (window 0xa00005 via xdotool;
+scripts/wininfo.py segfaults on this host — do not use):
+focus -> Down 0.4 s (START armed, shot-virgl10-armed.png) ->
+Return 0.4 s -> Chapter 1-1 first line (shot-virgl10-story1.png)
+-> holdkey a 0.4 s -> AUTO on at **22:40:12 JST**
+(shot-virgl10-auto-on.png: hallway already reached, Auto ▶).
+### Capture A (first 60 s of AUTO, from story start)
+logs/cap-virgl10-long60a.mkv (60.0 s, 1,050,058 B). v2 score:
+**mean 2.017 pts/s, median 0.5, 0/60 s >= 10, 30/60 s zero**.
+analyze_smooth: meaningful frames 121/1200, longest
+no-meaningful-change gap **5.25 s**, gap p95 46 frames.
+Per-second: [0,0,3,6,0,0,6,0,1,8,0,0,9,1,0,7,4,0,2,5,2,0,5,7,0,
+1,0,0,0,6,2,0,0,0,4,4,0,3,4,0,3,3,0,0,0,0,4,0,1,3,0,5,2,0,0,0,0,
+6,4,0].
+READING (honest, no claim): this distribution is **virgl8-shaped**
+(default settings: mean 2.283, median 1.0, zero 25, gap 5.75 s),
+NOT virgl9-shaped (max settings: median 2.0, zero 2, gap 1.55 s).
+BUT the windows differ: capture A and virgl8 both start at the
+story's first line, while virgl9's steady window was later content
+(hallway narration -> sprite scene). Surface tells were mixed:
+the first line rendered full-line immediately and AUTO reached
+the hallway within ~2 s (both seen in virgl9), yet the score
+distribution matches the default-speed run. **Settings
+persistence across processes is therefore UNDECIDED from this
+window.** Capture B near the 30-min mark (later content,
+virgl9-like window) is the discriminator; a direct config-UI
+value read is planned after the run.
+
+## FIX-FIRST RULE (KK, 2026-11-13 22:59) — fix list and prep state
+GOVERNING RULE: before any measurement run, first apply the fixes
+existing evidence already identifies as critical; never spend runs
+measuring a configuration known to be suboptimal. Measurement
+verifies fixes / resolves genuine unknowns only.
+Fix list (from tonight's evidence) and state while virgl10 runs:
+1. **Settings settled permanently** — after virgl10 ends, read the
+   SYSTEM config UI once to settle whether text 100 / auto 100 /
+   speed mode persisted from virgl9; from then on every run starts
+   by ensuring those values via the UI. (Pending run end.)
+2. **QEMU TCG TB cache** — PREPPED: qemu-i386 10.0.2 supports
+   -tb-size (verified -h). New launcher scripts-env/
+   launch-sanoba-virgl3.sh = virgl2 with `-tb-size 512` added to
+   the game qemu command line (512 chosen: VM has ~6-8 GB RAM and
+   ~1.5 effective cores; 1024 risks memory pressure alongside the
+   game + server + capture). `-cpu max` verified ALREADY present
+   on the virgl2/virgl3 path (it was never missing). All future
+   game launches use virgl3.
+3. **CSMT on prefix-fresh** — CHECKED: prefix-fresh/user.reg has
+   NO Direct3D/csmt entries at all, i.e. the state was Wine
+   11.21's unrecorded default. Will be set explicitly ON
+   (HKCU\Software\Wine\Direct3D, csmt=1) via the stack after
+   virgl10 ends and re-read from user.reg to prove it landed.
+4. **Virgl server host-side threading** — server (pid 6989) runs
+   with forked worker children (7182, 7268) under the clean env;
+   its llvmpipe is a native host process, NOT covered by the
+   guest-side LP_NUM_THREADS=1 verdict. Will restart it after
+   virgl10 with LP_NUM_THREADS=2 in its environment (VM effective
+   cores ~1.5-2; llvmpipe default would take host ncpu and
+   oversubscribe), and its CPU will be sampled during the next run.
+5. **Capture hygiene** — x11grab is a major CPU consumer on this
+   VM (Cave Story line evidence: 21% dropped frames at 30 fps).
+   virgl10's captures used libx264 default preset; from the next
+   measurement: -preset ultrafast, and ffmpeg's own CPU% sampled
+   and stated alongside results.
+
+### VIRGL LONG RUN — completion (2026-11-13 23:10 JST)
+Mid-run checkpoints: AUTO+7 min (22:47, shot-virgl10-t10.png:
+Wakaba sprite scene, hallway), AUTO+19 min (22:59,
+shot-virgl10-t20.png: monochrome-filter narration segment — an
+in-game scene effect; UI/text stayed coloured, Auto ▶ on).
+**30-MIN STABILITY GATE MET**: AUTO ran 22:40:12 -> 23:10:40 JST
+(30.5 min; instance up 34 min from 22:36:25 launch), **0 crashes,
+0 assertions**, story advanced sky -> hallway -> sprite scenes ->
+monochrome narration -> library two-sprite scene (23:10,
+shot-virgl10-t30.png, Nene line 「わかりました。ありがとう……
+ございます」).
+### Capture B (AUTO minutes ~29-30, later content)
+logs/cap-virgl10-long60b.mkv (60.0 s, 1,636,868 B). v2 score:
+**mean 1.483 pts/s, median 1.0, 0/60 s >= 10, 15/60 s zero**.
+analyze_smooth: meaningful frames 89/1200, longest
+no-meaningful-change gap **5.0 s**, gap p95 39 frames.
+READING: B sits between virgl8 (zero 25, gap 5.75 s) and virgl9
+(zero 2, gap 1.55 s) and does NOT reproduce virgl9's steady
+distribution on a later-content window either. Combined with
+capture A, the weight of evidence shifts to: **the max-speed
+settings did NOT persist into this new process** (virgl9's
+distribution was measured in the same process that applied
+them). The config-UI read that follows settles it directly.
+
+### FIXES APPLIED (2026-11-13 23:1x-23:3x JST, per fix-first rule)
+- **Fix 4 (server threading) DONE**: old server (pid 6989) killed;
+  new virgl_test_server started in the same clean env **plus
+  LP_NUM_THREADS=2** (pid 12378, log virgl-server-succ2.log EMPTY
+  = healthy). Re-verified with the raw GLX probe BEFORE any game
+  boot (log probe_glxswap-succ2.log): legacy ctx, swaps 16.7 /
+  0.7 / 0.7 / 0.5 / 0.5 ms, err=0x0.
+- **Fix 3 (CSMT) DONE, with an environment by-finding**: repeated
+  `wine reg add` runs reported success in-session yet the value
+  NEVER persisted — a query in a separate invocation (even in the
+  same exec call, seconds later) found no key, and user.reg was
+  never rewritten. In a SINGLE client session (wine cmd /c) add +
+  query agree (csmt 0x1 visible). ESTABLISHED for this stack:
+  **short-lived separate wine invocations do not carry registry
+  state between them** (each appears to get a fresh in-memory
+  registry from the files; the server does not flush changes to
+  user.reg across such invocations — while the long-lived game
+  session DID update user.reg at its launch). One botched attempt
+  also created a stray /prefix-fresh (an env-expansion bug in my
+  own command: $WP expanded empty inside a single export
+  statement); removed, real prefix untouched (user.reg mtime
+  proof). FINAL ROUTE: with no wine processes running, the value
+  was written directly into prefix-fresh/user.reg in the file's
+  own format — [Software\\Wine\\Direct3D] section, "csmt"=dword:
+  00000001 — and VERIFIED: a fresh session's `reg query` reads
+  **csmt REG_DWORD 0x1**. CSMT is now explicitly ON and recorded;
+  it is no longer an unknown on this prefix.
+- Fix 2 (TB cache) is live in launcher virgl3 (see fix-list
+  section); fix 1 (settings) is settled next via the config UI
+  on the virgl3 boot; fix 5 (capture hygiene) applies to the
+  fade measurement that follows.
+### Repo sync flag (updated 3)
+SYNC-WORTHY: Track B probe salvage + virgl server restart +
+virgl10 long run (30-min gate, captures A/B) + fix-first rule +
+fixes applied (CSMT by-finding, server LP_NUM_THREADS=2, virgl3
+launcher). Parent: please re-sync win32-perf.
+
+### FIX 1 SETTLED — settings do NOT persist (2026-11-13 23:2x JST)
+On the virgl3 boot (pid sup 13677, log game-virgl11-fixed.log),
+title -> SYSTEM -> テキスト tab read DIRECTLY
+(shot-virgl11-config-text2.png): **テキスト速度 = 50,
+オート速度 = 50, オートモードパターン = ノーマルモード**.
+ESTABLISHED: virgl9's 100/100/speed-mode values were same-process
+only and did NOT persist into any later process — virgl10
+therefore ran its whole 30 min at DEFAULT speeds (consistent
+with its virgl8-shaped capture distributions). STANDING RULE
+from here: every run sets text 100 / auto 100 / speed mode via
+the SYSTEM UI at start, verified by screenshot of the value
+boxes, before anything is measured. (Where the game keeps these
+values between processes is unresolved — the env/virgl prefixes
+evidently do not carry them; not chased, the UI rule covers it.)
+
+## FADE TEST ON THE FIXED VIRGL STACK (2026-11-13 23:22 JST)
+Configuration (all fixes in): launcher virgl3 (**-tb-size 512**,
+-cpu max), **CSMT=1** in prefix-fresh, virgl server with
+**LP_NUM_THREADS=2**, settings set via UI this session and
+screenshot-verified (text 100 / auto 100 / speed mode,
+shot-virgl11-config-final.png). Capture per fix 5: x11grab
+1280x720@20fps, **-preset ultrafast -crf 23**, 2400 frames
+(logs/cap-fade-virgl-fixed.mkv, analysis
+cap-fade-virgl-fixed-analysis.json). CPU during the 120 s
+window (logs/cpusample-virgl11-fade.txt): **ffmpeg 17.9% of one
+core** (the capture's own cost, now measured), **virgl render
+worker 23.6%**, server main ~0 — the server has ample headroom;
+it is not the bottleneck.
+### Windows found (fade_analyze.py, eps 0.05)
+- Title -> black fade-out (1.5-2.4 s): 18 distinct / 18 slots,
+  **0 stalled**.
+- Black -> sky FADE-IN (9.15-10.9 s): **25 distinct / 35 slots,
+  10 stalled (28.6%), longest internal stall 2 slots**,
+  brightness 0 -> 29.9 -> 53.9 -> 83.3 -> 124.3 -> 156.9 -> 150.
+- Baseline (pre-fix virgl, cap-fade-virgl) fade-in: 14 distinct /
+  22 slots, 8 stalled (36%), longest stall 2, brightness steps
+  ~5 levels. **Fixed stack: distinct 14 -> 25, stalled fraction
+  36% -> 28.6%, in-window delivery 12.7 -> 14.3 distinct/s.**
+- **Black-load time: ~18 s (baseline, both stacks) -> ~6.8 s**
+  (black from 2.4 s to 9.15 s in this capture). The load phase
+  itself got ~2.7x faster under the fix bundle.
+Attribution note: the bundle (TB cache + CSMT + server threads)
+was applied together per the fix-first rule; which element did
+what is NOT separated, and no claim is made per-element. The
+crossfade window is measured next (AUTO on, second capture) —
+this capture had AUTO off, so no crossfade occurred in it.
+
+### Crossfade on the fixed stack (2026-11-13 23:25 JST)
+Second capture with AUTO on from the first line
+(logs/cap-fade-virgl-fixed2.mkv, 1800 frames, ultrafast;
+analysis cap-fade-virgl-fixed2-analysis.json): distinct total
+333/1800. The sky -> hallway CROSSFADE is the first window
+(0.15-2.6 s, brightness 155.2 -> 181.8): **40 distinct / 49
+slots, 9 stalled (18%), longest internal stall 2 slots**.
+Baseline virgl crossfade window: 11 distinct / 19 slots
+(42% stalled, ~8 blend steps). Distinct density during the
+transition: **0.58 -> 0.82**; stalled fraction **42% -> 18%**.
+Composition caveat (stated, not hidden): at speed-mode AUTO the
+first hallway line renders immediately after the fade, so the
+fixed-stack window merges fade + first text render, while the
+baseline window (default AUTO pace) is closer to a pure fade.
+The like-for-like quantities are the density and stalled
+fraction, and both improved, consistent with the fade-in
+result. Later story windows in the same capture deliver 12-16
+distinct per 0.7-0.9 s line change with 0-3 stalled slots.
+CPU over this 95 s: virgl worker 7.2% of one core, guest qemu
+2.5% (dialogue-dwell content; ffmpeg's 17.9% was measured on
+capture 1 — it had exited before this sampler's last snapshot).
+### Fixed-stack fade verdict (both transitions)
+vs the recorded pre-fix virgl baseline: fade-in distinct
+14 -> 25 with stalled 36% -> 28.6%; crossfade density
+0.58 -> 0.82 with stalled 42% -> 18%; black-load 18 s -> 6.8 s.
+The fix bundle measurably improved transition delivery on the
+virgl stack. KK's eye verdict on the footage remains the final
+gate; no claim beyond the numbers. virgl11 instance stopped
+after this (AUTO off, killed by pid).
+
+## TRACK B — build feasibility verdict (2026-11-13 23:4x JST)
+The salvaged probes closed the cheap levers (LP threads dead;
+trackb2 = uncontended baseline, no mod effect attributable), so
+Track B's first real mod needs a from-scratch i386 llvmpipe
+build of mesa-src. Feasibility checked on this VM:
+- meson: ABSENT. ninja: ABSENT. (pip-installable, minor.)
+- gcc -m32: FAILS — no 32-bit libc dev files on host
+  (Scrt1.o / crti.o missing).
+- LLVM: sysroot32 has the i386 libLLVM-20 RUNTIME only — no
+  llvm-config, no headers, no component libs. Mesa's llvmpipe
+  requires an LLVM dev toolchain; llvm-config for i386 would
+  itself be an i386 binary (runnable only via qemu-i386).
+- No host GL/libdrm dev packages (dpkg).
+VERDICT: **Track B's mod build is BLOCKED on toolchain
+excavation** — estimated hours of .deb extraction (libc6-dev,
+llvm-20-dev, libdrm-dev, expat/zlib/X11 dev, all i386) plus a
+meson cross-file driving an emulated llvm-config, for a mod
+whose probe payoff is itself uncertain (the Present cost sits
+in the swap/copy path; wined3d GL passes no damage rects, so a
+"partial Present" would have to guess damage inside Mesa's
+winsys). This is a sequencing decision for KK, not a silent
+skip: proceed with the excavation, or park Track B behind the
+virgl line (which just posted measured gains on every fade
+metric). Recorded as the line's open question in line-state.md.
+
+## KK EYE VERDICT ON THE FIXED-STACK FADE FOOTAGE (2026-11-13 23:34-23:35 JST)
+After watching logs/cap-fade-virgl-fixed.mkv and
+cap-fade-virgl-fixed2.mkv, KK said at 23:34:
+**「だいぶ改善してるな」** — the fade improvement is APPROVED by
+his eye; the claim now stands on numbers + verdict (the first
+footage he has ever approved; all earlier verdicts were
+カクカク / かわらん).
+QUALIFICATION at 23:35, immediately after: **「まぁでもまだ
+かくかくだね」** — "still jerky, though." Overall smoothness is
+NOT accepted; the mission continues. The remaining jerkiness,
+per the measured record: fade-in still stalls 28.6% of slots;
+dialogue delivery is bursty (dwell + bunching); during
+transitions the game's own render loop under QEMU TCG is the
+ceiling (~14 distinct/s delivered vs the 20 fps grid).
+**Metric priority from here: frame-delivery EVENNESS — fewer
+stalled slots, shorter longest-gap — not the mean.**
+Scope of the approval: the fade footage. The full success gate
+(story footage WITH audio on this stack, judged by his eye) is
+still open and is the current task.
+
+## AUDIO ON THE VIRGL ROUTE (2026-11-13 23:3x JST)
+Fix-first application of the proven sanoba-audio recipe to the
+fixed virgl stack — no experiments, the established route only:
+- Perf-line PA daemon: win32-perf/pa-bin PulseAudio, own config
+  (pa/default.pa), unix socket pa/native + **TCP 127.0.0.1:47135**,
+  **null sink "game" 48000 Hz float32le 2ch** (pid 15978, log
+  logs/pulseaudio-virgl.log). Default sink = game.
+- Guest: prefix-fresh registry **Audio=pulse** (written directly
+  into user.reg [Software\\Wine\\Drivers], same method as CSMT);
+  launcher **scripts-env/launch-sanoba-virgl4.sh** = virgl3 +
+  PULSE_SERVER=tcp:127.0.0.1:47135, **PULSE_LATENCY_MSEC=750**,
+  LD_LIBRARY_PATH to the line's i386 libpulse closure (libs32);
+  ALSA null dropped.
+- Boot (sup 16040, log game-virgl12-audio.log): title renders,
+  0 assertions, and the game registered **Sink Input #2,
+  application.name "TVP(KIRIKIRI) Z core / Scripting Platform
+  for Win32", float32le 2ch 48000 Hz, 100%** — winepulse is
+  connected to the game.
+- Pre-flight probe (5 s of game.monitor at the title):
+  4.98 s captured, **nonzero 99.8%, peak 0.188, RMS 0.0394** —
+  title BGM is ACTUALLY PLAYING through the virtual device
+  (same range as the audio line's validated R1 probe:
+  peak 0.204, RMS 0.048). Audio path on the virgl route: LIVE.
+Delivery-ratio verification on a story capture follows.
+
+## TRACK B — toolchain excavation (2026-11-13 23:3x-23:4x JST, Track B agent)
+KK decided 23:32 「両方やり」 — Track B proceeds in parallel.
+Workspace: trackb/ (own state file trackb/trackb-state.md).
+Excavation result: **the i386 build toolchain WORKS** — the
+"hours of .deb excavation" estimate collapsed because (a) the
+multilib half was already in i386dev/ (libc6-dev-i386 +
+lib32gcc-13-dev extracted) and (b) noble-updates ships the full
+i386 dev set at versions matching the guest runtime
+(llvm-20-dev:i386 1:20.1.2-0ubuntu1~24.04.3 = libllvm20 in the
+guest sysroot).
+- Method: sandboxed apt (trackb/apt/, archive.ubuntu.com noble +
+  noble-updates, arch amd64+i386, download-only) -> dpkg -x into
+  ONE merged devroot trackb/root (573 MB). 70 debs total: i386
+  libc6/-dev, linux-libc-dev, libstdc++-13-dev, libgcc-13-dev,
+  llvm-20-dev + llvm-20 (tools), libdrm-dev, expat/zlib/zstd dev,
+  full X11/xcb dev set, libglvnd-dev, plus matching i386 runtimes.
+- pip --target trackb/pytools: meson 1.12.1, ninja 1.13.2, mako.
+  bison/flex (amd64) extracted to trackb/host-tools/.
+- Compiler: wrappers trackb/bin/{gcc32,g++32} = host gcc 13.3
+  -m32 --sysroot=trackb/root + -B into extracted libgcc dirs +
+  explicit C++ include/lib paths (gcc's libgcc/C++ dirs are NOT
+  sysroot-relative — wrappers are REQUIRED, plain --sysroot
+  fails).
+- llvm-config: the i386 ELF runs under qemu-i386-static -L root
+  and reports devroot-prefixed absolute paths natively (LLVM
+  derives its prefix from the executable location), so
+  trackb/bin/llvm-config is a qemu-forwarding wrapper — zero
+  path rewriting needed. --version 20.1.2, --shared-mode shared,
+  --libs core -> -lLLVM-20.
+- VERIFIED END-TO-END: C and C++ hello-worlds compile, link,
+  and EXECUTE under qemu-i386 (exit codes/output correct).
+Remaining before the build: meson cross file (trackb/cross.ini,
+written) + a minimal Mesa 25.2.8 configure (swrast only, x11
+platform, glvnd) and the unmodified-build parity gate.
+
+### Process note — first A/V capture attempt FAILED on a shell bug (no data)
+The first 240 s A/V capture attempt produced NO usable data: a
+`cd ... && ... &` precedence bug backgrounded the whole chain,
+so only the video ffmpeg inherited the cd; the audio ffmpeg,
+the CPU sampler and both xtest keypresses ran in the wrong cwd
+and failed on relative paths. The game never left the title
+(START stayed armed, verified by screenshot). The resulting
+240 s title-only video was deleted as a non-measurement. The
+re-run uses absolute paths throughout and an explicitly grouped
+subshell (cap-virgl12-story-av2.*). No other line was affected;
+the PA daemon and sink-input were uninterrupted.
