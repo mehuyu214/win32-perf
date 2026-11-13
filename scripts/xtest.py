@@ -38,6 +38,14 @@ elif mode == "holdclick":
 elif mode == "move":
     XT.XTestFakeMotionEvent(ctypes.c_void_p(dpy), -1, int(args[1]), int(args[2]), 0); X11.XFlush(ctypes.c_void_p(dpy))
     print(f"xtest move {args[1]},{args[2]} on {disp}", flush=True)
+elif mode == "holdkey":
+    ks = X11.XStringToKeysym(args[1].encode())
+    kc = X11.XKeysymToKeycode(ctypes.c_void_p(dpy), ks)
+    secs = float(args[2])
+    XT.XTestFakeKeyEvent(ctypes.c_void_p(dpy), kc, 1, 0); X11.XFlush(ctypes.c_void_p(dpy))
+    time.sleep(secs)
+    XT.XTestFakeKeyEvent(ctypes.c_void_p(dpy), kc, 0, 0); X11.XFlush(ctypes.c_void_p(dpy))
+    print(f"xtest hold-key {args[1]} kc={kc} {secs}s on {disp}", flush=True)
 elif mode == "key":
     ks = X11.XStringToKeysym(args[1].encode())
     kc = X11.XKeysymToKeycode(ctypes.c_void_p(dpy), ks)

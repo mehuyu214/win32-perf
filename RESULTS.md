@@ -1376,3 +1376,166 @@ dead path.)
 - Infra debt: write a persistent post-restart infra-check script
   (Xvfb/PA/virgl-server verified by SERVICE, not by pid) so the
   next VM restart does not cost another hour of phantom failures.
+
+### TRACK C — CANCELLED per KK (2026-11-13 20:41)
+KK countermanded Track C: WoW64 was ALREADY verified and FAILED on
+2026-11-12 (Wine 11.21 normal AND Staging builds could not execute
+32-bit PE; transition into 32-bit compatibility mode blocked by the
+VM's execution environment). The :104 record cited for the track was
+window metrics only, NOT PE32 execution success — that citation was
+an error. No further WoW64 work: no downloads/builds for it unless
+genuinely new evidence overturns the 2026-11-12 result. The hello32
+retest in this line (20:38-20:39, same signature: CPU time 0, no
+wow64 DLLs mapped) was the last WoW64 action and is recorded above
+as a reproduction, not as an open lead. Nothing was fetched for
+Track C — the Kron4ek wow64 trees were already on disk from 11-12.
+
+### libEGL via apt — CLOSED (2026-11-13 ~20:42)
+Background apt job proc_6efcbd654b20 (install libegl-mesa0, then a
+second apt-get update) COMPLETED exit 0: `E: Unable to locate
+package libegl-mesa0`; the follow-up update reported no errors.
+ESTABLISHED: apt cannot supply libEGL on this VM even after a clean
+update (libegl1 also unlocatable; apt-cache search returns nothing
+for libegl). Remaining routes for the virgl server's EGL backend:
+(a) fetch the .deb directly from archive.ubuntu.com and extract it
+into a workspace-local tree (system installs do not survive VM
+replacement anyway); (b) build libEGL from mesa-src 25.2.8.
+
+### KK's restated policy (2026-11-13 20:41, binding)
+- Proven base: QEMU-i386 + Wine32 + supervisor (story execution +
+  recording results on the production line). virgl/vtest: correct
+  title rendering + fast GL swaps, three open problems — progression
+  stall, OP slowness, post-restart rendering-server connection
+  failure.
+- Success = story progresses normally with input, audio and
+  rendering all functioning + measured speed/stability improvements.
+  Probe numbers and title screens do NOT count.
+- No re-verification of already-failed routes; no fixation on any
+  single method (virgl / llvmpipe mods / Wine-QEMU-supervisor / any
+  rational route — choose by measured promise).
+- Recording line :113 is preserved; hands off entirely.
+- Immediate shape: re-establish a RELIABLE virgl boot (vtest server
+  launch env, libEGL lead), then the title input stall is the
+  central blocker; Track B (llvmpipe mods incl. partial-present)
+  proceeds as the speed track.
+
+## INPUT BREAKTHROUGH — env-recipe run (2026-11-13 20:52-21:05 JST)
+### The diff (win32-env official recipe vs this line's launch)
+Read-only source: ~/workspace/win32-env/scripts/start-x.sh,
+scripts/games/launch-game.sh, scripts/env.sh. Cave Story playtest
+(20:26-20:41) ran that recipe verbatim and got working input.
+| element | win32-env recipe | this line (my.env/fresh.env) |
+| X display | :99, 1600x900x24, plain Xvfb | :115/:116, 1280x720x24, -nolisten tcp |
+| audio | ALSA null (asound-null.conf: pcm/ctl !default type null) | PulseAudio tcp 47135 + PULSE_LATENCY_MSEC=750 + libs32 pulse libs |
+| GL env | __EGL_VENDOR_LIBRARY_DIRS + LIBGL_DRIVERS_PATH only | same two + LP_NUM_THREADS=1 + LD_LIBRARY_PATH (libs32) + GALLIUM_DRIVER=virpipe (virgl runs) |
+| supervisor | q32sup (repo lineage; md5 90ee109a... in vn-trials/qemu10/) | q32sup82 (md5 7298e63f...) |
+| Q32_QEMU | UNSET (children under dynamic qemu-i386) | static qemu-i386-static (my.env) |
+| QEMU top | qemu10 dynamic, -cpu max -L sysroot | same |
+| Wine/sysroot | wine-11.21-x86 + sysroot32 (same lineage) | same (vn-trials copies) |
+| prefix | fresh wineprefix-games, wineboot --init if missing | prefix / prefix-fresh |
+| launch | foreground exec of supervisor | setsid nohup ... & |
+| WM/focus | none (bare Xvfb) | none (bare Xvfb) |
+Note: the win32-env checkout here holds only SOURCES (src/q32sup.c)
++ tarballs (archives/); the live binaries are the vn-trials copies.
+The adapted run therefore used vn-trials binaries throughout.
+
+### Adapted run (scripts-env/launch-sanoba-env.sh, log game-envrecipe-llvmpipe.log)
+Env-recipe structure on MY line only: DISPLAY :116, WINEPREFIX
+prefix-fresh, perf game dir (savedata STILL aside in savedata-bak/),
+supervisor q32sup (90ee109a), Q32_QEMU unset, ALSA null, no PA,
+no LP_NUM_THREADS, no GALLIUM_DRIVER (llvmpipe default), no
+LD_LIBRARY_PATH, fresh wrapdir wrap-env/. sup 14112, game 14114.
+Boot to title: ~210 s (shot-env-t210.png: full title, correct).
+0 assertions in the game log (only benign libEGL DRI3 warnings).
+
+### EXACT input sequence (all on :116, via scripts/xtest.py + libXtst)
+- Focus-click: `xtest click 640 200` (tap, ~100 ms press) — frame
+  changed (cursor moved); NO menu effect.
+- START tap: `xtest click 105 465` — NO effect after 20 s.
+- Focus probe (ground truth): XGetInputFocus = **0x1 (PointerRoot)**,
+  pointer at 105,465 over window **0xa00005** — clicks REACH the
+  game window but focus never moves (no WM; a click does not set
+  focus by itself in bare X). wininfo.py segfaults (broken Attr
+  struct) — do not use; pointer/focus queried via inline ctypes.
+- Explicit focus: `xtest focus 0xa00005` — verified focus 0xa00005.
+- START tap again WITH focus set: STILL no effect (byte-identical
+  shot after 20 s). Mouse tap-clicks do not register, focused or not.
+- `holdkey Down 1.0s` then `holdkey Return 1.0s` → **LOAD screen**
+  (12 empty slots, SAVE/Q.LOAD/BACK) — INPUT WORKS via held keys.
+- `holdkey Escape 1.0s` → title, START highlighted (selected).
+- `holdkey Return 1.0s` on START → black transition (~25 s) →
+  **Chapter 1-1 dialogue**: sky background, 【女子】「あの……
+  保科君、ちょっといいかな？」 (shot-env-story1.png).
+- `holdkey A 1.0s` → **AUTO ON** ("Auto ▶" indicator bottom-right,
+  ▶ highlighted in the bottom bar); scene advanced to the school
+  hallway on its own.
+- 60 s capture logs/cap-env-story60.mkv (1280x720 @20fps, 567,972 B,
+  60.000 s) under AUTO; end frame: hallway + narration 「新しい学年
+  になって約半年。夏休みも明けた９月ともなれば、クラスメイトとも
+  打ち解けている。」 AUTO still on, story advancing.
+- `holdkey A 1.0s` (AUTO off), then killed sup 14112. Final uptime
+  12:35, game CPU time 5:04, ~35-40% CPU during story. 0 crashes.
+  Recording line processes (2911/2912) untouched.
+
+### REVISED stall characterization (supersedes "input dead")
+ESTABLISHED: the title is NOT input-dead. Mouse tap-clicks and short
+key taps do not land; HELD keys (1.0 s) DO — same pattern as the Cave
+Story playtest. The game loop is alive (title animates, story
+progresses, AUTO advances). The evening's "full input battery dead"
+verdict is REVISED: every battery used taps/clicks (XTEST tap 100 ms,
+keyboard taps ~80 ms, XSendEvent, 1.5 s HOLD-click was tried once on
+the control run but WITHOUT explicit focus and WITHOUT held keys).
+HYPOTHESIS (unmeasured): short synthetic events fall between the
+game's input polls under emulation slowness (10-40% realtime), so
+only events held across a poll are seen. Mechanism NOT established.
+OPEN: whether a held MOUSE click works (untested); whether held keys
+work on the standard my.env stack (q32sup82 + PA) — the env recipe
+was NOT bisected, so its elements (ALSA vs PA, q32sup vs q32sup82,
+dynamic vs static children, LP_NUM_THREADS) are NOT individually
+implicated or exonerated. Next run should bisect: my.env + explicit
+focus + held keys.
+
+### First in-story KK-score (llvmpipe, env recipe, AUTO, Ch.1-1)
+tools/score_frames.py (first use — validates: 1200 frames = 60 s x
+20 fps) on logs/cap-env-story60.mkv, picture-level (160x90 gray):
+**mean 4.03 pts/s, median 3.0, 6 of 60 s >= 10 pts/s** (ideal 10).
+Scores: logs/cap-env-story60-scores.json/.csv/.png. Context: VM
+under contention (recording line :113 also capturing + x11grab);
+llvmpipe in-story dialogue advances every few seconds, so ~4 pts/s
+is the dialogue-advance rate, not a smooth-motion rate. Compare
+later: same scene on virgl (once its server is fixed) and on a
+Track B llvmpipe variant.
+
+### Virgl server status (parked behind this lead)
+- Route (a) DONE: libegl1 1.7.0-1build1 + libegl-mesa0 25.2.8
+  (noble) apt-downloaded, extracted to $WP/virgl-libs/ (libEGL.so.1
+  + libEGL_mesa.so.0 + 50_mesa.json). Server restarted with that
+  LD path: CONNECT OK, no "Couldn't open libEGL" — but renderer
+  init FAILS: "failed to initialise renderer." x2 (log
+  virgl-server2.log). Root cause, established by ctypes EGL probe:
+  host has NO /dev/dri, no PCI GPU, no DRM modules, no
+  /lib/modules at all (kernel 7.0.0-44-generic); Mesa's EGL
+  surfaceless init falls back to "surfaceless swrast without DRM"
+  and SEGFAULTS there (reproduced 4x, incl. with GALLIUM_DRIVER=
+  llvmpipe and LIBGL_ALWAYS_SOFTWARE=1). Without the vendor dir,
+  eglGetDisplay fails EGL_BAD_PARAMETER (host has no
+  /usr/share/glvnd/egl_vendor.d at all — the rollback removed it).
+  gdb 15.1 installed for a backtrace (not yet run).
+- --use-glx server (pid 12341, log virgl-server3.log, still alive):
+  served the raw GLX probe (legacy ctx, 5 swaps 83.2/7.2/4.5/1.7/
+  1.5 ms, err=0x0) — server healthy for simple contexts — but the
+  GAME still dies at launch (errno 104 + assertion) and the server
+  logs GLXBadFBConfig x2: Xvfb's GLX cannot satisfy the config the
+  game requests. --use-glx is a dead end for the game.
+- Next for virgl: gdb backtrace of the surfaceless segfault, or the
+  --venus (Vulkan/lavapipe) backend — host HAS libvulkan.so.1
+  (1.3.275) but no icd.d entries found; check lavapipe presence.
+  The virgl route is blocked at server renderer init, independent
+  of the (now-cracked) title input stall.
+
+### Repo sync flag
+SYNC-WORTHY: this whole section (input breakthrough + revised stall
++ first in-story score) + the Track C cancellation + the "GONE"
+retraction + the libEGL/virgl-server findings above. Parent: please
+re-sync win32-perf (RESULTS.md + logs incl. cap-env-story60.mkv
+scores + shot-env-*.png + game-envrecipe-llvmpipe.log).
