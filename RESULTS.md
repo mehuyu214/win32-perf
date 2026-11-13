@@ -939,3 +939,36 @@ NEXT (agent's delegated choice): hunt the common layer. No further
 llvmpipe runs without KK's word; the virgl path remains the target
 route once the common stall is broken. Repo-sync note: this verdict +
 the virgl section are sync-worthy.
+
+## OP / BOOT-SEQUENCE CAPTURE ON VIRGL (2026-11-13 ~19:39-19:45 JST, KK request)
+
+Fresh virgl boot (GALLIUM_DRIVER=virpipe + VTEST_SOCKET_NAME, stock
+tree, csmt=1) with x11grab started BEFORE launch; 380 s total.
+File: logs/cap-op-virgl.mkv — ffprobe-verified: h264 1280x720 @20 fps,
+7,599 frames, duration 380.000 s, 5,114,853 B. Game log
+logs/game-op-virgl.log: no crash (0 signal-11). Instance left running
+at the title (sup-pid 26422).
+
+Timeline (capture t; launch at t≈4 s), from framemd5 (254 distinct
+frames overall) + extracted stills:
+- 0-~75 s: BLACK. Wine/qemu startup; no window content. (Six 12.3 s
+  hash blocks are the same black frame modulo cursor/encoder noise.)
+- ~76-96 s: Kirikiri window present, WINDOWED, white client area with
+  menu bar (logs still loading).
+- ~97-~103 s: age-warning screen (fullscreen, ATTENTION) — static hold.
+- ~104-116 s: black again (~12 s); the logo does not hold as a
+  readable still in this capture.
+- ~117-130 s: title fades in (t=121 menu still ghosting; t=130 settled
+  with menu). Boot-to-title ≈126 s from launch — faster than the
+  earlier ~3.5-4 min virgl boots.
+- 130-380 s: settled title; framemd5 cycles continuously through ~15
+  distinct frames, longest identical run 0.10 s — the title's ambient
+  sparkle animation IS being presented continuously in this run (the
+  picture does not freeze pixel-static, unlike virgl3/4/5's settled
+  titles between screenshots).
+
+Motion character (for KK's own judgement from the file): the boot/OP
+does NOT flow smoothly — it advances in long static steps (black ~75 s,
+white window ~20 s, warning ~6 s, black ~12 s); genuine frame-by-frame
+motion occurs only in the ~100-140 s transition band and in the
+title's ambient loop after settling.
