@@ -221,3 +221,6 @@ I: [pulseaudio] protocol-native.c: Final latency 100.00 ms = 50.00 ms + 50.00 ms
 I: [pulseaudio] source-output.c: Freeing output 4 "record"
 I: [pulseaudio] client.c: Freed 9 "Lavf62.12.102"
 I: [pulseaudio] protocol-native.c: Connection died.
+I: [pulseaudio] sink-input.c: Freeing input 2 "audio stream #1"
+I: [pulseaudio] client.c: Freed 3 "TVP(KIRIKIRI) Z core / Scripting Platform for Win32"
+I: [pulseaudio] protocol-native.c: Connection died.

@@ -2160,3 +2160,214 @@ and failed on relative paths. The game never left the title
 re-run uses absolute paths throughout and an explicitly grouped
 subshell (cap-virgl12-story-av2.*). No other line was affected;
 the PA daemon and sink-input were uninterrupted.
+
+## STORY A/V CAPTURE ON THE FIXED VIRGL STACK (2026-11-13 23:4x JST)
+virgl12 (virgl4 launcher: fixed stack + PulseAudio), settings
+set via UI and verified (100/100/speed,
+shot-virgl12-config-final.png). Simultaneous capture, 240 s:
+video logs/cap-virgl12-story-av2.mkv (x11grab ultrafast) +
+audio logs/cap-virgl12-story-av2.raw (PA monitor, f32 48kHz,
+239.84 s by bytes). CPU over the window: both ffmpegs 20.1% of
+one core total, virgl server 6.7%, guest qemu 2.2%. Contention
+note: Track B excavation was running in parallel on this VM.
+### Audio — delivery ratio (tools/delivery_ratio.py, gap >= 5 ms)
+- Full capture: **0.910** (218.20 s non-gap / 239.84 s; 14 gap
+  runs, 21.64 s; longest 7.525 s).
+- Story slice (from 12 s): **0.938**.
+- Gap anatomy (exact positions): 3.02-10.54 s = the START ->
+  black-load window (title BGM ended, load); 14.67-21.66 s +
+  22.29-24.22 s = the opening sky scene before the hallway BGM
+  starts (one voiced line, then by-design quiet); after 24.2 s
+  the remaining gaps are ~0.4 s runs (101.7 / 105.3 / 110.7 /
+  145.4 / 162.5 / 165.1 / 170.3 s) and a 2.4 s pair at
+  222.8-225.8 s — brief delivery dropouts totalling ~5.6 s,
+  i.e. **~0.97 delivery across the BGM-active story**. Not the
+  audio line's exclusive-VM 1.000 — conditions here: concurrent
+  video capture + parallel Track B work. The gate's core fact
+  stands: BGM/voice ACTUALLY PLAY through the virtual device on
+  the virgl route (audible in the mux below).
+### Video — evenness first (KK's metric priority)
+Story-only 60 s window (capture 30-90 s, re-encoded extract;
+logs/cap-virgl12-story60b-scores): **v2 mean 4.75, median 3.0,
+12/60 s >= 10 (KK's ideal band — first time reached), 0/60
+zero-seconds, meaningful frames 285/1200, longest gap 1.25 s,
+gap p95 0.8 s**. Previous best dialogue window (virgl9):
+mean 2.333, median 2.0, zero 2/60, longest gap 1.55 s, 0 s >= 10.
+Content windows differ (this one includes sprite entrances),
+stated openly — but on every evenness measure this is the best
+story delivery recorded on any stack tonight.
+Fade windows inside the same capture (analysis
+cap-virgl12-story-av2-analysis.json, 36 windows): title fade-out
+20 distinct / 21 slots (1 stalled); **black -> sky fade-in
+25 distinct / 32 slots, 7 stalled (21.9%)** — better than the
+silent fixed-stack run (28.6%); sky -> hallway crossfade
+cluster 30 distinct / 33 slots (3 stalled).
+### Deliverable for KK's eye + ear
+**logs/virgl12-story-for-kk.mp4** (239.84 s, H.264 yuv420p +
+AAC 192k, 31,595,822 B): title -> fade -> Ch.1-1 story under
+AUTO with BGM/voice, from the fixed stack with audio. A/V start
+offset between the two capture processes is sub-second.
+virgl12 instance stopped after the capture (PA daemon 15978
+and the virgl server left running).
+### Repo sync flag (updated 4)
+SYNC-WORTHY: KK verdicts (23:34 approval + 23:35 qualification),
+audio-on-virgl section + story A/V results, virgl4 launcher,
+drag.py (already flagged), pa/default.pa. Parent: please
+re-sync win32-perf.
+
+## TRACK B — build #1 incident + VM write-gate discovery (2026-11-13 23:5x-00:0x JST)
+- Build #1 (unmodified Mesa 25.2.8 i386) DIED silently at
+  [161/1122]: the launching shell session ended and its process
+  group went with it despite nohup. No error in the log; all 99
+  .o files on disk verified non-zero/intact. Relaunched under a
+  runtime-owned background session (resumes incrementally).
+- **VM WRITE GATE (affects ALL lines)**: for a window of ~15 min,
+  file writes across the VM were intermittently DENIED
+  ("Operation not permitted") or silently produced 0-byte files —
+  cp/tar/dpkg -x extractions of the pre-existing sysroot debs,
+  `sort` to stdout, git index.lock. Copies made during the window
+  are UNTRUSTWORTHY regardless of tool. trackb/root (extracted
+  earlier, verified by execution) is unaffected. LESSON: after any
+  copy/extraction, verify sizes of payload files before use;
+  prefer dpkg -x of freshly downloaded debs, and re-verify after
+  any suspicious window. guestroot is being rebuilt from
+  Track B's own downloaded deb set for this reason.
+- Damage-diff patch is WRITTEN (src-mod tree, xlib_sw_winsys.c):
+  shadow-frame band diff (32-row bands, byte-exact memcmp) in
+  xlib_sw_display; only changed full-width bands are put via the
+  existing XShmPutImage/XPutImage box loop; shadow synced from the
+  put boxes; invalidated on drawable change / partial-first-put /
+  out-of-range box. Env: MESA_XLIB_DAMAGE=0 -> stock;
+  MESA_XLIB_DAMAGE_DEBUG=1 -> put-byte stats every 240 swaps.
+  Design note: no changed pixel is ever skipped — the saving is
+  exactly the unchanged pixels' upload, which the X server already
+  has. (Patch file export via diff is currently blocked by the
+  same write gate; the src-mod tree is the authoritative copy.)
+
+## KK COMPARATIVE VERDICT (2026-11-13 23:56 JST)
+On the virgl12 story footage: **「10点以上の秒がこんだけ出てる
+時点で64bitでの動作と大差ない」** — with this many seconds in
+the >=10 pts/s band, the fixed virgl stack's story delivery is,
+in his judgement, **not much different from the 64-bit native
+route** (the Nukitashi Remaster trial on Wine64 WoW64). The
+verdict arc: 23:34 「だいぶ改善してるな」 (much improved) ->
+23:35 「まぁでもまだかくかくだね」 (still jerky, though) ->
+23:56 "in the same league as 64-bit native". KK then ordered
+the game kept running in AUTO at max settings on this stack.
+## INCIDENT — transient write/SHM failure killed :116 + first AUTO-run launch (2026-11-13 23:54-23:57 JST)
+The first virgl13 launch (23:54:27, sup 25086) failed: Xvfb
+:116 (running since 22:47) died, x11grab hit SHM/mmap
+"Operation not permitted", and the launcher's pid-file write
+failed with EPERM. A foreground Xvfb run showed the proximate
+cause: xkbcomp **could not close /var/lib/xkb/server-116.xkm
+("not enough space?")**. Root filesystem is NOT full (overlay
+2% used; workspace volume holds ~100 GB across lines) and
+write tests to /var/lib/xkb, /tmp and the logs dir all PASS
+again minutes later — a **transient write/SHM failure episode**
+(exact mechanism undetermined; it coincided with Track B's
+apt/build activity). PA daemon and the virgl server survived
+throughout. Recovery: Xvfb restarted, game relaunched; the
+dead-display instance (sup 25944) was killed first.
+
+### INCIDENT UPDATE (2026-11-14 00:0x-00:1x JST) — :116 still down; mechanism narrowed
+Recovery did NOT complete before compaction: every Xvfb start on
+:116 still dies. Established since: (1) Xvfb startup performs two
+writes that the sandbox's episodic **write gate** denies with
+EPERM — the lock PID write to /tmp/.tX116-lock ("Could not write
+pid to lock file", seen under strace) and xkbcomp's close of
+/var/lib/xkb/server-116.xkm ("Cannot close ... not enough
+space?" -> "Failed to activate virtual core keyboard", fatal).
+(2) The gate is process/episode based, NOT path based: manual
+xkbcomp, dd (zero + urandom) and echo writes into the same dirs
+succeed between episodes, while strace was denied even its own
+-o file ~80 consecutive times during one. The Track B agent hit
+the same gate (its diff export is blocked). (3) /var/lib/xkb is
+a SYMLINK to ~/workspace/win32-compat/xkb-output (compat line's
+dir, created ~23:59 JST); its perms were chmod'd to 777 — writes
+as root work, so perms are not the blocker. (4) The Xvfb seen
+"sleeping in hrtimer_nanosleep" was the stale-lock retry loop
+(/tmp/.tX116-lock, missed earlier because the name starts .tX).
+Remediation in progress: stale locks removed; Xvfb started with
+**-nolock** (one less critical write) inside a socket-checking
+retry loop in a held background session. PA daemon (15978) and
+virgl server (12377/12378) remain up throughout. KK's AUTO run
+and the new listen-paced video task are both blocked on :116
+until Xvfb is back.
+
+### INCIDENT UPDATE 2 (2026-11-14 00:2x-00:5x JST) — failure is in the Xorg-spawned xkbcomp child only
+Narrowed hard. Every element of the failing step succeeds when
+run manually from this agent's shells: xkbcomp with the exact
+server flags (-em1/-emp/-eml, -R, -xkm), the exact output name
+server-116.xkm, the exact sh -c wrapper form, and the FULL
+expanded evdev keymap (60,190 B) piped via stdin — all rc=0.
+Only xkbcomp AS SPAWNED BY THE X SERVER (Xvfb and Xvnc alike)
+fails: strace showed its openat of the .xkm returning **fd 0**
+(stdin fd closed/colliding in the Popen child; Xorg's popen
+cleanup self-closes the pipe when the server was started with
+low fds closed — the classic pattern), so the child cannot read
+the keymap and the output close check fails. Reproduced the
+exact "Cannot close ... properly" error manually by running
+the pipeline with fd 0 closed in the spawning shell. HOWEVER:
+launching Xvfb with stdin </dev/null, and even from a Python
+launcher guaranteeing fds 0=/dev/null, 1/2=log file, new
+session — STILL exits rc=1 (log empty). So fd hygiene at my
+launch layer is not sufficient; the corruption appears tied to
+this agent-session's exec environment (the predecessor's
+session started Xvfb fine at 22:47; PA/virgl daemons started
+from this session DO survive — only the X server's grandchild
+path breaks). A cross-session probe (fresh child agent starting
+Xvfb on :119) is running to test the session-specific theory.
+The -nolock retry loop (120 attempts) never landed a socket.
+WORKAROUNDS NOT YET EXHAUSTED: none further on this line until
+the probe reports; if session-specific, the parent can start
+Xvfb from a healthy session (detached Xvfb persists across
+sessions — succ1 lived 22:47->23:54).
+
+### INCIDENT UPDATE 3 (2026-11-14 ~01:1x JST) — PROBE ANSWER + systemd-run WORKS + VM shutdown event
+(1) Cross-session probe (fresh child agent, :119, setsid/nohup):
+FAILED identically (empty log, no socket). NOT session-specific
+— every current agent-exec context shares the breakage.
+(2) BREAKTHROUGH: **systemd-run started Xvfb successfully** —
+`systemd-run --unit=xvfb116 --collect /usr/bin/Xvfb :116
+-screen 0 1280x720x24 -nolock` -> unit active, socket X116
+created, xdotool answered 1280x720 from an exec session. PID 1
+gives the server a clean fd table; the Xorg popen child works.
+=> STANDING RECIPE: start ALL line infrastructure (X servers,
+virgl server, PA) as systemd units via systemd-run.
+(3) Caveat found: x11grab against the systemd Xvfb failed with
+"Could not get shared memory buffer" (MIT-SHM attach from exec
+sessions is blocked — same EPERM family as the 23:54 first
+symptom). Unit was restarted with **-extension MIT-SHM** so
+capture falls back to XGetImage; the verification screenshot
+then HUNG ffmpeg for ~4.5 min (killed) — whether XGetImage
+capture works is UNVERIFIED.
+(4) Before that could settle, a VM-level event hit (~01:05
+JST): virgl server SIGTERM'd (after 65 min), PA daemon gone,
+xvfb116 unit gone, and **PID 1 exec'd into systemd-shutdown**
+(comm now "systemd-shutdow", start time preserved); systemctl
+now fails with "Failed to connect to bus". Consistent with a
+VM shutdown/snapshot-restore cycle (frequent on this VM). All
+line processes are DOWN. Workspace files persist.
+RECOVERY SEQUENCE for whoever resumes (after systemctl works
+again — check `systemctl is-system-running`):
+  a. systemd-run Xvfb :116 (-nolock -extension MIT-SHM), verify
+     xdotool getdisplaygeometry + timed screenshot.
+  b. systemd-run the virgl server (env -i recipe from the
+     succ2 launch; LP_NUM_THREADS=2; socket win32-perf/virgl.sock),
+     verify with probes/probe_glxswap.py.
+  c. systemd-run the perf PA daemon (pa/default.pa, tcp 47135).
+  d. Boot virgl4, then KK's queue: (i) listen-paced video
+     (00:01 order), (ii) restore 100/100/speed AUTO run.
+
+## TRACK B — stand-down note (2026-11-14 00:19 JST, Track B agent)
+Same write gate as the incidents above, from the build side:
+gcc temp-file close denied on EVERY probe 00:02-00:17 JST;
+dpkg -x payloads silently 0-byte; a ninja retry-grind made zero
+progress and died with an agent-runtime restart (~00:16).
+Build dir verified intact afterwards (99 .o, none zero-size).
+Track B stands down at: excavation COMPLETE + verified,
+configure COMPLETE, build #1 paused at [161/1122], mod patch
+written (src-mod), run scripts ready. Exact 7-step resume
+sequence is in trackb/trackb-state.md — step 1 is a gcc32 write
+probe; do not start step 2 until it passes. Nothing on :115 was
+ever started (no Xvfb, no prefix boot) — no cleanup owed.

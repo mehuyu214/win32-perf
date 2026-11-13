@@ -1,8 +1,8 @@
 # win32-perf line state (watchdog heartbeat)
 
 status: RUNNING
-phase: KK eye verdicts recorded (23:34 fade footage APPROVED 「だいぶ改善してるな」; 23:35 qualified 「まぁでもまだかくかくだね」 — evenness is the metric now). AUDIO ON VIRGL: LIVE — PA daemon on 47135 (pid 15978), game sink-input registered (Kirikiri), title probe nonzero 99.8% peak 0.188. virgl12: settings set 100/100/speed (verified), START armed; 240 s simultaneous A/V story capture IN PROGRESS (video ultrafast + PA monitor raw), then delivery ratio + v2/fade analysis + mp4 mux for KK
-last_update: 2026-11-13 23:52 JST
+phase: ALL LINE PROCESSES DOWN after VM shutdown event ~01:05 JST (PID 1 in systemd-shutdown, systemctl bus unreachable; Xvfb/PA/virgl server all dead). PROVEN RECOVERY: systemd-run starts Xvfb fine (clean fd table from PID 1) — full recovery sequence written in RESULTS.md "INCIDENT UPDATE 3" (Xvfb -nolock -extension MIT-SHM as unit, then virgl server + PA as units, then virgl4). Resume as soon as systemctl responds again. Blocked meanwhile: KK's AUTO run + listen-paced video (00:01 order). KK verdicts recorded (23:34 improved / 23:35 still jerky / 23:56 same league as 64-bit native)
+last_update: 2026-11-14 01:20 JST
 claimed: 2026-11-13 22:37 JST (successor spawned by parent)
 
 ## Protocol (binding for every perf-line agent and the watchdog)
