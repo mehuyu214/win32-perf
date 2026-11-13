@@ -29,3 +29,7 @@ vtest_client_dispatch_commands: client context created.
 client: VTEST_CLIENT_DISCONNECTED
 vtest_client_dispatch_commands: client context created.
 client: VTEST_CLIENT_DISCONNECTED
+vtest_client_dispatch_commands: client context created.
+client: VTEST_CLIENT_DISCONNECTED
+vtest_client_dispatch_commands: client context created.
+client: VTEST_CLIENT_DISCONNECTED

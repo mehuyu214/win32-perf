@@ -884,3 +884,58 @@ the story), despite passing rendering correctness at title and a ~250x
 faster raw present. Story video/numbers: not obtainable until the
 title stall is broken. Live instance left running: virgl7 (CSMT off,
 title, sup-pid 20697) for any follow-up test.
+
+## LLVPIPE CONTROL RUN (2026-11-13 ~19:28-19:45 JST) — the title stall
+## is ENVIRONMENT-COMMON, not virgl-specific
+
+KK authorised ONE llvmpipe control (one-time exception to the 16:14
+retirement) for discrimination only. Successor agent ran it: virgl7
+killed (recorded state preserved above), prefix csmt set back to 1
+(Phase 2 baseline; the key had been left at 0 by the csmt0 virgl runs),
+stock Kron4ek tree, own prefix, :115 (Xvfb alive, pid 13862), PA tcp
+47135 verified LISTENING, launch.sh with NO GALLIUM_DRIVER /
+VTEST_SOCKET_NAME (default llvmpipe stack). Log:
+logs/game-ctrl-llvmpipe.log, sup-pid 24238, game pid 24240.
+
+ESTABLISHED:
+- Boot to title: screenshot at t+240 s is byte-identical to the virgl
+  title (md5 2c0a7733...). No crash lines in the log.
+- Content rate at title (xpoll 45 s, 900 polls @20 Hz, logs/
+  xpoll-ctrl-title.csv): **0.0 changes/s at every threshold
+  (0.05/0.2/1.0/5.0); the full 44.99 s window was static.** The X front
+  buffer never changes at the llvmpipe title either. (Screenshot md5
+  differences seen during the battery are the X-rendered cursor, not
+  window content.)
+- Input battery — IDENTICAL to the virgl tests, each followed by
+  35-40 s observation + screenshot: XTEST click on START (85,475) with
+  windowfocus on the game window 0xa00005; XSendEvent via
+  scripts/click.py 85 475; XTEST held click (mousedown 1.5 s);
+  keyboard Down/Return/Space after windowfocus. **NO transition, NO
+  menu change, nothing.** (logs/shot-ctrl-after-{xtest,sendevent,
+  held,keys}.png.)
+- Thread states at title (tsample 30 s @10 Hz, logs/
+  tsample-ctrl-title.csv): 43 threads, total 496 ticks/30 s
+  (~16.5 % of one core — matches the Phase 2 title CPU of ~16 %).
+  Busiest thread tid 24418: 326 ticks/30 s, R in 33 % of samples, top
+  wchan **anon_pipe_read (198/300)**. Main thread 24240: anon_pipe_read
+  268/300 when sleeping. So the llvmpipe title's busy threads ALSO sit
+  predominantly in anon_pipe_read — the same wchan fingerprint as the
+  virgl stall — though they do wake and burn CPU regularly (not a hard
+  block).
+
+VERDICT (by the pre-registered rule): llvmpipe ALSO stalls at the
+title ⇒ **the title stall is environment-common, NOT virgl-specific.**
+The virgl path is exonerated as the cause. Something in the common
+environment drifted between Phase 2 (same prefix/game/tooling driven
+into Ch.1-1 dialogue on llvmpipe, ~15:20-16:00) and this evening:
+candidates (UNVERIFIED): the :115 Xvfb and line PA were silently
+killed by a VM restart and restarted mid-evening; the prefix registry
+was edited repeatedly (csmt toggles); game-side saved state in the
+prefix/game dir accumulated across many runs. KK's discipline note:
+"busy threads in anon_pipe_read" is a shared SYMPTOM on both stacks,
+not a root cause on either.
+
+NEXT (agent's delegated choice): hunt the common layer. No further
+llvmpipe runs without KK's word; the virgl path remains the target
+route once the common stall is broken. Repo-sync note: this verdict +
+the virgl section are sync-worthy.
