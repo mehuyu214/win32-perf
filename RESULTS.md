@@ -1231,3 +1231,148 @@ REMINDER (kill discipline): the .pid files hold the setsid wrapper's
 pid, NOT the supervisor's; always kill the supervisor found via
 pgrep on the actual supervisor binary, then verify zero game
 processes remain before relaunching.
+
+## COMMON-LAYER HUNT — CONSOLIDATED VERDICTS (2026-11-13 20:40 JST)
+This section consolidates Steps 3-5 + Track C and CORRECTS earlier
+wording. The parent synced commit bbeb643 (2026-11-13 ~20:36) with a
+commit message saying the "launch failure is GONE" — that wording is
+SUPERSEDED by logs/game-nosave3-virgl.log and is RETRACTED here:
+the launch failure was NOT gone; it recurred with a different errno
+(see Step 5 run 3 below).
+
+### (1) Step 3 verdict — fresh state reproduces the input stall
+(recorded in detail above under "Step 3 — fresh-state discriminator:
+VERDICT") Fresh Xvfb :116 + fresh prefix + virgl: title reached,
+full input battery dead (XTEST, repaired XSendEvent via click2.py
+ret=1, keyboard), every post-input shot byte-identical (md5
+b1cf5272...). ESTABLISHED: accumulated prefix state and display/
+daemon state are EXONERATED as causes of the title stall. The stall
+reproduces on fully fresh state under the normal supervisor (q32sup82).
+
+### (2) Step 4 — supervisor variant, result AND its weakening
+q32sup-mine-copy (md5-identical to the recording line's supervisor)
+launched the game 2/2 times into a NEW launch failure
+("lost connection to rendering server on 8 read -1 22" + wine
+Assertion 7DC06556), while q32sup82 booted to the title. That looked
+like a supervisor effect. WEAKENED by Step 5 run 1: the nosave run
+under the STANDARD q32sup82 reproduced the IDENTICAL assertion
+(errno 22) — so the launch failure was the virgl server's dead
+socket, NOT the supervisor variant. The supervisor question
+(q32sup82 vs q32sup-mine on this line) is UNDECIDED again; the 2/2
+reproductions under q32sup-mine-copy are explained by the socket,
+not by the supervisor binary. (The harness bugs found along the way
+— stale wrapper reuse, Q32_QEMU override — are recorded in the Step 4
+section above and remain valid tooling notes.)
+
+### (3) Step 5 — the three no-savedata runs
+All three ran q32sup82 + virgl + :116 + prefix-fresh, game-dir
+savedata moved aside to savedata-bak/ (still aside at time of writing;
+restore pending the outcome of the stall hunt — the files are the
+perf line's own quick saves, not the recording line's).
+- Run 1 "nosave" (20:15, log game-nosave-virgl.log, sup 4950/4951):
+  INVALIDATED as a stall test. Assertion errno 22 at lines 14-15 —
+  the virgl server socket was dead (see socket-path root cause
+  below). Never reached the title. Also DOUBLE-LAUNCHED: the launch
+  bash (4950) was killed instead of the setsid supervisor (4951),
+  so a second instance shared :116/prefix-fresh and left a stale
+  wineserver socket dir.
+- Run 2 "nosave2" (20:19, log game-nosave2-virgl.log, sup 5800):
+  INVALIDATED as a stall test. After the server-socket fix it showed
+  0 assertions at 60 s, but sat BLACK with no window for ~8 min
+  because the run-1 instance (4951) was still alive and the two
+  instances fought over the prefix; its log has ZERO wineserver
+  execve lines and its game (3 threads, ~60 ticks in 8 min) never
+  spawned a wineserver — the stale /tmp/.wine-0/server-5b-660ce
+  socket dir from run 1 is the likely cause. Stale dir removed;
+  kill discipline corrected (kill the supervisor via pgrep, verify
+  zero game processes before relaunch).
+- Run 3 "nosave3" (20:27, log game-nosave3-virgl.log, sup 7365/7366):
+  VALID run, NEW failure signature. Server socket FIXED and verified
+  (CONNECT OK before launch), single instance, clean wineserver
+  state (wineserver execve + wineboot --init in the child list).
+  STILL failed at launch: "lost connection to rendering server on
+  8 read -1 **104**" (ECONNRESET, not 22) + wine Assertion 7DC06556
+  (thread 00ec) at log lines 14-15; :116 stayed BLACK, no window.
+  The server log (logs/virgl-server.log) shows the cause: the
+  server repeats "Couldn't open libEGL.so.1: libEGL.so.1: cannot
+  open shared object file" — it has no EGL backend, so it RESETS
+  the guest's connection at first context creation. THIS is the
+  refutation of "launch failure is GONE": the socket-path fix
+  removed errno 22, but the launch still fails, now with errno 104
+  for a different reason (missing libEGL in the server).
+- ROOT CAUSE (socket path), established: virgl_test_server does NOT
+  read VTEST_SOCKET_NAME (client-side var); it binds the default
+  /tmp/.virgl_test unless given --socket-path <path>. The post-restart
+  server (pid 3183) was alive but bound /tmp/.virgl_test while games
+  pointed at the stale $WP/virgl.sock file (mtime 09:41 UTC,
+  pre-restart) -> ECONNREFUSED for the guest. Fixed by relaunching
+  with --socket-path $WP/virgl.sock (server pid 5783, fresh socket
+  file, python CONNECT OK). LESSON: after any VM restart, verify
+  every daemon by its SERVICE (socket connect / port listen), never
+  by process existence alone.
+
+### (4) OPEN ITEM — virgl server cannot load libEGL.so.1
+ESTABLISHED: the host lost libEGL.so.1 in the ~20:06 VM restart
+(same restart also removed /usr/bin xdotool, scrot, xwininfo, xwd,
+libXtst.so.6 — tooling restored from line-local pa-bin copies).
+The host still has libgbm.so.1, libgl1-mesa-dri, libglx-mesa0,
+mesa-libgallium 25.2.8 and the full dri/ tree, but no libegl package
+(dpkg -l shows none; only i386 libEGL exists, in the sysroot).
+apt-get update works (Ubuntu mirror reachable); `apt-get install
+libegl1` and `libegl-mesa0` both report "Unable to locate package"
+and apt-cache search returns nothing for libegl — the cache seems
+to lack the main component's EGL entries (a second update + install
+attempt was backgrounded and its outcome is not yet in this record).
+Fallback if apt cannot supply it: extract libEGL.so.1 (+deps) from
+the Ubuntu archive into a workspace-local tree and point the
+server's LD_LIBRARY_PATH there; or build libEGL from mesa-src
+25.2.8 (the Track B build route). Until the server can load EGL,
+NO virgl game run can pass EGL init — the virgl route is blocked
+at launch, which is a SEPARATE signature from the title input
+stall (which was measured on pre-restart virgl runs with a working
+server). The two must not be conflated in any verdict.
+
+### (5) TRACK C — native WoW64 (no QEMU, no supervisor): DOES NOT WORK
+KK's report (20:36): 64-bit Nukitashi ran buttery smooth on another
+VM. Tested here on 2026-11-13 ~20:38-20:39, Kron4ek
+wine-11.21-amd64-wow64 (~/workspace/vn-trials/wow64/), hybrid prefix
+(~/workspace/vn-trials/wineprefix-hybrid), DISPLAY :116, PA 47135,
+llvmpipe (no virgl), no QEMU/supervisor.
+- hello64.exe: WORKS — "HELLO_FROM_PE", exit 0 (~17 s). Native
+  64-bit Wine execution is confirmed on this VM post-restart.
+- hello32.exe (WoW64): DOES NOT RUN. Two attempts: (a) timeout 60 s
+  foreground — zero output; (b) backgrounded, sampled at 30 s —
+  process (start.exe, pid 10593) alive with CPU time 00:00:00,
+  /proc maps contain NO wow64.dll / wow64cpu.dll / wow64win.dll
+  and NO syswow64 mappings (only 64-bit Windows DLLs + NLS
+  files), no children, empty log. Killed afterwards.
+VERDICT: the 2026-11-12 WoW64 verdict is REPRODUCED exactly — the
+sandbox blocks 32-bit code-segment execution below Wine, in any
+form (native ELF32 segfaults; WoW64 children never map the 32-bit
+runtime). The 64-bit Nukitashi result on another VM does not change
+this VM's 32-bit block. Track C is CLOSED: Sanoba (PE32) cannot run
+under native WoW64 here; the qemu-i386 + q32sup detour remains
+necessary. (The game itself was not launched under WoW64 — the
+hello32 result makes that moot; no point burning a game boot on a
+dead path.)
+
+### Current state of the stall hunt (as of 20:40 JST)
+- Title input stall: ESTABLISHED on fully fresh state (Step 3);
+  environment-common, not virgl-specific (llvmpipe control);
+  NOT intermittent per-instance (OP instance too). Untested
+  remaining variables: line libs32 tree, line PA 47135, the
+  qemu/wine/sysroot binaries, host/VM layer, and (still open)
+  whether the perf savedata itself matters (Step 5's intended
+  test never reached a title — savedata still aside).
+- Virgl route: BLOCKED AT LAUNCH post-restart by the server's
+  missing libEGL (open item above) — fix that first, then the
+  title stall is again the live blocker on virgl.
+- Track B (llvmpipe 魔改造）: not yet started — probe_present
+  baseline re-measurement + LP_NUM_THREADS sweep are the next
+  cheap steps; mesa rebuild needs i386 LLVM dev (only runtime
+  libLLVM in sysroot — see Track B notes). Scorer tool
+  tools/score_frames.py is written (KK's 160x90 picture-level
+  method) and awaits validation against cap-op-virgl.mkv.
+- Infra debt: write a persistent post-restart infra-check script
+  (Xvfb/PA/virgl-server verified by SERVICE, not by pid) so the
+  next VM restart does not cost another hour of phantom failures.
