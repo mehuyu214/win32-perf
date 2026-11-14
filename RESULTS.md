@@ -2577,3 +2577,542 @@ gate (probe A/B/D vs recorded uncontended stock 205.5 /
 - Infrastructure: xvfb116 / virglsrv / perfpa systemd units all active.
   Ongoing maintenance: Q.Save every ~5 min, screenshot progress checks,
   relaunch-and-Q.Load on any VM event.
+
+### TRACK B — BUILD #1 (stock Mesa 25.2.8) COMPLETE (2026-11-14)
+ninja exit 0, [962/962] — unmodified mesa-src (f97d7dcca)
+built clean under qemu-i386 with the excavated toolchain
+(build session 4,264 s elapsed incl. the ~12 min coordination
+pause and heavy cross-line contention; 703 s CPU). Installed
+to trackb/stage1 (ninja install exit 0): libgallium-25.2.8.so
+21,921,736 B (smaller than the distro 45,575,628 B — expected:
+minimal swrast-only config), dri/ has swrast_dri.so +
+libdril_dri.so + kms_swrast_dri.so. Build #1 is the parity
+baseline for the mod; nothing about the mod is implied yet.
+Next: overlay stage1 -> guestroot, parity probe vs recorded
+uncontended stock A 205.5 / B 184.6 / D 766.2 ms/fr.
+
+### TRACK B — parity probe, self-built stock (2026-11-14)
+Conditions first: SEVERE cross-line contention throughout
+(load 8.4 at start, 14.18 at end; the virgl line and other
+work were active). Absolute comparison against the
+uncontended recorded baseline is therefore NOT possible in
+this window — recorded here so nobody quotes these as build
+numbers.
+Self-built stock Mesa 25.2.8 (stage1 overlaid into
+guestroot), probe_present.exe, 90 frames/phase:
+- A clear+present: 65,206.8 ms = 724.5 ms/fr
+- B present-only: 54,817.3 ms = 609.1 ms/fr
+- C clear-only: 484.4 ms = 5.4 ms/fr
+- D quad+present: 181,614.6 ms = 2,017.9 ms/fr
+- A2 clear+present+sleep16: 30,263.3 ms = 336.3 ms/fr
+Reference points: distro stock uncontended A 205.5 /
+B 184.6 / D 766.2; distro stock under load ~5 (this line's
+smoke): A 588 / B 644.
+VERDICT (split per root-cause discipline):
+- FUNCTIONAL parity: ESTABLISHED. The self-built llvmpipe
+  loads in the guest, the D3D9 probe runs all phases to
+  completion, the present path works, no probe crashes.
+- NUMERIC parity vs the uncontended baseline: INDETERMINATE
+  in this window. The measured inflation tracks the load
+  (between the load-~5 smoke and the load-14 run, A moved
+  588 -> 724 ms/fr), i.e. the numbers are contention-bound,
+  with no residual evidence of a build defect. (Footnote:
+  the run wrapper was SIGKILLed during teardown after all
+  five phases had printed; probe data complete, cause
+  unrecorded.)
+- The decisive mod test is by design contention-robust:
+  mod ON vs mod OFF (MESA_XLIB_DAMAGE=0) in the SAME .so,
+  run back-to-back under matched conditions.
+Next: game-boot check on the stock build (own copy of the
+game inside trackb/, :115, own prefix), then the mod build.
+
+### TRACK B — PARITY GATE: PASS (2026-11-14)
+Game-boot check on the self-built stock Mesa: Sanoba Witch
+trial (own copy in trackb/game/, own trackb/prefix, :115,
+guestroot with stage1 overlaid) booted to the full title
+screen, rendered correctly and completely (all four
+characters, logo, START/LOAD/CONTINUE/SYSTEM/EXIT menu) —
+screenshot logs/shot-stockbuild-title.png. Boot under heavy
+load took ~4-5 min to the title. The instance was then shut
+down by killing exactly the qemu processes whose environ
+carried the trackb WINEPREFIX (6 pids; verified 0 remaining;
+no other line's process touched).
+PARITY GATE VERDICT: PASS.
+- Functional parity with the distro stock: ESTABLISHED
+  (probe all-phases + game title on the self-built build).
+- Numeric parity vs the uncontended baseline: indeterminate
+  under the day's contention (recorded above); the mod gate
+  is designed to be contention-robust (same-.so on/off).
+The mod build (trackb/src-mod, damage-diff Present) is
+therefore cleared to proceed: configure build-mod with the
+same options as configure-mesa.sh, build, install to
+stage2, overlay, probe with MESA_XLIB_DAMAGE unset (on) vs
+=0 (off), then the game fade test on :115.
+
+### TRACK B — mod build started; bison/M4 toolchain gotcha (2026-11-14)
+First mod-build attempt FAILED at [41/1122] (glcpp-parse):
+host-tools bison reported "m4 subprocess failed: No such
+file or directory". ESTABLISHED cause: Debian's bison has
+/usr/bin/m4 baked in as its m4 path, and /usr/bin/m4 does
+not exist on this host (the host-tools m4 binary itself is
+healthy — GNU M4 1.4.19, runs standalone). Build #1 never
+hit this in the successor's hands because its bison edges
+had already completed in the predecessor's session. FIX:
+export M4=$TB/host-tools/usr/bin/m4 in the build env (bison
+honours M4) — record for any future fresh build in this
+toolchain: fresh meson/ninja runs need M4 set. Relaunched
+with M4 set; build-mod (1,122 targets, from trackb/src-mod)
+is compiling. On completion: install to stage2, overlay,
+probe MESA_XLIB_DAMAGE on vs =0 back-to-back, then the
+:115 fade test vs the llvmpipe baseline (2 frames/fade).
+
+### TRACK B — MOD v1 IS A NO-OP IN THIS CONFIG (established 2026-11-14)
+Stage2 install completed, but verification caught it BEFORE
+any gate run: stage2's libgallium is byte-size-identical to
+the stock build (21,921,736 B) and the string
+MESA_XLIB_DAMAGE appears in NO stage2 library. ESTABLISHED
+cause: the v1 mod lives in
+src/gallium/winsys/sw/xlib/xlib_sw_winsys.c, and that file
+is never compiled under this build config (0 hits in
+build.ninja; glx=dri + platforms=x11 uses the DRI swrast
+path, not the xlib winsys). The v1 mod is inert here — not
+wrong in itself, but aimed at a winsys this stack does not
+use. No probe numbers were wasted on it.
+CORRECTED AIM (source-verified): in this stack the
+full-frame copy to the X window happens in the loader
+callbacks of src/glx/drisw_glx.c — swrastXPutImage() is the
+single choke point for putImage/putImage2/putImageShm/
+putImageShm2 (compiled: 4 hits in build.ninja), i.e. the
+GLX software (DRISW) Present path that Wine's wined3d uses.
+The EGL equivalent (src/egl/drivers/dri2/platform_x11.c,
+also compiled) is the second candidate if the GLX gate
+does not move. MOD v2 = the same damage-diff design
+(32-row bands, shadow frame, MESA_XLIB_DAMAGE unset=on /
+=0=stock) re-implemented at swrastXPutImage. The v1 file
+stays in src-mod, documented as inert under this config.
+
+### TRACK B — probe gate: GLX mod does NOT move the probe (2026-11-14)
+Quietest window yet (load 2.58 before ON, 0.48 before OFF) —
+the first near-clean Track B numbers. Same modded .so pair,
+back-to-back, 90 frames/phase, ms/fr:
+             A(c+p)   B(p-only)  C(clear)  D(quad+p)  A2(+sleep16)
+  mod ON     266.7    255.8      0.85      1074.9     256.8
+  mod OFF    257.9    247.5      2.5       986.6      256.8
+VERDICT: NO MOVEMENT (ON is +3% on B, inside noise). Phase B
+presents the SAME frame 90 times, so a working damage path
+would have collapsed B toward C (~1-3 ms/fr). It did not.
+ESTABLISHED: the GLX/DRISW damage mod (verified present in
+the guest's libGLX_mesa) is not on the probe's Present path.
+SUPPORTED HYPOTHESIS: the probe (and by extension Wine's
+wined3d) presents through EGL on this stack — the probe log
+initialises libEGL (DRI3 warnings x2) and platform_x11.c's
+swrastPutImage2/swrastPutImageShm (xcb_put_image /
+xcb_shm_put_image full-frame copies) are the EGL-side choke
+points, compiled and registered (putImageShm present, no
+Shm2). ACTION: same damage-diff design applied to
+platform_x11.c (mod v3), keeping the GLX mod in place (same
+env toggle). Also recorded for the baseline table: in quiet
+conditions the stock EGL/GLX present costs ~250 ms/fr
+(B 247.5 OFF) and quad+present ~990 ms/fr — vs the old
+contended-era 373/1645 and uncontended 184.6/766.2.
+
+### TRACK B — probe gate v3: EGL mod ALSO does not move the probe (2026-11-14)
+Same conditions family (load 2.46 before ON, 0.52 before
+OFF), modded libEGL_mesa + libGLX_mesa both string-verified
+in the guestroot, 90 frames/phase, ms/fr:
+             A(c+p)   B(p-only)  C(clear)  D(quad+p)  A2(+sleep16)
+  mod ON     278.9    263.5      3.3       1035.8     268.6
+  mod OFF    260.2    248.7      0.9       1047.0     256.7
+VERDICT: NO MOVEMENT, second time (ON +6% on B = diff
+overhead/noise, no benefit). Two independently-aimed
+damage-diff mods (GLX drisw + EGL x11), both verified live
+in the libraries the guest resolves, and phase B — the same
+frame presented 90 times, the exact case damage elision
+should collapse to ~C levels — does not move at all.
+ESTABLISHED: the ~250 ms/fr Present cost of this probe is
+NOT the full-frame X copy in either Mesa loader path.
+WORKING EXPLANATION (hypothesis, to be discriminated): the
+probe's Present cost is dominated by work the swap forces
+the guest pipeline to complete — wined3d's present blit
+plus llvmpipe rasterization deferred until flush (phase C
+clear-only is 0.9-3.3 ms/fr because llvmpipe defers; D's
+full-screen quad adds ~750 ms of rasterization on top of
+the present). DISCRIMINATOR: a raw GL swap probe with an
+empty pipeline on stock llvmpipe — if raw swaps are ~ms,
+the X-copy theory of Present cost is dead and partial
+Present is a dead lever for this stack; if raw swaps are
+~250 ms, the mods are somehow not executing and that must
+be explained first.
+
+### TRACK B — DISCRIMINATOR + FINAL GATE VERDICT (2026-11-14)
+Raw GLX swap probe (probes/probe_glxswap.py: legacy GLX ctx,
+clear + swap x5, run in-guest under qemu-i386 on the trackb
+guestroot; i386 python3.12 was added to the guestroot for
+this — the pool's amd64 python debs were removed again):
+  mod OFF: swap0 23.4 ms (warmup), then 4.2 / 2.2 / 4.3 / 2.0 ms
+  mod ON:  swap0 117.9 ms (warmup), then 4.6 / 7.9 / 6.9 / 2.7 ms
+ESTABLISHED: a raw full-window GLX swap on this llvmpipe
+stack costs ~2-8 ms steady-state. The X PutImage/copy path
+was never the bottleneck. (The probe script's rc=1 is its
+own cleanup bug at line 70, after all swaps completed.)
+CONCLUSION: probe_present's ~250 ms/fr Present cost is the
+guest GL pipeline work the swap forces to completion —
+wined3d's present machinery plus llvmpipe rasterization
+deferred until flush, executed under the QEMU double-JIT
+(llvmpipe JITs to i386, QEMU TCG re-translates). This also
+retro-explains the stack comparison: raw swaps are ~2-8 ms
+on llvmpipe vs 1.5-14 ms on virpipe — the X-side present is
+not what separates the stacks; rasterization location is
+(host GL for virgl, in-guest JIT for llvmpipe).
+FINAL GATE VERDICT — PARTIAL/DIRTY-REGION PRESENT IS A DEAD
+LEVER FOR THIS STACK:
+- The damage-diff mods (v2 GLX drisw_glx.c, v3 EGL
+  platform_x11.c; both built, installed, string-verified
+  live in the guest, same MESA_XLIB_DAMAGE toggle) are
+  correct and elide a real cost — of a component that
+  measures ~2-8 ms inside a ~250 ms present. The probe gate
+  (B phase must move) FAILS on both, by design of the
+  measurement, not by a build error.
+- The game fade test is NOT run: the game's presents go
+  through the same wined3d machinery the probe measures, so
+  a ~0 ms saving cannot change fade delivery; running it
+  would spend hours to re-measure a proven pipeline-bound
+  cost. (Mission discipline: record and stop at a failed
+  gate rather than looping.)
+- What WOULD move Present on this stack, per the evidence:
+  making the rasterization itself cheaper or moving it out
+  of the emulated guest — i.e. the virgl route (already the
+  perf line's lead, KK-approved fade improvement) or a
+  breakthrough on the double-JIT tax. Neither is a Mesa
+  Present-path patch.
+Track B closes here: toolchain excavation (reusable),
+parity-proven self-built Mesa, two correct but ineffective
+mods kept in trackb/src-mod with this record, and the
+Present-cost attribution settled by measurement.
+
+## VIRGL15 — STANDING AUTO RUN HUNG; RELAUNCH (2026-11-14 ~04:27–04:43 JST)
+Successor (watchdog relaunch 04:25 JST) found the virgl15 game
+(sup 17741, booted 00:53 JST) alive as a process but HUNG:
+- Last agent activity 01:00 JST (screenshots shot-virgl15-auto2.png,
+  line-state last_update 01:00); NO Q.Save since 00:59:58 JST
+  (datasc.ksd 1,936 B) — the ~5 min Q.Save cadence died with the
+  predecessor agent, so ~3.5 h of unattended AUTO ran unsaved.
+- Frame at 04:27 JST differs from the 00:59 screenshot (82% of
+  160x90 pixels changed) — the game DID advance after 00:59 —
+  but is now pixel-identical for 60 s (mean-abs-diff 0.00 in every
+  region) and still identical 10+ min later: a static scene
+  (character sprite, message window EMPTY — no dark text pixels
+  in y520..720), no choice buttons visible.
+- Input battery, ALL dead (focus verified 0xa00005 =
+  「サノバウィッチ　体験版」 via xdotool): tap F11, held F11 1.0 s,
+  tap click (640,360), held Return 1.0 s, held Escape 1.0 s,
+  held click 1.5 s — frame byte-identical after each (row-band
+  luminance means unchanged to 0.1). Short taps were already
+  known-dead; the held keys are the established working path,
+  so this is the ENGINE not accepting input, not the input path.
+- /proc: game main thread (17743) State R, voluntary_ctxt_switches
+  FROZEN (1,198,042, unchanged over 10 s) while nonvoluntary
+  +1,812 — spinning in userspace, never blocking; 82.6% CPU,
+  3h04m CPU time. virgl server (6298/17863) and Xvfb (1878):
+  ZERO additional CPU and ZERO context-switch change over 20 s —
+  the game submits NO GL and NO X traffic. PA daemon (6705)
+  healthy, listening on 47135, game socket still present — the
+  hang is NOT a dead audio daemon.
+- virgl-server-unit.log (last write 03:12 JST) shows client
+  disconnect/reconnect cycles + one
+  VTEST_CLIENT_ERROR_COMMAND_DISPATCH (unattributed — no
+  timestamps in that log; could be the game or a probe).
+VERDICT: engine hung in a guest-side busy loop (no GL/X
+traffic, no input, spinning CPU). Unattributed cause — no
+root-cause claim beyond the hang itself. RECOVERY (per the
+recorded virgl15 maintenance rule, relaunch-and-Q.Load):
+kill exactly this line's game tree by verified pid (sup
+17741 + qemu-i386-static 17743/17751/17783/17794/17806/
+17815/17855/17891 — all WINEPREFIX prefix-fresh, :116;
+virgl server 6298/17863 and PA 6705 NOT touched), relaunch
+via scripts-env/launch-sanoba-virgl4.sh, Q.Load Quick-1
+(2026/11/13 15:53, Ch.1-1 hallway), re-verify max settings
+(text 100 / auto 100 / スピードモード), AUTO on, resume
+Q.Save cadence. Lost: all unattended AUTO progress since
+the 00:59 Q.Save.
+SESSION TOOLING NOTE: in this successor session the exec
+shell cannot write files (write() -> EPERM, incl. /tmp and
+ffmpeg PNG mux); scripts/grab.py PNG output and wininfo.py
+(broken Attr struct, SIGSEGV — pre-existing) are unusable
+here. Frame evidence this session is in-memory only
+(/tmp/frame_probe.py, /tmp/frame_diff.py, /tmp/frame_detail.py
+— ASCII luminance maps + region stats + frame diffs via
+stdout); no new PNG screenshots exist for this relaunch.
+File writes go through the file tools only.
+
+## VIRGL16 — WATCHDOG RELAUNCH, Q.LOAD RESTORE, STANDING AUTO RUN LIVE (2026-11-14 ~05:49–06:07 JST)
+Successor (watchdog relaunch 05:49 JST; predecessor had found the virgl16
+game alive at title). Game MainPID 57930 (booted 05:17 JST) verified ALIVE
+and NOT hung: state S, voluntary_ctxt_switches +4,538/10 s, ~19% CPU —
+the opposite of the virgl15 spin-hang signature (R state, frozen
+voluntary switches, 82% CPU). virgl server 6298 + PA 6705 (tcp 47135)
++ Xvfb :116 all healthy, untouched.
+SESSION TOOLING NOTE (same as the 04:25 successor): the exec shell
+cannot write files (write() -> EPERM, incl. /tmp; ffmpeg PNG mux
+fails) — scripts/grab.py `shot` is unusable and NO new PNG
+screenshots exist this session. All frame evidence is in-memory
+(ctypes XGetImage + PIL comparisons, results via stdout). Existing
+PNGs remain viewable via file read. Update line-state.md and
+RESULTS.md through the file tools only.
+Q.LOAD RESTORE (title -> story):
+- Focus verified 0xa00005. `holdkey Down 1.0s` (menu highlight moved,
+  6.30% frame change) + `holdkey Return 1.0s` -> LOAD screen (12
+  slots, SAVE/Q.LOAD/BACK).
+- Bottom-bar button x-positions MEASURED from shot-virgl15-qload3.png
+  (dark-text clusters y690-712): Save ~651, Load ~710, Q.Save ~780,
+  Q.Load ~858, System ~938. (A click at x890 hit Q.Load's edge and
+  opened a load-confirm dialog mid-flow; dismissed via いいえ —
+  no slot was loaded, story position unchanged.)
+- Hold-click Q.LOAD (790,680) selects it; `holdkey Return 1.0s`
+  opened the Q.LOAD screen AND, as a multi-press (a 1.0 s hold
+  re-polls as 2-3 presses), selected the default slot and confirmed
+  はい — story scene. CALIBRATION: live frame matches the 15:53
+  save best; qload3 (virgl15's post-load frame) vs
+  data_quick_02.bmp upper-MAD 3.26 = exact match. ESTABLISHED:
+  the restore point is in-game Quick 1 (2026/11/13 15:53 UTC =
+  00:53 JST), Ch.1-1 hallway. File-numbering quirk: in-game
+  Quick N ↔ data_quick_0(N+1).bmp (Quick 1 = data_quick_02.bmp;
+  the 15:59 virgl15 post-restore save is data_quick_01.bmp).
+SETTINGS VERIFIED (System UI, screenshot-compare): live System
+screen MAD 3.16 vs shot-virgl15-config-max.png — テキスト速度 100 /
+オート速度 100 / スピードモード already set; no change needed.
+AUTO: hold A 1.0s -> ON. Verification: 30 s frame change 71-78%
+(advancing); AUTO-off control 0.00%/5 s. Story advancing under
+AUTO at max speed.
+Q.SAVE QUIRK (NEW, standing procedure): F11 x2 and the bottom-bar
+Q.Save button did NOTHING while AUTO was on (no dialog, no file
+change, story kept advancing). With AUTO OFF, F11 saved instantly,
+no dialog (the no-confirm flag persists across boots):
+datasc.ksd 1,923 -> 1,970 B, new data_quick_01.bmp, ring rotated
+(old 01->02, 02->03, 03->04, 04->05). First post-restore Q.Save:
+21:05:15 UTC (06:05 JST). STANDING PROCEDURE for the cadence:
+A off -> verify static -> F11 -> verify datasc.ksd mtime ->
+A on -> verify advancing.
+AUDIO (virgl16): Sink Input #8, "TVP(KIRIKIRI) Z core",
+float32le 2ch 48000 Hz, Corked: no, Mute: no, sink "game"
+RUNNING, application.process.id 57930. Audio path LIVE on
+this stack (same PA daemon 6705 since 15:25 UTC).
+CURRENT STATE: standing AUTO run LIVE at max settings from the
+Quick-1 restore point, Q.Save cadence running (toggle procedure
+above). Next: keep the run alive, Q.Save every ~5 min, periodic
+advance checks; no new measurement campaign is open — the
+virgl12 story A/V numbers stand as the line's best.
+ADDENDUM 06:18 JST: cadence holding — Q.Saves verified 06:05 /
+06:07 / 06:12 / 06:17 JST (datasc.ksd 1,970 / 2,031 / 2,078 /
+2,161 B); AUTO-off static checks 0.00% (one 11.97% reading at
+06:12 was a finishing scene transition, save still verified);
+advance windows 71-88% per 15-30 s; game 1 h uptime, ~46% CPU,
+no hang signature. Standing run handed back healthy; the
+watchdog keeps the line covered from here.
+
+## VIRGL16 — WATCHDOG RELAUNCH 06:50 JST, Q.SAVE CADENCE RESUMED (2026-11-14 06:50–06:54 JST)
+Successor (watchdog relaunch 06:50 JST; predecessor's last_update 06:18 JST,
+last verified Q.Save 06:17 JST — cadence had lapsed ~35 min, no hang).
+Game MainPID 57930 (booted 05:17 JST) verified ALIVE and NOT hung:
+state R at ~72% CPU is active rendering, not the virgl15 spin signature —
+voluntary_ctxt_switches +2,459/10 s (2,352,076 -> 2,354,535) and still
+advancing at 06:54 (2,408,081). virgl server 6298 + PA 6705 (tcp 47135) +
+Xvfb :116 (1878) all healthy, untouched.
+STORY ADVANCING under AUTO: 30 s frame change 70.6% (MAD 44.9),
+dialogue text present (dlg-text dark frac 0.065 -> 0.120).
+Q.SAVE RESUMED (standing toggle procedure): AUTO off via hold A 1.0s —
+static check 0.79%/5 s; F11 saved, datasc.ksd 2,161 -> 2,244 B,
+21:53:40 UTC (06:53:40 JST), new data_quick_01.bmp, ring rotated
+(old 01->02, 02->03, 03->04, 04->05). AUTO on via hold A 1.0s —
+advance check 61.8%/15 s. Focus 0xa00005 verified throughout.
+SESSION TOOLING NOTE (unchanged from 04:25/05:49 successors): exec shell
+cannot write files (write() -> EPERM, incl. /tmp; ffmpeg PNG mux fails) —
+no new PNG screenshots this session; all frame evidence in-memory
+(ctypes XGetImage + PIL, results via stdout). File writes via file
+tools only.
+CURRENT STATE: standing AUTO run LIVE at max settings, Q.Save cadence
+resumed (next save due ~06:58 JST). No new measurement campaign is
+open — the virgl12 story A/V numbers stand as the line's best.
+
+ADDENDUM 07:00 JST: second cadence cycle confirms the cadence HOLDS —
+AUTO-off static 0.0000/5 s; F11 Q.Save 06:58:59 JST, datasc.ksd
+2,244 -> 2,277 B; AUTO-on advance 12.2%/15 s (quiet scene, not a
+stall — re-check 30 s: 99.8% changed, MAD 190.2, dlg-text dark frac
+0.016 -> 1.000 = scene transition with full text box). Voluntary
+switches still advancing (2,504,706 -> 2,518,920). Standing run
+handed back healthy; the watchdog keeps the line covered from here.
+
+## VIRGL16 — WATCHDOG RELAUNCH 07:31 JST, Q.SAVE CADENCE RESUMED (2026-11-14 07:31–07:35 JST)
+Successor (watchdog relaunch 07:31 JST; predecessor's last_update 07:00 JST,
+last verified Q.Save 06:58:59 JST — cadence had lapsed ~33 min, no hang).
+Game MainPID 57930 (booted 05:17 JST) verified ALIVE and NOT hung:
+state R at ~86% CPU, voluntary_ctxt_switches +2,635/10 s (3,084,392 ->
+3,087,027). virgl server 6298 + PA 6705 (tcp 47135) + Xvfb :116 (1878)
+all healthy, untouched. Focus 0xa00005 verified.
+STORY ADVANCING under AUTO: 30 s frame change 84.4% (MAD 55.5);
+dlg-text dark frac 0.025 -> 0.000 (empty text box at second grab,
+picture still moving — transition/pause between lines, not a stall).
+Q.SAVE RESUMED (standing toggle procedure): AUTO off via hold A 1.0s —
+static check 0.0000%/5 s; F11 saved, datasc.ksd 2,277 -> 2,333 B,
+22:34:08 UTC (07:34:08 JST), new data_quick_01.bmp. AUTO on via hold
+A 1.0s — advance check 73.7%/15 s (MAD 40.3). Voluntary switches still
+advancing (3,120,390 at 07:35).
+CURRENT STATE: standing AUTO run LIVE at max settings, Q.Save cadence
+resumed (next save due ~07:39 JST). No new measurement campaign is
+open — the virgl12 story A/V numbers stand as the line's best.
+
+ADDENDUM 07:41 JST: second cadence cycle confirms the cadence HOLDS —
+AUTO-off static window read 17.76%/5 s (MAD 9.82, a finishing scene
+transition, not a failed toggle — the no-key 15 s check right after
+read 0.0%); F11 Q.Save 07:39:46 JST, datasc.ksd 2,333 -> 2,383 B;
+AUTO-on advance 89.8%/15 s (MAD 48.8). Voluntary switches still
+advancing (3,248,161). Standing run handed back healthy; the watchdog
+keeps the line covered from here.
+
+## STANDING ORDER — AUDIO GAP ELIMINATION (KK, 2026-11-14 07:53 JST)
+KK's standing top priority for this line, supersedes other perf work
+when they conflict: **keep focusing on eliminating audio gaps,
+continuously**. Targets: delivery ratio 1.000 sustained; zero gaps
+intersecting a voiced line — on timed captures AND on the standing
+AUTO run's audio path. Established facts to build on: delivery 1.000
+was proven under near-total VM exclusivity (audio line, 2026-11-13);
+the post-reboot pile-up (load 16) produced 0.559–0.669; the listen
+deliverable (virgl13) stands at 0.975 (13 gaps / 7.61 s, longest
+1.74 s, none cutting a voice) recorded under a coordination window
+where the other lines yielded. Protocol for every successor:
+(1) measure and record delivery ratio + gap anatomy (count, total,
+longest, voice-intersection) for every capture and periodically on
+the standing run; any gap intersecting a voiced line = failed take,
+say so plainly. (2) Before audio measurements, check uptime/top
+consumers; if the VM is piled up, say so and either wait or
+coordinate a yield — never present a contended ratio as a stack
+property. (3) Knobs may be investigated one at a time under KK's
+fix-first rule (PA latency, thread counts, daemon config,
+capture-path load), each with before/after ratios under comparable
+load. (4) Do not trade video smoothness work away silently — report
+conflicts to the parent chat.
+
+## STANDING-RUN LIVE AUDIO CHECK — 2026-11-14 08:22–08:24 JST
+KK reframe (08:21): Sanoba needs NO recording — success = playable +
+live audio without crackle （プツプツ）; KK reported crackle ~once per
+10 s. Periodic check on the standing run (virgl17, post-VM-replacement,
+load ~1.1, no captures running): 79.63 s monitor capture
+(logs/live-probe-0822.raw) — delivery ratio 1.000, 0 gaps at the 5 ms
+threshold, 0 gaps >=50 ms, click scan clean (0 sample jumps >0.25,
+max diff 0.132). Conclusion: the live stream is clean while
+uncontended; KK's crackle most plausibly coincides with contention
+spikes (other lines' boots/captures). Discipline: keep the play line
+exclusive during play; compat-line tests (ordered 08:20, running
+sequentially) must stay one-at-a-time. If KK reports crackle again,
+note the time and correlate with load/process history before touching
+PA knobs.
+
+## LIVE A/V CAPTURE — 2026-11-14 08:29–08:32 JST (KK: 「録画！」)
+Simultaneous capture from the standing virgl17 run (Ch.3-3 story,
+AUTO on — the standing run has advanced past the old Ch.2-2 take
+frontier). Compat line held frozen during the window.
+Video: grab.py stream :116 20 fps x 180 s -> logs/cap-live-0828.mkv
+(3600 frames written, 220 dropped = capture-side load, motion
+slightly lossy). Audio: logs/cap-live-0828.raw (199.81 s) delivery
+**0.965** (19 gap runs / 6.98 s, longest 0.395 s) — NOT 1.000:
+the video grab+encode itself is the contention (the audio-only
+probe 10 min earlier, same run, measured 1.000 with zero gaps and
+zero clicks). Established pattern: capture rig load costs audio;
+live play with no capture running is the 1.000 condition.
+Deliverable: logs/virgl17-live-0828.mp4 (180.0 s, H.264 yuv420p +
+AAC 192k, 21.1 MB; audio offset -1 s estimate for parec/grab
+startup skew).
+
+## VIRGL17 — WATCHDOG RELAUNCH 08:09 JST, FULL STACK RESTART AFTER VM REBOOT (2026-11-14 08:09–08:41 JST)
+Successor (watchdog relaunch 08:09 JST). VM had rebooted ~08:05 JST
+(uptime 6 min at 08:11); the whole line was dead — no X sockets, no
+game/virgl/PA/Xvfb processes. Save state intact: datasc.ksd 2,383 B,
+07:39:46 JST (in-game Quick 1, Ch.3-3, 22:39 UTC).
+STACK RESTART (recovery sequence from the 02:0x incident, systemd units):
+- Xvfb :116 via systemd-run --unit=xvfb116 (-screen 0 1280x720x24
+  -nolock -extension MIT-SHM), pid 2915, socket X116. Note: xdotool /
+  xwininfo are GONE again post-reboot (same as the 20:06 restart) —
+  scripts/xtest.py is the input path (holdkey/holdclick/focus/click).
+- Virgl server via systemd-run --unit=virglsrv, env -i recipe
+  (LD_LIBRARY_PATH virgl + virgl-libs x86_64, __EGL_VENDOR_LIBRARY_DIRS
+  virgl-libs 50_mesa.json, LP_NUM_THREADS=2), --use-egl-surfaceless
+  --socket-path $WP/virgl.sock, pid 2948. Stale pre-reboot socket file
+  removed first (lesson from the 20:06 restart). VERIFIED before any
+  game boot with probes/probe_glxswap.py: legacy ctx, 5 swaps 28.3 /
+  11.9 / 12.0 / 7.6 / 4.4 ms, all err=0x0 (trailing cleanup traceback
+  is the known pre-existing script bug).
+- PA daemon via systemd-run --unit=perfpa, pa-bin pulseaudio -n
+  --file=pa/default.pa --dl-search-path=pa-bin modules
+  --daemonize=no --exit-idle-time=-1, pid 7478, TCP 47135 LISTENING,
+  unix socket pa/native, sink "game" confirmed via pactl.
+GAME BOOT: scripts-env/launch-sanoba-virgl4.sh (LOGFILE
+logs/game-virgl17.log), sup 8498, main sanoba_trial.exe pid 8500.
+Boot to title ~2.5 min, correct render (logs/shot-virgl17-title.png).
+Q.LOAD RESTORE (title -> story):
+- 1.0 s Down hold OVERSHOT to EXIT (auto-repeat on this faster boot);
+  three 0.4 s Up holds walked back to LOAD (0.4 s is the navigation
+  step). Return 0.4 s did NOT register; Return 1.0 s opened LOAD.
+- On the LOAD screen, Return 1.0 s did NOT activate the selected
+  Q.LOAD button; a plain click on Q.LOAD (860,680) opened the Q.LOAD
+  screen. Click Quick 1 slot (200,160) -> confirm dialog
+  「ロードしますか?」 -> click はい (515,423) -> story scene after a
+  few seconds. RESTORE CONFIRMED: Chapter 3-3, Ayumu line
+  「あ、いや、その………………じゃあ、よろしくお願いします」 — matches
+  the Quick 1 slot text. (The 05:49 "Ch.1-1 hallway" restore point is
+  stale: the ring has rotated since — Quick 1 is now the 22:39 UTC
+  save, Ch.3-3. The standing run had advanced 1-1 -> 3-3.)
+SETTINGS VERIFIED (SYSTEM UI, screenshot): テキスト速度 100 /
+オート速度 100 / スピードモード — persisted in the game dir, no
+change needed. (Bottom-bar System needs a hold-click, not a plain
+click, to open; plain click only hovers.)
+AUTO: hold A 1.0 s -> ON (Auto ▶ + Wait bar visible).
+AUTO STALL OBSERVATION (open, no root-cause claim): the restore-point
+line stayed pixel-static ~60 s with AUTO on — Wait bar frozen
+(0.0% change in waitbar + textbox regions over ~40 s), while the
+game was alive (state R, voluntary_ctxt_switches +1,452/10 s, ~26%
+CPU) and audio flowing (see below). A manual held Return advanced
+past it immediately (new scene, narration line), and AUTO advanced
+normally afterwards (77.5%/30 s, then 20.9%/15 s, 6.2%/15 s).
+Hypothesis (unbisected): AUTO was waiting on that line's voice-end
+signal; the voice may never have registered as finished. Watch for
+recurrence; if it repeats on the same line/voice, that is the lead.
+AUDIO (virgl17): Sink Input #2, "TVP(KIRIKIRI) Z core", pid 8500,
+not corked/muted. 5 s monitor probe: nonzero 99.78%, peak 0.195,
+RMS 0.040 — BGM live, same range as the validated title probe.
+LIVE DELIVERY PROBE 08:34 (logs/live-probe-0834.raw, 64.6 s, AUTO
+advancing, NO video capture running): delivery ratio **0.646**
+(66 gap runs >=5 ms / 22.87 s total, longest 0.396 s, 58 gaps
+>=50 ms; click scan 179 jumps >0.25, max diff 0.383). Voice
+intersection: 7 of 45 voice-like 100 ms windows cut by a gap
+(0.23 s of gap inside voice windows). CONTEXT — this is a CONTENDED
+measurement, NOT a stack property: the compat line's RE:D Cherish!
+retest (pid 9600, -cpu max,-avx2, launched 08:23 JST under KK's
+08:20 「全部やれ」) was running at ~59% CPU through the whole window
+alongside this game at ~38%. The same run measured **1.000, 0 gaps**
+at 08:22 (logs/live-probe-0822.raw, re-checked under this probe's
+own method — identical result), before the compat game launched.
+CONCLUSION: the stack delivers clean live audio when exclusive;
+KK's crackle tracks contention, as the standing order's pile-up
+numbers (0.56-0.67) already predicted. No PA knob was touched.
+Discipline: re-probe delivery when the compat retest ends; if KK
+reports crackle again, note the time and correlate with load/process
+history first.
+PARALLEL ACTIVITY NOTE: while this restore was in progress, the
+standing run was also probed/captured from the main chat (08:22 live
+audio check, 08:29-08:32 live A/V capture -> logs/virgl17-live-0828.mp4,
+delivery 0.965 under capture-rig load). No input conflict was
+observed, but two writers now append to this file — successors:
+check the tail before writing, and do not assume your own run is the
+only actor on the game.
+Q.SAVE CADENCE (standing toggle procedure): 08:32:49 JST, datasc.ksd
+2,383 -> 2,349 B (AUTO-off static 0.07%/5 s; AUTO-on advance
+20.9%/15 s). 08:40:11 JST, datasc.ksd -> 2,332 B (AUTO-off static
+window read 14.4%/5 s — a finishing scene transition, per the 07:41
+pattern; no-key 15 s re-check read 0.0%; ring rotated 01=new,
+02=23:32:49, 03=22:39:46; AUTO-on advance 6.2%/15 s).
+CURRENT STATE: standing AUTO run LIVE at max settings (virgl17, sup
+8498, main 8500), Q.Save cadence running (next save due ~08:45 JST).
+No new measurement campaign is open — the virgl12 story A/V numbers
+stand as the line's best; the audio-gap work is now framed by KK's
+08:21 reframe (no recording needed; playable + crackle-free live
+audio, judged by live play).

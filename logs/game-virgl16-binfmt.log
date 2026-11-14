@@ -1,0 +1,8 @@
+/home/hatch/workspace/win32-perf/scripts-env/launch-sanoba-binfmt-fg.sh: line 45: /home/hatch/workspace/vn-trials/wine32/wine-11.21-x86/bin/wine: cannot execute: required file not found
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+Xlib:  extension "MIT-SHM" missing on display ":116".
+Xlib:  extension "MIT-SHM" missing on display ":116".
+Xlib:  extension "MIT-SHM" missing on display ":116".
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
